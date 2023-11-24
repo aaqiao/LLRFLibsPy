@@ -1,0 +1,1170 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rf_control &#8212; LLRFLibsPy  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script src="../_static/documentation_options.js?v=7f41d439"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/rf_control';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">LLRFLibsPy  documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../introduction.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../architecture.html">
+                        Architecture
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../module_index.html">
+                        Modules
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://git.psi.ch/GFA/RF/Libraries/llrflibspy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../introduction.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../architecture.html">
+                        Architecture
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../module_index.html">
+                        Modules
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://git.psi.ch/GFA/RF/Libraries/llrflibspy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">rf_control</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for rf_control</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Design and analyze RF feedback/feedforward controllers.&quot;&quot;&quot;</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">#########################################################################</span>
+<span class="sd">Here collects routines for RF controller design, analysis and simulation</span>
+
+<span class="sd">Implemented:</span>
+<span class="sd">    - ss_discrete         : discretize a continous state-space system and compare freq responses</span>
+<span class="sd">    - ss_cascade          : cascade two state-space systems (either continous or discrete - C/D)</span>
+<span class="sd">    - ss_freqresp         : calculate and plot freq response of a state-space system (C/D)</span>
+<span class="sd">    - basic_rf_controller : derive a basic continous RF I/Q controller: P + I + frequency notches</span>
+<span class="sd">    - control_step        : perform one time-step execution of the discretized controller</span>
+<span class="sd">    - loop_analysis       : analyze the sensitivity/complementary sensitivity of an RF control loop (C/D)</span>
+<span class="sd">    - cav_sp_ff           : derive the setpoint and feedforward waveforms for desired cavity voltage</span>
+<span class="sd">                            and beam loading</span>
+<span class="sd">    - ADRC_controller     : derive a basic ADRC controller (the observer and gain)</span>
+<span class="sd">    - ADRC_control_step   : perform one time-step execution of the discretized controller including</span>
+<span class="sd">                            the ADRC observer</span>
+<span class="sd">    - AFF_timerev_lpf     : time-reversed low pass filter-based adaptive feedforward</span>
+<span class="sd">    - AFF_ilc_design      : derive the ILC gain matrix from the impulse response and weighting</span>
+<span class="sd">    - AFF_ilc             : apply the ILC algorithm to calculate the feedforward correction signal</span>
+<span class="sd">    - resp_inv_svd        : response matrix inversion with SVD (with singular value filtering)</span>
+<span class="sd">    - resp_inv_lsm        : response matrix inversion with lease-square method (with regularization)</span>
+
+<span class="sd">To be implemented:</span>
+<span class="sd">    - in &quot;cav_sp_ff&quot;, smooth the feedforward and update the setpoint correspondingly</span>
+<span class="sd">    - pulsed piezo drive generation</span>
+<span class="sd">    - Active noise cancellation for tuning control (narro-band/wideband ANC)</span>
+<span class="sd">    - look-up table based operating point determination</span>
+<span class="sd"> </span>
+<span class="sd">Some algorithms are referred to the following books:</span>
+<span class="sd">S. Simrock and Z. Geng, Low-Level Radio Frequency Systems, Springer, 2022</span>
+<span class="sd">https://link.springer.com/book/10.1007/978-3-030-94419-3 (&quot;LLRF Book&quot;)</span>
+<span class="sd">Z. Geng and S. Simrock, Intelligent Beam Control in Accelerators, Springer, 2023</span>
+<span class="sd">https://link.springer.com/book/10.1007/978-3-031-28597-4 (&quot;Beam Control Book&quot;)</span>
+
+<span class="sd">Created by Zheqiao Geng on March 09, 2022</span>
+<span class="sd">#########################################################################</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
+
+<span class="kn">from</span> <span class="nn">rf_sysid</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">rf_misc</span> <span class="kn">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="ss_discrete">
+<a class="viewcode-back" href="../generated/rf_control.html#rf_control.ss_discrete">[docs]</a>
+<span class="k">def</span> <span class="nf">ss_discrete</span><span class="p">(</span><span class="n">Ac</span><span class="p">,</span> <span class="n">Bc</span><span class="p">,</span> <span class="n">Cc</span><span class="p">,</span> <span class="n">Dc</span><span class="p">,</span> <span class="n">Ts</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;zoh&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">plot</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">plot_pno</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Derive the discrete state-space equation from a continous one and compare </span>
+<span class="sd">    their frequency responses.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        Ac, Bc, Cc, Dc: numpy matrix (complex), continous state-space model</span>
+<span class="sd">        Ts:             float, sampling time, s</span>
+<span class="sd">        method:         string, ``gbt``, ``bilinear``, ``euler``, ``backward_diff``, ``zoh``, </span>
+<span class="sd">                         ``foh`` or ``impulse`` (see document of signal.cont2discrete)</span>
+<span class="sd">        alpha:          float, 0 to 1 (see document of signal.cont2discrete) </span>
+<span class="sd">        plot:           boolean, enable the plot of frequency responses</span>
+<span class="sd">        plot_pno:       int, number of point in the plot</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status:         boolean, success (True) or fail (False)</span>
+<span class="sd">        Ad, Bd, Cd, Dd: numpy matrix (complex), discrete state-space model</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Ts</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">4</span>
+
+    <span class="n">plot_pno</span> <span class="o">=</span> <span class="mi">1000</span> <span class="k">if</span> <span class="p">(</span><span class="n">plot_pno</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="n">plot_pno</span>
+
+    <span class="c1"># discretize it</span>
+    <span class="n">Ad</span><span class="p">,</span> <span class="n">Bd</span><span class="p">,</span> <span class="n">Cd</span><span class="p">,</span> <span class="n">Dd</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">cont2discrete</span><span class="p">((</span><span class="n">Ac</span><span class="p">,</span> <span class="n">Bc</span><span class="p">,</span> <span class="n">Cc</span><span class="p">,</span> <span class="n">Dc</span><span class="p">),</span> <span class="n">Ts</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="n">method</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span><span class="p">)</span>
+
+    <span class="c1"># plot the responses</span>
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="c1"># calculate the responses of both continous and discrete versions</span>
+        <span class="n">sc</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">Ac_dB</span><span class="p">,</span> <span class="n">Pc_deg</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">ss_freqresp</span><span class="p">(</span><span class="n">Ac</span><span class="p">,</span> <span class="n">Bc</span><span class="p">,</span> <span class="n">Cc</span><span class="p">,</span> <span class="n">Dc</span><span class="p">,</span> <span class="n">plot_pno</span> <span class="o">=</span> <span class="n">plot_pno</span><span class="p">,</span> <span class="n">plot_maxf</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">Ts</span><span class="p">)</span>
+        <span class="n">sd</span><span class="p">,</span> <span class="n">fd</span><span class="p">,</span> <span class="n">Ad_dB</span><span class="p">,</span> <span class="n">Pd_deg</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">ss_freqresp</span><span class="p">(</span><span class="n">Ad</span><span class="p">,</span> <span class="n">Bd</span><span class="p">,</span> <span class="n">Cd</span><span class="p">,</span> <span class="n">Dd</span><span class="p">,</span> <span class="n">plot_pno</span> <span class="o">=</span> <span class="n">plot_pno</span><span class="p">,</span> <span class="n">Ts</span> <span class="o">=</span> <span class="n">Ts</span><span class="p">)</span>
+
+        <span class="c1"># make the plot</span>
+        <span class="k">if</span> <span class="n">sc</span> <span class="ow">and</span> <span class="n">sd</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">rf_plot</span> <span class="kn">import</span> <span class="n">plot_ss_discrete</span>
+            <span class="n">plot_ss_discrete</span><span class="p">(</span><span class="n">fc</span><span class="p">,</span> <span class="n">Ac_dB</span><span class="p">,</span> <span class="n">Pc_deg</span><span class="p">,</span> <span class="n">fd</span><span class="p">,</span> <span class="n">Ad_dB</span><span class="p">,</span> <span class="n">Pd_deg</span><span class="p">,</span> <span class="n">Ts</span><span class="p">)</span>
+
+    <span class="c1"># return the results</span>
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">Ad</span><span class="p">,</span> <span class="n">Bd</span><span class="p">,</span> <span class="n">Cd</span><span class="p">,</span> <span class="n">Dd</span></div>
+
+
+<div class="viewcode-block" id="ss_cascade">
+<a class="viewcode-back" href="../generated/rf_control.html#rf_control.ss_cascade">[docs]</a>
+<span class="k">def</span> <span class="nf">ss_cascade</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span> <span class="n">B1</span><span class="p">,</span> <span class="n">C1</span><span class="p">,</span> <span class="n">D1</span><span class="p">,</span> <span class="n">A2</span><span class="p">,</span> <span class="n">B2</span><span class="p">,</span> <span class="n">C2</span><span class="p">,</span> <span class="n">D2</span><span class="p">,</span> <span class="n">Ts</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Cascade two state-space systems with the first system applyed to</span>
+<span class="sd">    the input first. This function works for both continous system (``Ts`` is None)</span>
+<span class="sd">    and discrete systems (``Ts`` has a nonzero floating value).</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        A1, B1, C1, D1: numpy matrix (complex), state-space model of system 1</span>
+<span class="sd">        A2, B2, C2, D2: numpy matrix (complex), state-space model of system 2</span>
+<span class="sd">        Ts:             float, sampling time, s</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status          boolean, success (True) or fail (False)</span>
+<span class="sd">        A, B, C, D:     numpy matrix (complex), state-space model of cascaded system</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="n">Ts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">Ts</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">5</span>
+
+    <span class="c1"># construct the state-space object</span>
+    <span class="k">if</span> <span class="n">Ts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>                      <span class="c1"># continuous</span>
+        <span class="n">sys1</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">StateSpace</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span> <span class="n">B1</span><span class="p">,</span> <span class="n">C1</span><span class="p">,</span> <span class="n">D1</span><span class="p">)</span>
+        <span class="n">sys2</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">StateSpace</span><span class="p">(</span><span class="n">A2</span><span class="p">,</span> <span class="n">B2</span><span class="p">,</span> <span class="n">C2</span><span class="p">,</span> <span class="n">D2</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>                               <span class="c1"># discrete</span>
+        <span class="n">sys1</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">StateSpace</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span> <span class="n">B1</span><span class="p">,</span> <span class="n">C1</span><span class="p">,</span> <span class="n">D1</span><span class="p">,</span> <span class="n">dt</span> <span class="o">=</span> <span class="n">Ts</span><span class="p">)</span>
+        <span class="n">sys2</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">StateSpace</span><span class="p">(</span><span class="n">A2</span><span class="p">,</span> <span class="n">B2</span><span class="p">,</span> <span class="n">C2</span><span class="p">,</span> <span class="n">D2</span><span class="p">,</span> <span class="n">dt</span> <span class="o">=</span> <span class="n">Ts</span><span class="p">)</span>
+
+    <span class="c1"># cascade the system</span>
+    <span class="n">sys</span>  <span class="o">=</span> <span class="n">sys2</span> <span class="o">*</span> <span class="n">sys1</span>
+
+    <span class="c1"># return the results</span>
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">C</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">D</span><span class="p">,</span> <span class="n">Ts</span></div>
+
+
+<div class="viewcode-block" id="ss_freqresp">
+<a class="viewcode-back" href="../generated/rf_control.html#rf_control.ss_freqresp">[docs]</a>
+<span class="k">def</span> <span class="nf">ss_freqresp</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">Ts</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">plot</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">plot_pno</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">plot_maxf</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> 
+                <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Frequency Response&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Plot the frequency response of a state-space system. This function works </span>
+<span class="sd">    for both continous system (``Ts`` is None) and discrete systems (``Ts`` has a </span>
+<span class="sd">    nonzero floating value).</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        A, B, C, D: numpy matrix (complex), state-space model of system</span>
+<span class="sd">        Ts:         float, sampling time, s</span>
+<span class="sd">        plot:       boolean, enable the plot of frequency response</span>
+<span class="sd">        plot_pno:   int, number of point in the plot</span>
+<span class="sd">        plot_maxf:  float, frequency range (+-) to be plotted, Hz</span>
+<span class="sd">        title:      string, title showed on the plot</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status:     boolean, success (True) or fail (False)</span>
+<span class="sd">        f_wf:       numpy array, frequency waveform, Hz</span>
+<span class="sd">        A_wf_dB:    numpy array, amplitude response waveform, dB</span>
+<span class="sd">        P_wf_deg:   numpy array, phase response waveform, deg</span>
+<span class="sd">        h:          numpy array (complex), complex response</span>
+<span class="sd">    &#39;&#39;&#39;</span>    
+    <span class="c1"># check the input</span>
+    <span class="n">plot_pno</span>  <span class="o">=</span> <span class="mi">1000</span> <span class="k">if</span> <span class="p">(</span><span class="n">plot_pno</span>  <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="n">plot_pno</span>
+    <span class="n">plot_maxf</span> <span class="o">=</span> <span class="mf">1e6</span>  <span class="k">if</span> <span class="p">(</span><span class="n">plot_maxf</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="n">plot_maxf</span>
+
+    <span class="k">if</span> <span class="n">Ts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">Ts</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">4</span>
+
+    <span class="c1"># calculate the frequency response </span>
+    <span class="k">if</span> <span class="n">Ts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>                      <span class="c1"># continous</span>
+        <span class="n">maxw</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">plot_maxf</span>
+        <span class="n">fs</span>   <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">freqresp</span><span class="p">((</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">),</span> <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">maxw</span><span class="p">,</span> <span class="n">maxw</span><span class="p">,</span> <span class="n">plot_pno</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>                               <span class="c1"># discrete</span>
+        <span class="n">maxw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+        <span class="n">fs</span>   <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">Ts</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">dfreqresp</span><span class="p">((</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">Ts</span><span class="p">),</span> <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">maxw</span><span class="p">,</span> <span class="n">maxw</span><span class="p">,</span> <span class="n">plot_pno</span><span class="p">))</span>
+
+    <span class="c1"># calculate the results for display</span>
+    <span class="n">f_wf</span>     <span class="o">=</span> <span class="n">w</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">fs</span>
+    <span class="n">A_wf_dB</span>  <span class="o">=</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+    <span class="n">P_wf_deg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">deg</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># plot </span>
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">rf_plot</span> <span class="kn">import</span> <span class="n">plot_ss_freqresp</span>
+        <span class="n">plot_ss_freqresp</span><span class="p">(</span><span class="n">f_wf</span><span class="p">,</span> <span class="n">A_wf_dB</span><span class="p">,</span> <span class="n">P_wf_deg</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">Ts</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span>
+
+    <span class="c1"># return the frequency response (frequency in absolute Hz)</span>
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">f_wf</span><span class="p">,</span> <span class="n">A_wf_dB</span><span class="p">,</span> <span class="n">P_wf_deg</span><span class="p">,</span> <span class="n">h</span></div>
+
+
+<div class="viewcode-block" id="basic_rf_controller">
+<a class="viewcode-back" href="../generated/rf_control.html#rf_control.basic_rf_controller">[docs]</a>
+<span class="k">def</span> <span class="nf">basic_rf_controller</span><span class="p">(</span><span class="n">Kp</span><span class="p">,</span> <span class="n">Ki</span><span class="p">,</span> <span class="n">notch_conf</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">plot</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">plot_pno</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">plot_maxf</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Generate the continous state-space equation for a basic controller with</span>
+<span class="sd">     * I/Q control strategy (input/output are all complex signals).</span>
+<span class="sd">     * configurable for PI control + frequency notches.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        Kp:          float, proportional (P) gain</span>
+<span class="sd">        Ki:          float, integral (I) gain</span>
+<span class="sd">        notch_conf:  dict, with the following items:</span>
+<span class="sd">            ``freq_offs``: list, offset frequency to be notched, Hz; </span>
+<span class="sd">            ``gain``: list, gain of the notch (inverse of suppress ratio); </span>
+<span class="sd">            ``half_bw``: list, half bandwidth of the notch filter, rad/s</span>
+<span class="sd">        plot:        boolean, enable the plot of frequency response of the controller</span>
+<span class="sd">        plot_pno:    int, number of point in the plot</span>
+<span class="sd">        plot_maxf:   float, frequency range (+-) to be plotted, Hz   </span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status:             boolean, success (True) or fail (False)</span>
+<span class="sd">        Akc, Bkc, Ckc, Dkc: numpy matrix (complex), continuous state-space controller</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Kp</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">Ki</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">4</span>
+
+    <span class="k">if</span> <span class="n">notch_conf</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">notch_conf</span><span class="p">,</span> <span class="nb">dict</span><span class="p">))</span> <span class="ow">or</span> \
+           <span class="p">(</span><span class="s1">&#39;freq_offs&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">notch_conf</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="ow">or</span> \
+           <span class="p">(</span><span class="s1">&#39;gain&#39;</span>      <span class="ow">not</span> <span class="ow">in</span> <span class="n">notch_conf</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="ow">or</span> \
+           <span class="p">(</span><span class="s1">&#39;half_bw&#39;</span>   <span class="ow">not</span> <span class="ow">in</span> <span class="n">notch_conf</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span> 
+            <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">4</span>
+
+    <span class="n">plot_pno</span>  <span class="o">=</span> <span class="mi">1000</span> <span class="k">if</span> <span class="p">(</span><span class="n">plot_pno</span>  <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="n">plot_pno</span>
+    <span class="n">plot_maxf</span> <span class="o">=</span> <span class="mf">1e6</span>  <span class="k">if</span> <span class="p">(</span><span class="n">plot_maxf</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="n">plot_maxf</span>
+
+    <span class="c1"># first get the PI controller</span>
+    <span class="n">K_num</span><span class="p">,</span> <span class="n">K_den</span> <span class="o">=</span> <span class="n">add_tf</span><span class="p">([</span><span class="n">Kp</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="n">Ki</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+
+    <span class="c1"># add the notch filters</span>
+    <span class="k">if</span> <span class="n">notch_conf</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># get the notch parameters</span>
+        <span class="n">nt_f</span>  <span class="o">=</span> <span class="n">notch_conf</span><span class="p">[</span><span class="s1">&#39;freq_offs&#39;</span><span class="p">]</span>     <span class="c1"># frequency offset, Hz</span>
+        <span class="n">nt_g</span>  <span class="o">=</span> <span class="n">notch_conf</span><span class="p">[</span><span class="s1">&#39;gain&#39;</span><span class="p">]</span>          <span class="c1"># gain</span>
+        <span class="n">nt_wh</span> <span class="o">=</span> <span class="n">notch_conf</span><span class="p">[</span><span class="s1">&#39;half_bw&#39;</span><span class="p">]</span>       <span class="c1"># half bandwidth of the notch filter, rad/s</span>
+
+        <span class="c1"># add the notch filter transfer functions</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nt_f</span><span class="p">)):</span>
+            <span class="n">K_num</span><span class="p">,</span> <span class="n">K_den</span> <span class="o">=</span> <span class="n">add_tf</span><span class="p">(</span><span class="n">K_num</span><span class="p">,</span> <span class="n">K_den</span><span class="p">,</span> 
+                                  <span class="p">[</span><span class="n">nt_g</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">nt_wh</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> 
+                                  <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">nt_wh</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">nt_f</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+            <span class="n">K_num</span><span class="p">,</span> <span class="n">K_den</span> <span class="o">=</span> <span class="n">add_tf</span><span class="p">(</span><span class="n">K_num</span><span class="p">,</span> <span class="n">K_den</span><span class="p">,</span> 
+                                  <span class="p">[</span><span class="n">nt_g</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">nt_wh</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> 
+                                  <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">nt_wh</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">nt_f</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+
+    <span class="c1"># get the state-space model</span>
+    <span class="n">Akc</span><span class="p">,</span> <span class="n">Bkc</span><span class="p">,</span> <span class="n">Ckc</span><span class="p">,</span> <span class="n">Dkc</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">tf2ss</span><span class="p">(</span><span class="n">K_num</span><span class="p">,</span> <span class="n">K_den</span><span class="p">)</span>
+
+    <span class="c1"># plot the response</span>
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="c1"># calculate the response</span>
+        <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">freqs</span><span class="p">(</span><span class="n">K_num</span><span class="p">,</span> <span class="n">K_den</span><span class="p">,</span> 
+                            <span class="n">worN</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">plot_maxf</span><span class="p">,</span> 
+                                                <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">plot_maxf</span><span class="p">,</span> 
+                                                <span class="n">plot_pno</span><span class="p">))</span>
+
+        <span class="c1"># make the plot</span>
+        <span class="kn">from</span> <span class="nn">rf_plot</span> <span class="kn">import</span> <span class="n">plot_basic_rf_controller</span>
+        <span class="n">plot_basic_rf_controller</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+
+    <span class="c1"># return the results</span>
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">Akc</span><span class="p">,</span> <span class="n">Bkc</span><span class="p">,</span> <span class="n">Ckc</span><span class="p">,</span> <span class="n">Dkc</span></div>
+
+
+<div class="viewcode-block" id="control_step">
+<a class="viewcode-back" href="../generated/rf_control.html#rf_control.control_step">[docs]</a>
+<span class="k">def</span> <span class="nf">control_step</span><span class="p">(</span><span class="n">Akd</span><span class="p">,</span> <span class="n">Bkd</span><span class="p">,</span> <span class="n">Ckd</span><span class="p">,</span> <span class="n">Dkd</span><span class="p">,</span> <span class="n">err_step</span><span class="p">,</span> <span class="n">state_k0</span><span class="p">,</span> <span class="n">ff_step</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Controller execute for one step based on the discrete state-space equation.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        Akd, Bkd, Ckd, Dkd: numpy matrix (complex), discrete state-space controller</span>
+<span class="sd">        err_step:           complex, system output error (input to controller) of this step</span>
+<span class="sd">        state_k0:           numpy matrix (complex), state of the last step</span>
+<span class="sd">        ff_step:            complex, feedforward of this step</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status:             boolean, success (True) or fail (False)</span>
+<span class="sd">        ctrl_step:          complex, overall output of the controller of this step</span>
+<span class="sd">        ctrl_out:           complex, feedback output (exclude feedforward wrt ctrl_step)</span>
+<span class="sd">        state_k:            numpy matrix (complex), state of this step (should be input to </span>
+<span class="sd">                             the next execution of this function)</span>
+<span class="sd">        </span>
+<span class="sd">    Question: </span>
+<span class="sd">        In the second equation, shall we use ``state_k0`` or ``state_k``?</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># calculate the controller output</span>
+    <span class="n">state_k</span>   <span class="o">=</span> <span class="n">Akd</span> <span class="o">*</span> <span class="n">state_k0</span> <span class="o">+</span> <span class="n">Bkd</span> <span class="o">*</span> <span class="n">err_step</span>
+    <span class="n">ctrl_out</span>  <span class="o">=</span> <span class="n">Ckd</span> <span class="o">*</span> <span class="n">state_k0</span> <span class="o">+</span> <span class="n">Dkd</span> <span class="o">*</span> <span class="n">err_step</span>
+    <span class="n">ctrl_step</span> <span class="o">=</span> <span class="n">ctrl_out</span> <span class="o">+</span> <span class="n">ff_step</span>
+
+    <span class="c1"># return the results of the step</span>
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">ctrl_step</span><span class="p">,</span> <span class="n">ctrl_out</span><span class="p">,</span> <span class="n">state_k</span></div>
+
+
+<div class="viewcode-block" id="loop_analysis">
+<a class="viewcode-back" href="../generated/rf_control.html#rf_control.loop_analysis">[docs]</a>
+<span class="k">def</span> <span class="nf">loop_analysis</span><span class="p">(</span><span class="n">AG</span><span class="p">,</span> <span class="n">BG</span><span class="p">,</span> <span class="n">CG</span><span class="p">,</span> <span class="n">DG</span><span class="p">,</span> <span class="n">AK</span><span class="p">,</span> <span class="n">BK</span><span class="p">,</span> <span class="n">CK</span><span class="p">,</span> <span class="n">DK</span><span class="p">,</span> <span class="n">Ts</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">delay_s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> 
+                  <span class="n">plot</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">plot_pno</span> <span class="o">=</span> <span class="mi">100000</span><span class="p">,</span> <span class="n">plot_maxf</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Control loop analysis, including</span>
+<span class="sd">     * derive the open loop transfer function.</span>
+<span class="sd">     * calculate the senstivity and complementary sensitivity functions. </span>
+<span class="sd">     </span>
+<span class="sd">    This function works for both continous system (``Ts`` is None) and discrete </span>
+<span class="sd">    systems (``Ts`` has a nonzero floating value).</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        AG, BG, CG, DG: numpy matrix (complex), plant model</span>
+<span class="sd">        AK, BK, CK, DK: numpy matrix (complex), controller</span>
+<span class="sd">        Ts:             float, sampling time, s</span>
+<span class="sd">        delay_s:        float, loop delay, s        </span>
+<span class="sd">        plot:           boolean, enable the plot of bode and Nyquist plots</span>
+<span class="sd">        plot_pno:       int, number of point in the plot</span>
+<span class="sd">        plot_maxf:      float, frequency range (+-) to be plotted, Hz    </span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status:         boolean, success (True) or fail (False)</span>
+<span class="sd">        S_max:          float, maximum sensitivity, dB</span>
+<span class="sd">        T_max:          float, maximum complementary sensitivity, dB</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check the input</span>
+    <span class="n">plot_pno</span>  <span class="o">=</span> <span class="mi">100000</span> <span class="k">if</span> <span class="p">(</span><span class="n">plot_pno</span>  <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="n">plot_pno</span>
+    <span class="n">plot_maxf</span> <span class="o">=</span> <span class="mf">1e6</span>    <span class="k">if</span> <span class="p">(</span><span class="n">plot_maxf</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="n">plot_maxf</span>
+    <span class="n">delay_s</span>   <span class="o">=</span> <span class="mf">0.0</span>    <span class="k">if</span> <span class="p">(</span><span class="n">delay_s</span>   <span class="o">&lt;</span>  <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="n">delay_s</span>
+
+    <span class="k">if</span> <span class="n">Ts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">Ts</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="c1"># parameter based on continous or discrete (Ts not None)</span>
+    <span class="n">fs</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="k">if</span> <span class="p">(</span><span class="n">Ts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="k">else</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">Ts</span>
+
+    <span class="c1"># cascade the plant and the controller get the open loop L</span>
+    <span class="n">status</span><span class="p">,</span> <span class="n">AL</span><span class="p">,</span> <span class="n">BL</span><span class="p">,</span> <span class="n">CL</span><span class="p">,</span> <span class="n">DL</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ss_cascade</span><span class="p">(</span><span class="n">AK</span><span class="p">,</span> <span class="n">BK</span><span class="p">,</span> <span class="n">CK</span><span class="p">,</span> <span class="n">DK</span><span class="p">,</span> <span class="n">AG</span><span class="p">,</span> <span class="n">BG</span><span class="p">,</span> <span class="n">CG</span><span class="p">,</span> <span class="n">DG</span><span class="p">,</span> <span class="n">Ts</span> <span class="o">=</span> <span class="n">Ts</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">status</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="c1"># frequency response of L</span>
+    <span class="n">result_L</span>    <span class="o">=</span> <span class="n">ss_freqresp</span><span class="p">(</span><span class="n">AL</span><span class="p">,</span> <span class="n">BL</span><span class="p">,</span> <span class="n">CL</span><span class="p">,</span> <span class="n">DL</span><span class="p">,</span> <span class="n">Ts</span> <span class="o">=</span> <span class="n">Ts</span><span class="p">,</span> 
+                              <span class="n">plot_pno</span> <span class="o">=</span> <span class="n">plot_pno</span><span class="p">,</span> <span class="n">plot_maxf</span> <span class="o">=</span> <span class="n">plot_maxf</span><span class="p">)</span>
+    <span class="n">status</span>      <span class="o">=</span> <span class="n">result_L</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">f_wf</span>        <span class="o">=</span> <span class="n">result_L</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">AL_dB</span>       <span class="o">=</span> <span class="n">result_L</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">L</span>           <span class="o">=</span> <span class="n">result_L</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>                       <span class="c1"># complex response of L</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">status</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="c1"># apply the delay to the frequency response of L</span>
+    <span class="n">L</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f_wf</span> <span class="o">*</span> <span class="n">delay_s</span><span class="p">)</span>
+
+    <span class="c1"># sensitivity and complementary sensitivity</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">L</span><span class="p">)</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">S</span>
+
+    <span class="c1"># plot (similar to ss_freqresp)</span>
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">rf_plot</span> <span class="kn">import</span> <span class="n">plot_loop_analysis</span>
+        <span class="n">plot_loop_analysis</span><span class="p">(</span><span class="n">f_wf</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">Ts</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+
+    <span class="c1"># calculate the peak of S and T</span>
+    <span class="n">S_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">S</span><span class="p">)))</span>
+    <span class="n">T_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">T</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">S_max</span><span class="p">,</span> <span class="n">T_max</span></div>
+
+
+<div class="viewcode-block" id="cav_sp_ff">
+<a class="viewcode-back" href="../generated/rf_control.html#rf_control.cav_sp_ff">[docs]</a>
+<span class="k">def</span> <span class="nf">cav_sp_ff</span><span class="p">(</span><span class="n">half_bw</span><span class="p">,</span> <span class="n">filling_len</span><span class="p">,</span> <span class="n">flattop_len</span><span class="p">,</span> <span class="n">Ts</span><span class="p">,</span> <span class="n">pno</span><span class="p">,</span>
+                <span class="n">vc0</span>        <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+                <span class="n">detuning</span>   <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> 
+                <span class="n">beta</span>       <span class="o">=</span> <span class="mf">1e4</span><span class="p">,</span> 
+                <span class="n">const_fpow</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="n">ib0</span>        <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">phib_deg</span>   <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+                <span class="n">beam_ids</span>   <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="n">beam_ide</span>   <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="n">roQ_or_RoQ</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+                <span class="n">QL</span>         <span class="o">=</span> <span class="mf">3e6</span><span class="p">,</span>
+                <span class="n">machine</span>    <span class="o">=</span> <span class="s1">&#39;linac&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Generate the basic cavity set point and feedforward used to configure</span>
+<span class="sd">    the LLRF controller (later may apply smooth in the edges)</span>
+<span class="sd">    (refer to LLRF Book section 9.2.1).</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        half_bw:     float, half bandwidth of the cavity, rad/s</span>
+<span class="sd">        filling_len: int, length of cavity filling time, number of samples</span>
+<span class="sd">        flattop_len: int, length of the flattop for beam acc., number of samples</span>
+<span class="sd">        Ts:          float, sampling time, s</span>
+<span class="sd">        pno:         int, number of samples in the returned waveforms</span>
+<span class="sd">        vc0:         float, desired cavity voltage at the flattop, V</span>
+<span class="sd">        detuning:    float, detuning of the cavity, rad/s</span>
+<span class="sd">        beta:        float, input coupling factor (needed for NC cavities; </span>
+<span class="sd">                      for SC cavities, can use the default value, or you can </span>
+<span class="sd">                      specify it if more accurate result is needed)</span>
+<span class="sd">        const_fpow:  boolean, True for forcing constant filling drive power/phase</span>
+<span class="sd">        ib0:         float, average beam current, A</span>
+<span class="sd">        phib_deg:    float, beam accelerating phase (0 for on-crest), deg</span>
+<span class="sd">        beam_ids:    int, beam starting sample index</span>
+<span class="sd">        beam_ide:    int, beam ending sample index</span>
+<span class="sd">        roQ_or_RoQ:  r/Q of Linac or R/Q of circular accelerator, Ohm</span>
+<span class="sd">                      (see the note below)</span>
+<span class="sd">        QL:          float, loaded quality factor of the cavity</span>
+<span class="sd">        machine:     string, ``linac`` or ``circular``, used to select r/Q or R/Q</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status:      boolean, success (True) or fail (False)</span>
+<span class="sd">        sp:          numpy array (complex), set point waveform (for controller)</span>
+<span class="sd">        vf_ff:       numpy array (complex), feedforward waveform (for controller)</span>
+<span class="sd">        vb:          numpy array (complex), beam drive voltage waveform</span>
+<span class="sd">        Tpul:        numpy array, time array for the waveforms</span>
+<span class="sd">    </span>
+<span class="sd">    Note: </span>
+<span class="sd">          Linacs define the ``r/Q = Vacc**2 / (w0 * U)`` while circular machines </span>
+<span class="sd">          define ``R/Q = Vacc**2 / (2 * w0 * U)``, where ``Vacc`` is the accelerating</span>
+<span class="sd">          voltage, ``w0`` is the angular cavity resonance frequency and ``U`` is the</span>
+<span class="sd">          cavity energy storage. Therefore, to use this function, one needs to </span>
+<span class="sd">          specify the ``machine`` to be ``linac`` or ``circular``. Generally, we have</span>
+<span class="sd">          ``R/Q = 1/2 * r/Q``.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">half_bw</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">filling_len</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">flattop_len</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> \
+       <span class="p">(</span><span class="n">Ts</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">pno</span> <span class="o">&lt;</span> <span class="n">filling_len</span> <span class="o">+</span> <span class="n">flattop_len</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">4</span>
+
+    <span class="n">vc0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="k">if</span> <span class="p">(</span><span class="n">vc0</span>  <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="k">else</span> <span class="n">vc0</span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="mf">1e4</span> <span class="k">if</span> <span class="p">(</span><span class="n">beta</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="k">else</span> <span class="n">beta</span>
+    
+    <span class="k">if</span> <span class="n">ib0</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ib0</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">beam_ids</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">beam_ide</span> <span class="o">&lt;=</span> <span class="n">beam_ids</span><span class="p">)</span> <span class="ow">or</span> \
+           <span class="p">(</span><span class="n">roQ_or_RoQ</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">QL</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">4</span>
+
+    <span class="c1"># define the setpoint table</span>
+    <span class="n">N</span>  <span class="o">=</span> <span class="n">filling_len</span> <span class="o">+</span> <span class="n">flattop_len</span>          <span class="c1"># effective pulse width</span>
+    <span class="n">T</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">filling_len</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">Ts</span>
+    <span class="n">sp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">)</span> 
+    <span class="n">sp</span><span class="p">[:</span><span class="n">filling_len</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">half_bw</span> <span class="o">*</span> <span class="n">T</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">half_bw</span> <span class="o">*</span> <span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">sp</span> <span class="o">*=</span> <span class="n">vc0</span>
+    
+    <span class="c1"># derive the ff of vf</span>
+    <span class="n">status</span><span class="p">,</span> <span class="n">vf_ff</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cav_drv_est</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="n">half_bw</span><span class="p">,</span> <span class="n">Ts</span><span class="p">,</span> <span class="n">detuning</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">status</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">4</span>
+
+    <span class="c1"># handle the filling power if require to be constant (see Example 3.1 of LLRF Book)</span>
+    <span class="k">if</span> <span class="n">const_fpow</span><span class="p">:</span>
+        <span class="n">vf_fill</span> <span class="o">=</span> <span class="n">vc0</span> <span class="o">*</span> <span class="p">(</span><span class="n">half_bw</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">detuning</span><span class="p">)</span> <span class="o">/</span> \
+                  <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">half_bw</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">detuning</span><span class="p">)</span> <span class="o">*</span> <span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span> <span class="o">*</span> \
+                  <span class="p">(</span><span class="n">beta</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">half_bw</span> <span class="o">*</span> <span class="n">beta</span><span class="p">)</span>
+        <span class="n">vf_ff</span><span class="p">[:</span><span class="n">filling_len</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vf_fill</span>
+
+    <span class="c1"># calculate the beam drive voltage</span>
+    <span class="n">vb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">vf_ff</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ib0</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># calculate the loaded resistance</span>
+        <span class="k">if</span> <span class="n">machine</span> <span class="o">==</span> <span class="s1">&#39;circular&#39;</span><span class="p">:</span>
+            <span class="n">RL</span> <span class="o">=</span> <span class="n">roQ_or_RoQ</span> <span class="o">*</span> <span class="n">QL</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">RL</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">roQ_or_RoQ</span> <span class="o">*</span> <span class="n">QL</span>
+       
+        <span class="c1"># determine the beam drive</span>
+        <span class="n">vb</span><span class="p">[</span><span class="n">beam_ids</span><span class="p">:</span><span class="n">beam_ide</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">RL</span> <span class="o">*</span> <span class="n">ib0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="n">phib_deg</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mf">180.0</span><span class="p">))</span>
+
+    <span class="c1"># remove the beam term</span>
+    <span class="n">vf_ff</span> <span class="o">-=</span> <span class="p">(</span><span class="n">beta</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">vb</span>
+
+    <span class="c1"># attend the pulse to the desired length</span>
+    <span class="k">if</span> <span class="n">pno</span> <span class="o">&gt;</span> <span class="n">N</span><span class="p">:</span>
+        <span class="n">sp</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">sp</span><span class="p">,</span>    <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">pno</span> <span class="o">-</span> <span class="n">N</span><span class="p">)))</span>
+        <span class="n">vf_ff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">vf_ff</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">pno</span> <span class="o">-</span> <span class="n">N</span><span class="p">)))</span>
+        <span class="n">vb</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">vb</span><span class="p">,</span>    <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">pno</span> <span class="o">-</span> <span class="n">N</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">sp</span><span class="p">,</span> <span class="n">vf_ff</span><span class="p">,</span> <span class="n">vb</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">pno</span><span class="p">)</span><span class="o">*</span><span class="n">Ts</span></div>
+
+
+<div class="viewcode-block" id="ADRC_controller">
+<a class="viewcode-back" href="../generated/rf_control.html#rf_control.ADRC_controller">[docs]</a>
+<span class="k">def</span> <span class="nf">ADRC_controller</span><span class="p">(</span><span class="n">half_bw</span><span class="p">,</span> <span class="n">pole_scale</span> <span class="o">=</span> <span class="mf">50.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Generate the continous ADRC controller. We assume that the system gain</span>
+<span class="sd">    has been normalized to 1 and the system phase corrected to 0. Therefore,</span>
+<span class="sd">    the referred cavity equation is</span>
+<span class="sd">    ``dvc/dt + (half_bw - 1j * detuning)*vc = half_bw * vd``</span>
+<span class="sd">    where ``vc`` is the vector of cavity voltage and ``vd`` is the vector of cavity </span>
+<span class="sd">    drive (in principle ``vd = 2 * beta * vf / (beta + 1)``) </span>
+<span class="sd">    (refer to LLRF Book section 4.2.3).</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        half_bw:    float, half bandwidth of the cavity, rad/s</span>
+<span class="sd">        pole_scale: float, define the pole location of the observer</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status:                 boolean, success (True) or fail (False)</span>
+<span class="sd">        Aobc, Bobc, Cobc, Dobc: numpy matrix (complex), continous ADRC observer</span>
+<span class="sd">        b0:                     float, ADRC gain</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">half_bw</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">pole_scale</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">5</span>
+
+    <span class="c1"># parameters</span>
+    <span class="n">p_obs</span> <span class="o">=</span> <span class="o">-</span><span class="n">pole_scale</span> <span class="o">*</span> <span class="n">half_bw</span>           <span class="c1"># pole of the observer</span>
+    <span class="n">l1</span>    <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">p_obs</span>                      <span class="c1"># observer matrix parameter</span>
+    <span class="n">l2</span>    <span class="o">=</span> <span class="n">p_obs</span><span class="o">**</span><span class="mi">2</span>                        <span class="c1"># observer matrix parameter</span>
+    <span class="n">b0</span>    <span class="o">=</span> <span class="n">half_bw</span>                         <span class="c1"># gain for RF drive voltage</span>
+
+    <span class="c1"># construct the continous ADRC observer</span>
+    <span class="n">Aobc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="o">-</span><span class="n">l1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                      <span class="p">[</span><span class="o">-</span><span class="n">l2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">)</span>
+    <span class="n">Bobc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span> <span class="n">l1</span><span class="p">,</span> <span class="n">b0</span><span class="p">],</span>
+                      <span class="p">[</span> <span class="n">l2</span><span class="p">,</span>  <span class="mi">0</span><span class="p">]],</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">)</span>
+    <span class="n">Cobc</span> <span class="o">=</span> <span class="n">Dobc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">Aobc</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">)</span>
+
+    <span class="c1"># return the ADRC observer and gain</span>
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">Aobc</span><span class="p">,</span> <span class="n">Bobc</span><span class="p">,</span> <span class="n">Cobc</span><span class="p">,</span> <span class="n">Dobc</span><span class="p">,</span> <span class="n">b0</span></div>
+
+
+<div class="viewcode-block" id="ADRC_control_step">
+<a class="viewcode-back" href="../generated/rf_control.html#rf_control.ADRC_control_step">[docs]</a>
+<span class="k">def</span> <span class="nf">ADRC_control_step</span><span class="p">(</span><span class="n">Akd</span><span class="p">,</span> <span class="n">Bkd</span><span class="p">,</span> <span class="n">Ckd</span><span class="p">,</span> <span class="n">Dkd</span><span class="p">,</span> 
+                      <span class="n">Aobd</span><span class="p">,</span> <span class="n">Bobd</span><span class="p">,</span> <span class="n">b0</span><span class="p">,</span> 
+                      <span class="n">sp_step</span><span class="p">,</span> <span class="n">vc_step</span><span class="p">,</span> <span class="n">vd_step</span><span class="p">,</span> 
+                      <span class="n">state_k0</span><span class="p">,</span> <span class="n">state_ob0</span><span class="p">,</span> 
+                      <span class="n">ff_step</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">apply_to_err</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Controller execute for one step based on the controller&#39;s discrete state-space equation</span>
+<span class="sd">    including the ADRC observer</span>
+<span class="sd">    (refer to LLRF Book Figure 4.6).</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        Akd, Bkd, Ckd, Dkd: numpy matrix (complex), discrete RF controller</span>
+<span class="sd">        Aobd, Bobd:         numpy matrix (complex), discrete ADRC observer (C,D not needed)</span>
+<span class="sd">        b0:                 float, ADRC gain</span>
+<span class="sd">        sp_step:            complex, cavity voltage setpoint of this time step</span>
+<span class="sd">        vc_step:            complex, cavity voltage meas. of this time step</span>
+<span class="sd">        vd_step:            complex, cavity drive of the last time step</span>
+<span class="sd">        state_k0:           numpy matrix (complex), controller state of the last step</span>
+<span class="sd">        state_ob0:          numpy matrix (complex), ADRC observer state of the last step</span>
+<span class="sd">        ff_step:            complex, feedforward of this step</span>
+<span class="sd">        apply_to_err:       boolean, True to apply ADRC to error, or apply to whole cavity voltage</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status:             boolean, success (True) or fail (False)</span>
+<span class="sd">        ctrl_step:          complex, overall output of the controller of this step</span>
+<span class="sd">        ctrl_out:           complex, feedback output (exclude feedforward wrt ctrl_step)</span>
+<span class="sd">        state_k:            numpy matrix (complex), controller state of this step (should input to </span>
+<span class="sd">                             the next execution of this function)</span>
+<span class="sd">        state_ob:           numpy matrix (complex), ADRC observer state of this step (should input</span>
+<span class="sd">                             to the next execution of this function)</span>
+<span class="sd">        f:                  complex, estimated general disturbance by the ADRC observer</span>
+<span class="sd">        </span>
+<span class="sd">    Question: </span>
+<span class="sd">        In the second equation, shall we use ``state_k0`` or ``state_k``?</span>
+<span class="sd">    </span>
+<span class="sd">    Note: </span>
+<span class="sd">          1. looks like ADRC can mitigate the instability caused by the cavity&#39;s</span>
+<span class="sd">             passband modes, then no notch filter is required to filter the cavity </span>
+<span class="sd">             voltage measurement.</span>
+<span class="sd">          2. basic ADRC is perfect with a proportional controller - resulting</span>
+<span class="sd">             in zero steady-state error. Looks like with other controller (e.g.,</span>
+<span class="sd">             PI control), ADRC needs to be revised for good performance.</span>
+<span class="sd">          3. adding feedforward to the basic ADRC also causes some problem, like</span>
+<span class="sd">             the steady state error becomes nonzero.</span>
+<span class="sd">          4. The solution to handle the problems of point 2 and 3 above is to apply</span>
+<span class="sd">             ADRC to the errors of the cavity drive and voltage. See the paper:</span>
+<span class="sd">             S. Zhao et al, Tracking and disturbance rejection in non-minimum</span>
+<span class="sd">             phase systems, Proceedings of the 33rd Chinese Control Conference, </span>
+<span class="sd">             pp. 3834-3839, July 28-30, 2014, Nanjing, China.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># execute one step based on user preference</span>
+    <span class="k">if</span> <span class="n">apply_to_err</span><span class="p">:</span>
+        <span class="c1"># execute observer and estimate cavity voltage error (vc_err_est) and disturbance (f)</span>
+        <span class="n">state_ob</span> <span class="o">=</span> <span class="n">Aobd</span> <span class="o">*</span> <span class="n">state_ob0</span> <span class="o">+</span> <span class="n">Bobd</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="n">vc_step</span> <span class="o">-</span> <span class="n">sp_step</span><span class="p">],</span> <span class="p">[</span><span class="n">vd_step</span> <span class="o">-</span> <span class="n">ff_step</span><span class="p">]])</span>
+        <span class="n">vc_err_est</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="o">-</span><span class="n">state_ob</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">state_ob</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># calculate the controller output</span>
+        <span class="n">state_k</span>  <span class="o">=</span> <span class="n">Akd</span> <span class="o">*</span> <span class="n">state_k0</span> <span class="o">+</span> <span class="n">Bkd</span> <span class="o">*</span> <span class="n">vc_err_est</span>
+        <span class="n">ctrl_out</span> <span class="o">=</span> <span class="n">Ckd</span> <span class="o">*</span> <span class="n">state_k0</span> <span class="o">+</span> <span class="n">Dkd</span> <span class="o">*</span> <span class="n">vc_err_est</span>
+
+        <span class="c1"># calculate the final drive to the cavity (slightly different from Fig.4.6, </span>
+        <span class="c1"># we do not divide controller output by b0)</span>
+        <span class="n">ctrl_step</span> <span class="o">=</span> <span class="n">ctrl_out</span> <span class="o">-</span> <span class="n">f</span> <span class="o">/</span> <span class="n">b0</span> <span class="o">+</span> <span class="n">ff_step</span>
+        <span class="n">vc_est</span>    <span class="o">=</span> <span class="n">sp_step</span> <span class="o">-</span> <span class="n">vc_err_est</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># execute observer and estimate cavity voltage (vc_est) and disturbance (f)</span>
+        <span class="n">state_ob</span> <span class="o">=</span> <span class="n">Aobd</span> <span class="o">*</span> <span class="n">state_ob0</span> <span class="o">+</span> <span class="n">Bobd</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="n">vc_step</span><span class="p">],</span> <span class="p">[</span><span class="n">vd_step</span><span class="p">]])</span>
+        <span class="n">vc_est</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">state_ob</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">state_ob</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># calculate the controller output</span>
+        <span class="n">state_k</span>  <span class="o">=</span> <span class="n">Akd</span> <span class="o">*</span> <span class="n">state_k0</span> <span class="o">+</span> <span class="n">Bkd</span> <span class="o">*</span> <span class="p">(</span><span class="n">sp_step</span> <span class="o">-</span> <span class="n">vc_est</span><span class="p">)</span>
+        <span class="n">ctrl_out</span> <span class="o">=</span> <span class="n">Ckd</span> <span class="o">*</span> <span class="n">state_k0</span> <span class="o">+</span> <span class="n">Dkd</span> <span class="o">*</span> <span class="p">(</span><span class="n">sp_step</span> <span class="o">-</span> <span class="n">vc_est</span><span class="p">)</span>
+
+        <span class="c1"># calculate the final drive to the cavity (slightly different from Fig.4.6, </span>
+        <span class="c1"># we do not divide controller output by b0)</span>
+        <span class="n">ctrl_step</span> <span class="o">=</span> <span class="n">ctrl_out</span> <span class="o">-</span> <span class="n">f</span> <span class="o">/</span> <span class="n">b0</span> <span class="o">+</span> <span class="n">ff_step</span>
+
+    <span class="c1"># return the results of the step</span>
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">ctrl_step</span><span class="p">,</span> <span class="n">ctrl_out</span><span class="p">,</span> <span class="n">state_k</span><span class="p">,</span> <span class="n">state_ob</span><span class="p">,</span> <span class="n">vc_est</span><span class="p">,</span> <span class="n">f</span></div>
+
+
+<div class="viewcode-block" id="AFF_timerev_lpf">
+<a class="viewcode-back" href="../generated/rf_control.html#rf_control.AFF_timerev_lpf">[docs]</a>
+<span class="k">def</span> <span class="nf">AFF_timerev_lpf</span><span class="p">(</span><span class="n">vfb</span><span class="p">,</span> <span class="n">fcut</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">vff_cor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Time-reversed low-pass filter, we only apply the first order IIR low-pass,</span>
+<span class="sd">    which gives up to 90 degrees phase lead</span>
+<span class="sd">    (refer to LLRF Book section 4.5.1).</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        vfb:     numpy array (complex), feedback control waveform</span>
+<span class="sd">        fcut:    float, cut-off frequency of the low-pass filter, Hz</span>
+<span class="sd">        fs:      float, sampling frequency, Hz</span>
+<span class="sd">        vff_cor: numpy array (complex), buffer storing the filtered waveform</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status:  boolean, success (True) or fail (False)</span>
+<span class="sd">        vff_cor: numpy array (complex), feedforward correction waveform</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">vfb</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">fcut</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="ow">or</span> \
+       <span class="p">(</span><span class="n">fcut</span> <span class="o">&gt;=</span> <span class="n">fs</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">fs</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">vff_cor</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">vfb</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">vff_cor</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">false</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="c1"># perform the time-reversed filtering </span>
+    <span class="n">vfb</span> <span class="o">=</span> <span class="n">vfb</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>                         <span class="c1"># reverse the time of input</span>
+    <span class="n">a</span>   <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">fcut</span> <span class="o">/</span> <span class="n">fs</span>           <span class="c1"># scale factor</span>
+    <span class="k">if</span> <span class="n">vff_cor</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">vff_cor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">vfb</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">)</span> <span class="c1"># create buffer</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">vfb</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>        <span class="c1"># filtering</span>
+        <span class="n">vff_cor</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">vff_cor</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">vfb</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="c1"># return the result</span>
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">vff_cor</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div>
+
+    
+<div class="viewcode-block" id="AFF_ilc_design">
+<a class="viewcode-back" href="../generated/rf_control.html#rf_control.AFF_ilc_design">[docs]</a>
+<span class="k">def</span> <span class="nf">AFF_ilc_design</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">pulw</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Q</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Adaptive feedforward with optimal iterative learning control (ILC)</span>
+<span class="sd">    (refer to LLRF Book section 4.5.2).</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        h:      numpy array (complex), impulse response</span>
+<span class="sd">        pulw:   int, pulse width as number of points</span>
+<span class="sd">        P, Q:   numpy matrix, positive-definite weight matrices</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status: boolean, success (True) or fail (False)</span>
+<span class="sd">        L:      numpy matrix (complex), gain matrix of ILC</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">pulw</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">P</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">pulw</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">Q</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">pulw</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">P</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">Q</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">P</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">pulw</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="c1"># dimension</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># derive the system transfer matrix</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">pulw</span><span class="p">,</span> <span class="n">pulw</span><span class="p">),</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pulw</span><span class="p">):</span>
+        <span class="n">G</span><span class="p">[</span><span class="n">i</span><span class="p">:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span><span class="p">[:</span><span class="nb">min</span><span class="p">(</span><span class="n">pulw</span><span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="n">order</span><span class="p">)]</span>
+
+    <span class="c1"># calculate the ILC gain matrix</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Q</span> <span class="o">+</span> <span class="n">G</span><span class="o">.</span><span class="n">H</span> <span class="o">*</span> <span class="n">P</span> <span class="o">*</span> <span class="n">G</span><span class="p">)</span> <span class="o">*</span> <span class="n">G</span><span class="o">.</span><span class="n">H</span> <span class="o">*</span> <span class="n">P</span>
+
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">L</span></div>
+
+
+<div class="viewcode-block" id="AFF_ilc">
+<a class="viewcode-back" href="../generated/rf_control.html#rf_control.AFF_ilc">[docs]</a>
+<span class="k">def</span> <span class="nf">AFF_ilc</span><span class="p">(</span><span class="n">vc_err</span><span class="p">,</span> <span class="n">L</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Apply the ILC (refer to LLRF Book section 4.5.2).</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        vc_err:  numpy array (complex), error of the cavity voltage waveform</span>
+<span class="sd">        L:       numpy matrix (complex), gain matrix of ILC</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        vff_cor: numpy array (complex), feedforward correction waveform</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">vc_err</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="resp_inv_svd">
+<a class="viewcode-back" href="../generated/rf_control.html#rf_control.resp_inv_svd">[docs]</a>
+<span class="k">def</span> <span class="nf">resp_inv_svd</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">singular_val_filt</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Response matrix inversion with SVD (refer to Beam Control Book section 2.4.2).</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        R:                 numpy matrix, response matrix</span>
+<span class="sd">        singular_val_filt: float, threshold of singular values, the ones </span>
+<span class="sd">                            smaller or equal to it will be discarded</span>
+<span class="sd">                            </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Rinv: numpy matrix, inversion of the response matrix</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">rcond</span> <span class="o">=</span> <span class="n">singular_val_filt</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="resp_inv_lsm">
+<a class="viewcode-back" href="../generated/rf_control.html#rf_control.resp_inv_lsm">[docs]</a>
+<span class="k">def</span> <span class="nf">resp_inv_lsm</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">regu</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Response matrix inversion with least-square method </span>
+<span class="sd">    (refer to Beam Control Book section 2.4.3).</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        R:    numpy matrix, response matrix</span>
+<span class="sd">        regu: float, regularization factor (should &gt; 0)</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Rinv: numpy matrix, inversion of the response matrix</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">R</span> <span class="o">+</span> <span class="n">regu</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span> <span class="o">*</span> <span class="n">R</span><span class="o">.</span><span class="n">T</span></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, Paul Scherrer Institute.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,987 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>rf_control &#8212; LLRFLibsPy  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script src="../_static/documentation_options.js?v=7f41d439"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generated/rf_control';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="rf_det_act" href="rf_det_act.html" />
+    <link rel="prev" title="rf_calib" href="rf_calib.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">LLRFLibsPy  documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../introduction.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../architecture.html">
+                        Architecture
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../module_index.html">
+                        Modules
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://git.psi.ch/GFA/RF/Libraries/llrflibspy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../introduction.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../architecture.html">
+                        Architecture
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../module_index.html">
+                        Modules
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://git.psi.ch/GFA/RF/Libraries/llrflibspy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../rf_misc.html">rf_misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rf_noise.html">rf_noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rf_plot.html">rf_plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rf_sim.html">rf_sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rf_sysid.html">rf_sysid</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rf_calib.html">rf_calib</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">rf_control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_det_act.html">rf_det_act</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_fit.html">rf_fit</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../module_index.html" class="nav-link">LLRFLibsPy Modules</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">rf_control</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="module-rf_control">
+<span id="rf-control"></span><h1>rf_control<a class="headerlink" href="#module-rf_control" title="Link to this heading">#</a></h1>
+<p>Design and analyze RF feedback/feedforward controllers.</p>
+<p class="rubric">Functions</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_control.ADRC_control_step" title="rf_control.ADRC_control_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ADRC_control_step</span></code></a>(Akd, Bkd, Ckd, Dkd, Aobd, ...)</p></td>
+<td><p>Controller execute for one step based on the controller's discrete state-space equation including the ADRC observer (refer to LLRF Book Figure 4.6).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_control.ADRC_controller" title="rf_control.ADRC_controller"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ADRC_controller</span></code></a>(half_bw[, pole_scale])</p></td>
+<td><p>Generate the continous ADRC controller.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_control.AFF_ilc" title="rf_control.AFF_ilc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AFF_ilc</span></code></a>(vc_err, L)</p></td>
+<td><p>Apply the ILC (refer to LLRF Book section 4.5.2).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_control.AFF_ilc_design" title="rf_control.AFF_ilc_design"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AFF_ilc_design</span></code></a>(h, pulw[, P, Q])</p></td>
+<td><p>Adaptive feedforward with optimal iterative learning control (ILC) (refer to LLRF Book section 4.5.2).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_control.AFF_timerev_lpf" title="rf_control.AFF_timerev_lpf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AFF_timerev_lpf</span></code></a>(vfb, fcut, fs[, vff_cor])</p></td>
+<td><p>Time-reversed low-pass filter, we only apply the first order IIR low-pass, which gives up to 90 degrees phase lead (refer to LLRF Book section 4.5.1).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_control.basic_rf_controller" title="rf_control.basic_rf_controller"><code class="xref py py-obj docutils literal notranslate"><span class="pre">basic_rf_controller</span></code></a>(Kp, Ki[, notch_conf, ...])</p></td>
+<td><p>Generate the continous state-space equation for a basic controller with</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_control.cav_sp_ff" title="rf_control.cav_sp_ff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cav_sp_ff</span></code></a>(half_bw, filling_len, flattop_len, ...)</p></td>
+<td><p>Generate the basic cavity set point and feedforward used to configure the LLRF controller (later may apply smooth in the edges) (refer to LLRF Book section 9.2.1).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_control.control_step" title="rf_control.control_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">control_step</span></code></a>(Akd, Bkd, Ckd, Dkd, err_step, ...)</p></td>
+<td><p>Controller execute for one step based on the discrete state-space equation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_control.loop_analysis" title="rf_control.loop_analysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">loop_analysis</span></code></a>(AG, BG, CG, DG, AK, BK, CK, DK)</p></td>
+<td><p>Control loop analysis, including</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_control.resp_inv_lsm" title="rf_control.resp_inv_lsm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resp_inv_lsm</span></code></a>(R[, regu])</p></td>
+<td><p>Response matrix inversion with least-square method (refer to Beam Control Book section 2.4.3).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_control.resp_inv_svd" title="rf_control.resp_inv_svd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resp_inv_svd</span></code></a>(R[, singular_val_filt])</p></td>
+<td><p>Response matrix inversion with SVD (refer to Beam Control Book section 2.4.2).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_control.ss_cascade" title="rf_control.ss_cascade"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ss_cascade</span></code></a>(A1, B1, C1, D1, A2, B2, C2, D2[, Ts])</p></td>
+<td><p>Cascade two state-space systems with the first system applyed to the input first.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_control.ss_discrete" title="rf_control.ss_discrete"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ss_discrete</span></code></a>(Ac, Bc, Cc, Dc, Ts[, method, ...])</p></td>
+<td><p>Derive the discrete state-space equation from a continous one and compare their frequency responses.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_control.ss_freqresp" title="rf_control.ss_freqresp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ss_freqresp</span></code></a>(A, B, C, D[, Ts, plot, ...])</p></td>
+<td><p>Plot the frequency response of a state-space system.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_control.ADRC_control_step">
+<span class="sig-name descname"><span class="pre">ADRC_control_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Akd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Bkd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ckd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Dkd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Aobd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Bobd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sp_step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vc_step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vd_step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_k0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_ob0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ff_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_to_err</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#ADRC_control_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.ADRC_control_step" title="Link to this definition">#</a></dt>
+<dd><p>Controller execute for one step based on the controller’s discrete state-space equation
+including the ADRC observer
+(refer to LLRF Book Figure 4.6).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Akd</strong> – numpy matrix (complex), discrete RF controller</p></li>
+<li><p><strong>Bkd</strong> – numpy matrix (complex), discrete RF controller</p></li>
+<li><p><strong>Ckd</strong> – numpy matrix (complex), discrete RF controller</p></li>
+<li><p><strong>Dkd</strong> – numpy matrix (complex), discrete RF controller</p></li>
+<li><p><strong>Aobd</strong> – numpy matrix (complex), discrete ADRC observer (C,D not needed)</p></li>
+<li><p><strong>Bobd</strong> – numpy matrix (complex), discrete ADRC observer (C,D not needed)</p></li>
+<li><p><strong>b0</strong> – float, ADRC gain</p></li>
+<li><p><strong>sp_step</strong> – complex, cavity voltage setpoint of this time step</p></li>
+<li><p><strong>vc_step</strong> – complex, cavity voltage meas. of this time step</p></li>
+<li><p><strong>vd_step</strong> – complex, cavity drive of the last time step</p></li>
+<li><p><strong>state_k0</strong> – numpy matrix (complex), controller state of the last step</p></li>
+<li><p><strong>state_ob0</strong> – numpy matrix (complex), ADRC observer state of the last step</p></li>
+<li><p><strong>ff_step</strong> – complex, feedforward of this step</p></li>
+<li><p><strong>apply_to_err</strong> – boolean, True to apply ADRC to error, or apply to whole cavity voltage</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>ctrl_step</strong> – complex, overall output of the controller of this step</p></li>
+<li><p><strong>ctrl_out</strong> – complex, feedback output (exclude feedforward wrt ctrl_step)</p></li>
+<li><p><strong>state_k</strong> – numpy matrix (complex), controller state of this step (should input to
+the next execution of this function)</p></li>
+<li><p><strong>state_ob</strong> – numpy matrix (complex), ADRC observer state of this step (should input
+to the next execution of this function)</p></li>
+<li><p><strong>f</strong> – complex, estimated general disturbance by the ADRC observer</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Question:</dt><dd><p>In the second equation, shall we use <code class="docutils literal notranslate"><span class="pre">state_k0</span></code> or <code class="docutils literal notranslate"><span class="pre">state_k</span></code>?</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>looks like ADRC can mitigate the instability caused by the cavity’s
+passband modes, then no notch filter is required to filter the cavity
+voltage measurement.</p></li>
+<li><p>basic ADRC is perfect with a proportional controller - resulting
+in zero steady-state error. Looks like with other controller (e.g.,
+PI control), ADRC needs to be revised for good performance.</p></li>
+<li><p>adding feedforward to the basic ADRC also causes some problem, like
+the steady state error becomes nonzero.</p></li>
+<li><p>The solution to handle the problems of point 2 and 3 above is to apply
+ADRC to the errors of the cavity drive and voltage. See the paper:
+S. Zhao et al, Tracking and disturbance rejection in non-minimum
+phase systems, Proceedings of the 33rd Chinese Control Conference,
+pp. 3834-3839, July 28-30, 2014, Nanjing, China.</p></li>
+</ol>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_control.ADRC_controller">
+<span class="sig-name descname"><span class="pre">ADRC_controller</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">half_bw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pole_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#ADRC_controller"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.ADRC_controller" title="Link to this definition">#</a></dt>
+<dd><p>Generate the continous ADRC controller. We assume that the system gain
+has been normalized to 1 and the system phase corrected to 0. Therefore,
+the referred cavity equation is
+<code class="docutils literal notranslate"><span class="pre">dvc/dt</span> <span class="pre">+</span> <span class="pre">(half_bw</span> <span class="pre">-</span> <span class="pre">1j</span> <span class="pre">*</span> <span class="pre">detuning)*vc</span> <span class="pre">=</span> <span class="pre">half_bw</span> <span class="pre">*</span> <span class="pre">vd</span></code>
+where <code class="docutils literal notranslate"><span class="pre">vc</span></code> is the vector of cavity voltage and <code class="docutils literal notranslate"><span class="pre">vd</span></code> is the vector of cavity
+drive (in principle <code class="docutils literal notranslate"><span class="pre">vd</span> <span class="pre">=</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">beta</span> <span class="pre">*</span> <span class="pre">vf</span> <span class="pre">/</span> <span class="pre">(beta</span> <span class="pre">+</span> <span class="pre">1)</span></code>)
+(refer to LLRF Book section 4.2.3).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>half_bw</strong> – float, half bandwidth of the cavity, rad/s</p></li>
+<li><p><strong>pole_scale</strong> – float, define the pole location of the observer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>Aobc, Bobc, Cobc, Dobc</strong> – numpy matrix (complex), continous ADRC observer</p></li>
+<li><p><strong>b0</strong> – float, ADRC gain</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_control.AFF_ilc">
+<span class="sig-name descname"><span class="pre">AFF_ilc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vc_err</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#AFF_ilc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.AFF_ilc" title="Link to this definition">#</a></dt>
+<dd><p>Apply the ILC (refer to LLRF Book section 4.5.2).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vc_err</strong> – numpy array (complex), error of the cavity voltage waveform</p></li>
+<li><p><strong>L</strong> – numpy matrix (complex), gain matrix of ILC</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>vff_cor</strong> – numpy array (complex), feedforward correction waveform</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_control.AFF_ilc_design">
+<span class="sig-name descname"><span class="pre">AFF_ilc_design</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#AFF_ilc_design"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.AFF_ilc_design" title="Link to this definition">#</a></dt>
+<dd><p>Adaptive feedforward with optimal iterative learning control (ILC)
+(refer to LLRF Book section 4.5.2).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> – numpy array (complex), impulse response</p></li>
+<li><p><strong>pulw</strong> – int, pulse width as number of points</p></li>
+<li><p><strong>P</strong> – numpy matrix, positive-definite weight matrices</p></li>
+<li><p><strong>Q</strong> – numpy matrix, positive-definite weight matrices</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>L</strong> – numpy matrix (complex), gain matrix of ILC</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_control.AFF_timerev_lpf">
+<span class="sig-name descname"><span class="pre">AFF_timerev_lpf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vfb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fcut</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vff_cor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#AFF_timerev_lpf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.AFF_timerev_lpf" title="Link to this definition">#</a></dt>
+<dd><p>Time-reversed low-pass filter, we only apply the first order IIR low-pass,
+which gives up to 90 degrees phase lead
+(refer to LLRF Book section 4.5.1).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vfb</strong> – numpy array (complex), feedback control waveform</p></li>
+<li><p><strong>fcut</strong> – float, cut-off frequency of the low-pass filter, Hz</p></li>
+<li><p><strong>fs</strong> – float, sampling frequency, Hz</p></li>
+<li><p><strong>vff_cor</strong> – numpy array (complex), buffer storing the filtered waveform</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>vff_cor</strong> – numpy array (complex), feedforward correction waveform</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_control.basic_rf_controller">
+<span class="sig-name descname"><span class="pre">basic_rf_controller</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Kp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ki</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notch_conf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_pno</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_maxf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#basic_rf_controller"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.basic_rf_controller" title="Link to this definition">#</a></dt>
+<dd><dl class="simple">
+<dt>Generate the continous state-space equation for a basic controller with</dt><dd><ul class="simple">
+<li><p>I/Q control strategy (input/output are all complex signals).</p></li>
+<li><p>configurable for PI control + frequency notches.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Kp</strong> – float, proportional (P) gain</p></li>
+<li><p><strong>Ki</strong> – float, integral (I) gain</p></li>
+<li><p><strong>notch_conf</strong> – dict, with the following items:
+<code class="docutils literal notranslate"><span class="pre">freq_offs</span></code>: list, offset frequency to be notched, Hz;
+<code class="docutils literal notranslate"><span class="pre">gain</span></code>: list, gain of the notch (inverse of suppress ratio);
+<code class="docutils literal notranslate"><span class="pre">half_bw</span></code>: list, half bandwidth of the notch filter, rad/s</p></li>
+<li><p><strong>plot</strong> – boolean, enable the plot of frequency response of the controller</p></li>
+<li><p><strong>plot_pno</strong> – int, number of point in the plot</p></li>
+<li><p><strong>plot_maxf</strong> – float, frequency range (+-) to be plotted, Hz</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>Akc, Bkc, Ckc, Dkc</strong> – numpy matrix (complex), continuous state-space controller</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_control.cav_sp_ff">
+<span class="sig-name descname"><span class="pre">cav_sp_ff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">half_bw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filling_len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flattop_len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pno</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vc0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detuning</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">const_fpow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ib0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phib_deg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beam_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beam_ide</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roQ_or_RoQ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3000000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">machine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linac'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#cav_sp_ff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.cav_sp_ff" title="Link to this definition">#</a></dt>
+<dd><p>Generate the basic cavity set point and feedforward used to configure
+the LLRF controller (later may apply smooth in the edges)
+(refer to LLRF Book section 9.2.1).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>half_bw</strong> – float, half bandwidth of the cavity, rad/s</p></li>
+<li><p><strong>filling_len</strong> – int, length of cavity filling time, number of samples</p></li>
+<li><p><strong>flattop_len</strong> – int, length of the flattop for beam acc., number of samples</p></li>
+<li><p><strong>Ts</strong> – float, sampling time, s</p></li>
+<li><p><strong>pno</strong> – int, number of samples in the returned waveforms</p></li>
+<li><p><strong>vc0</strong> – float, desired cavity voltage at the flattop, V</p></li>
+<li><p><strong>detuning</strong> – float, detuning of the cavity, rad/s</p></li>
+<li><p><strong>beta</strong> – float, input coupling factor (needed for NC cavities;
+for SC cavities, can use the default value, or you can
+specify it if more accurate result is needed)</p></li>
+<li><p><strong>const_fpow</strong> – boolean, True for forcing constant filling drive power/phase</p></li>
+<li><p><strong>ib0</strong> – float, average beam current, A</p></li>
+<li><p><strong>phib_deg</strong> – float, beam accelerating phase (0 for on-crest), deg</p></li>
+<li><p><strong>beam_ids</strong> – int, beam starting sample index</p></li>
+<li><p><strong>beam_ide</strong> – int, beam ending sample index</p></li>
+<li><p><strong>roQ_or_RoQ</strong> – r/Q of Linac or R/Q of circular accelerator, Ohm
+(see the note below)</p></li>
+<li><p><strong>QL</strong> – float, loaded quality factor of the cavity</p></li>
+<li><p><strong>machine</strong> – string, <code class="docutils literal notranslate"><span class="pre">linac</span></code> or <code class="docutils literal notranslate"><span class="pre">circular</span></code>, used to select r/Q or R/Q</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>sp</strong> – numpy array (complex), set point waveform (for controller)</p></li>
+<li><p><strong>vf_ff</strong> – numpy array (complex), feedforward waveform (for controller)</p></li>
+<li><p><strong>vb</strong> – numpy array (complex), beam drive voltage waveform</p></li>
+<li><p><strong>Tpul</strong> – numpy array, time array for the waveforms</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Linacs define the <code class="docutils literal notranslate"><span class="pre">r/Q</span> <span class="pre">=</span> <span class="pre">Vacc**2</span> <span class="pre">/</span> <span class="pre">(w0</span> <span class="pre">*</span> <span class="pre">U)</span></code> while circular machines
+define <code class="docutils literal notranslate"><span class="pre">R/Q</span> <span class="pre">=</span> <span class="pre">Vacc**2</span> <span class="pre">/</span> <span class="pre">(2</span> <span class="pre">*</span> <span class="pre">w0</span> <span class="pre">*</span> <span class="pre">U)</span></code>, where <code class="docutils literal notranslate"><span class="pre">Vacc</span></code> is the accelerating
+voltage, <code class="docutils literal notranslate"><span class="pre">w0</span></code> is the angular cavity resonance frequency and <code class="docutils literal notranslate"><span class="pre">U</span></code> is the
+cavity energy storage. Therefore, to use this function, one needs to
+specify the <code class="docutils literal notranslate"><span class="pre">machine</span></code> to be <code class="docutils literal notranslate"><span class="pre">linac</span></code> or <code class="docutils literal notranslate"><span class="pre">circular</span></code>. Generally, we have
+<code class="docutils literal notranslate"><span class="pre">R/Q</span> <span class="pre">=</span> <span class="pre">1/2</span> <span class="pre">*</span> <span class="pre">r/Q</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_control.control_step">
+<span class="sig-name descname"><span class="pre">control_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Akd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Bkd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ckd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Dkd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">err_step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_k0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ff_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#control_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.control_step" title="Link to this definition">#</a></dt>
+<dd><p>Controller execute for one step based on the discrete state-space equation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Akd</strong> – numpy matrix (complex), discrete state-space controller</p></li>
+<li><p><strong>Bkd</strong> – numpy matrix (complex), discrete state-space controller</p></li>
+<li><p><strong>Ckd</strong> – numpy matrix (complex), discrete state-space controller</p></li>
+<li><p><strong>Dkd</strong> – numpy matrix (complex), discrete state-space controller</p></li>
+<li><p><strong>err_step</strong> – complex, system output error (input to controller) of this step</p></li>
+<li><p><strong>state_k0</strong> – numpy matrix (complex), state of the last step</p></li>
+<li><p><strong>ff_step</strong> – complex, feedforward of this step</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>ctrl_step</strong> – complex, overall output of the controller of this step</p></li>
+<li><p><strong>ctrl_out</strong> – complex, feedback output (exclude feedforward wrt ctrl_step)</p></li>
+<li><p><strong>state_k</strong> – numpy matrix (complex), state of this step (should be input to
+the next execution of this function)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Question:</dt><dd><p>In the second equation, shall we use <code class="docutils literal notranslate"><span class="pre">state_k0</span></code> or <code class="docutils literal notranslate"><span class="pre">state_k</span></code>?</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_control.loop_analysis">
+<span class="sig-name descname"><span class="pre">loop_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">AG</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BG</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CG</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DG</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AK</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BK</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CK</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DK</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay_s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_pno</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_maxf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#loop_analysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.loop_analysis" title="Link to this definition">#</a></dt>
+<dd><dl class="simple">
+<dt>Control loop analysis, including</dt><dd><ul class="simple">
+<li><p>derive the open loop transfer function.</p></li>
+<li><p>calculate the senstivity and complementary sensitivity functions.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This function works for both continous system (<code class="docutils literal notranslate"><span class="pre">Ts</span></code> is None) and discrete
+systems (<code class="docutils literal notranslate"><span class="pre">Ts</span></code> has a nonzero floating value).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>AG</strong> – numpy matrix (complex), plant model</p></li>
+<li><p><strong>BG</strong> – numpy matrix (complex), plant model</p></li>
+<li><p><strong>CG</strong> – numpy matrix (complex), plant model</p></li>
+<li><p><strong>DG</strong> – numpy matrix (complex), plant model</p></li>
+<li><p><strong>AK</strong> – numpy matrix (complex), controller</p></li>
+<li><p><strong>BK</strong> – numpy matrix (complex), controller</p></li>
+<li><p><strong>CK</strong> – numpy matrix (complex), controller</p></li>
+<li><p><strong>DK</strong> – numpy matrix (complex), controller</p></li>
+<li><p><strong>Ts</strong> – float, sampling time, s</p></li>
+<li><p><strong>delay_s</strong> – float, loop delay, s</p></li>
+<li><p><strong>plot</strong> – boolean, enable the plot of bode and Nyquist plots</p></li>
+<li><p><strong>plot_pno</strong> – int, number of point in the plot</p></li>
+<li><p><strong>plot_maxf</strong> – float, frequency range (+-) to be plotted, Hz</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>S_max</strong> – float, maximum sensitivity, dB</p></li>
+<li><p><strong>T_max</strong> – float, maximum complementary sensitivity, dB</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_control.resp_inv_lsm">
+<span class="sig-name descname"><span class="pre">resp_inv_lsm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#resp_inv_lsm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.resp_inv_lsm" title="Link to this definition">#</a></dt>
+<dd><p>Response matrix inversion with least-square method
+(refer to Beam Control Book section 2.4.3).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>R</strong> – numpy matrix, response matrix</p></li>
+<li><p><strong>regu</strong> – float, regularization factor (should &gt; 0)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Rinv</strong> – numpy matrix, inversion of the response matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_control.resp_inv_svd">
+<span class="sig-name descname"><span class="pre">resp_inv_svd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">singular_val_filt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#resp_inv_svd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.resp_inv_svd" title="Link to this definition">#</a></dt>
+<dd><p>Response matrix inversion with SVD (refer to Beam Control Book section 2.4.2).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>R</strong> – numpy matrix, response matrix</p></li>
+<li><p><strong>singular_val_filt</strong> – float, threshold of singular values, the ones
+smaller or equal to it will be discarded</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Rinv</strong> – numpy matrix, inversion of the response matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_control.ss_cascade">
+<span class="sig-name descname"><span class="pre">ss_cascade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#ss_cascade"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.ss_cascade" title="Link to this definition">#</a></dt>
+<dd><p>Cascade two state-space systems with the first system applyed to
+the input first. This function works for both continous system (<code class="docutils literal notranslate"><span class="pre">Ts</span></code> is None)
+and discrete systems (<code class="docutils literal notranslate"><span class="pre">Ts</span></code> has a nonzero floating value).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A1</strong> – numpy matrix (complex), state-space model of system 1</p></li>
+<li><p><strong>B1</strong> – numpy matrix (complex), state-space model of system 1</p></li>
+<li><p><strong>C1</strong> – numpy matrix (complex), state-space model of system 1</p></li>
+<li><p><strong>D1</strong> – numpy matrix (complex), state-space model of system 1</p></li>
+<li><p><strong>A2</strong> – numpy matrix (complex), state-space model of system 2</p></li>
+<li><p><strong>B2</strong> – numpy matrix (complex), state-space model of system 2</p></li>
+<li><p><strong>C2</strong> – numpy matrix (complex), state-space model of system 2</p></li>
+<li><p><strong>D2</strong> – numpy matrix (complex), state-space model of system 2</p></li>
+<li><p><strong>Ts</strong> – float, sampling time, s</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status          boolean, success</strong> (<em>True) or fail (False</em>)</p></li>
+<li><p><strong>A, B, C, D</strong> – numpy matrix (complex), state-space model of cascaded system</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_control.ss_discrete">
+<span class="sig-name descname"><span class="pre">ss_discrete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Ac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Bc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Dc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'zoh'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_pno</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#ss_discrete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.ss_discrete" title="Link to this definition">#</a></dt>
+<dd><p>Derive the discrete state-space equation from a continous one and compare
+their frequency responses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Ac</strong> – numpy matrix (complex), continous state-space model</p></li>
+<li><p><strong>Bc</strong> – numpy matrix (complex), continous state-space model</p></li>
+<li><p><strong>Cc</strong> – numpy matrix (complex), continous state-space model</p></li>
+<li><p><strong>Dc</strong> – numpy matrix (complex), continous state-space model</p></li>
+<li><p><strong>Ts</strong> – float, sampling time, s</p></li>
+<li><p><strong>method</strong> – string, <code class="docutils literal notranslate"><span class="pre">gbt</span></code>, <code class="docutils literal notranslate"><span class="pre">bilinear</span></code>, <code class="docutils literal notranslate"><span class="pre">euler</span></code>, <code class="docutils literal notranslate"><span class="pre">backward_diff</span></code>, <code class="docutils literal notranslate"><span class="pre">zoh</span></code>,
+<code class="docutils literal notranslate"><span class="pre">foh</span></code> or <code class="docutils literal notranslate"><span class="pre">impulse</span></code> (see document of signal.cont2discrete)</p></li>
+<li><p><strong>alpha</strong> – float, 0 to 1 (see document of signal.cont2discrete)</p></li>
+<li><p><strong>plot</strong> – boolean, enable the plot of frequency responses</p></li>
+<li><p><strong>plot_pno</strong> – int, number of point in the plot</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>Ad, Bd, Cd, Dd</strong> – numpy matrix (complex), discrete state-space model</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_control.ss_freqresp">
+<span class="sig-name descname"><span class="pre">ss_freqresp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_pno</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_maxf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Frequency</span> <span class="pre">Response'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#ss_freqresp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.ss_freqresp" title="Link to this definition">#</a></dt>
+<dd><p>Plot the frequency response of a state-space system. This function works
+for both continous system (<code class="docutils literal notranslate"><span class="pre">Ts</span></code> is None) and discrete systems (<code class="docutils literal notranslate"><span class="pre">Ts</span></code> has a
+nonzero floating value).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> – numpy matrix (complex), state-space model of system</p></li>
+<li><p><strong>B</strong> – numpy matrix (complex), state-space model of system</p></li>
+<li><p><strong>C</strong> – numpy matrix (complex), state-space model of system</p></li>
+<li><p><strong>D</strong> – numpy matrix (complex), state-space model of system</p></li>
+<li><p><strong>Ts</strong> – float, sampling time, s</p></li>
+<li><p><strong>plot</strong> – boolean, enable the plot of frequency response</p></li>
+<li><p><strong>plot_pno</strong> – int, number of point in the plot</p></li>
+<li><p><strong>plot_maxf</strong> – float, frequency range (+-) to be plotted, Hz</p></li>
+<li><p><strong>title</strong> – string, title showed on the plot</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>f_wf</strong> – numpy array, frequency waveform, Hz</p></li>
+<li><p><strong>A_wf_dB</strong> – numpy array, amplitude response waveform, dB</p></li>
+<li><p><strong>P_wf_deg</strong> – numpy array, phase response waveform, deg</p></li>
+<li><p><strong>h</strong> – numpy array (complex), complex response</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rf_calib.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">rf_calib</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rf_det_act.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">rf_det_act</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_control.ADRC_control_step"><code class="docutils literal notranslate"><span class="pre">ADRC_control_step()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_control.ADRC_controller"><code class="docutils literal notranslate"><span class="pre">ADRC_controller()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_control.AFF_ilc"><code class="docutils literal notranslate"><span class="pre">AFF_ilc()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_control.AFF_ilc_design"><code class="docutils literal notranslate"><span class="pre">AFF_ilc_design()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_control.AFF_timerev_lpf"><code class="docutils literal notranslate"><span class="pre">AFF_timerev_lpf()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_control.basic_rf_controller"><code class="docutils literal notranslate"><span class="pre">basic_rf_controller()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_control.cav_sp_ff"><code class="docutils literal notranslate"><span class="pre">cav_sp_ff()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_control.control_step"><code class="docutils literal notranslate"><span class="pre">control_step()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_control.loop_analysis"><code class="docutils literal notranslate"><span class="pre">loop_analysis()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_control.resp_inv_lsm"><code class="docutils literal notranslate"><span class="pre">resp_inv_lsm()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_control.resp_inv_svd"><code class="docutils literal notranslate"><span class="pre">resp_inv_svd()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_control.ss_cascade"><code class="docutils literal notranslate"><span class="pre">ss_cascade()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_control.ss_discrete"><code class="docutils literal notranslate"><span class="pre">ss_discrete()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_control.ss_freqresp"><code class="docutils literal notranslate"><span class="pre">ss_freqresp()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, Paul Scherrer Institute.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

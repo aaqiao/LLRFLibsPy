@@ -1,0 +1,802 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rf_det_act &#8212; LLRFLibsPy  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script src="../_static/documentation_options.js?v=7f41d439"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/rf_det_act';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">LLRFLibsPy  documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../introduction.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../architecture.html">
+                        Architecture
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../module_index.html">
+                        Modules
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://git.psi.ch/GFA/RF/Libraries/llrflibspy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../introduction.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../architecture.html">
+                        Architecture
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../module_index.html">
+                        Modules
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://git.psi.ch/GFA/RF/Libraries/llrflibspy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">rf_det_act</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for rf_det_act</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Measure RF amplitude and phase from ADC samples.&quot;&quot;&quot;</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">#########################################################################</span>
+<span class="sd">Here collects routines for RF signal detection and actuation</span>
+
+<span class="sd">Assumptions:</span>
+<span class="sd">  a. If not explicitly mentioned, all phases are in degree</span>
+<span class="sd"> </span>
+<span class="sd">Implemented:</span>
+<span class="sd">    - noniq_demod   : perform non-I/Q demodulation of a given raw sampling waveform</span>
+<span class="sd">    - twop_demod    : demodulate raw with every two samples</span>
+<span class="sd">    - asyn_demod    : demodulate raw sampled by asyn. clock, reference WF needed</span>
+<span class="sd">    - self_demod_ap : demodulate raw with Hilbert transform, return amplitude and phase</span>
+<span class="sd">    - iq2ap_wf      : convert I/Q waveforms to amplitude/phase waveforms</span>
+<span class="sd">    - ap2iq_wf      : convert amplitude/phase waveforms to I/Q waveforms</span>
+<span class="sd">    - norm_phase    : normalize phase (scalar or WF) to a specific range (default +-180 deg)</span>
+<span class="sd">    - pulse_info    : derive the pulse info like pulse width, pulse offset, etc.</span>
+
+<span class="sd">Some algorithms are referred to the following books:</span>
+<span class="sd">S. Simrock and Z. Geng, Low-Level Radio Frequency Systems, Springer, 2022</span>
+<span class="sd">https://link.springer.com/book/10.1007/978-3-030-94419-3 (&quot;LLRF Book&quot;)</span>
+
+<span class="sd">Created by Zheqiao Geng on March 09, 2022</span>
+<span class="sd">#########################################################################</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
+
+<div class="viewcode-block" id="noniq_demod">
+<a class="viewcode-back" href="../generated/rf_det_act.html#rf_det_act.noniq_demod">[docs]</a>
+<span class="k">def</span> <span class="nf">noniq_demod</span><span class="p">(</span><span class="n">raw_wf</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Non-I/Q demodulation (refer to LLRF Book section 5.2.2).</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        raw_wf: numpy array, 1-D array of the raw waveform</span>
+<span class="sd">        m, n:   integer, non-I/Q parameters (n samples cover m IF cycles)</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status: boolean, success (True) or faile (False)</span>
+<span class="sd">        I, Q:   numpy array, I/Q waveforms</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check the input</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">raw_wf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">m</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">m</span> <span class="ow">or</span> <span class="n">L</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="c1"># calculate the demod coefficients</span>
+    <span class="n">P_rad</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">m</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">n</span>    <span class="c1"># phases of one superperiod of NCO</span>
+    <span class="n">I_coef</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">P_rad</span><span class="p">)</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">/</span> <span class="n">n</span>                       <span class="c1"># NCO output I</span>
+    <span class="n">Q_coef</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">P_rad</span><span class="p">)</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">/</span> <span class="n">n</span>                       <span class="c1"># NCO output Q</span>
+
+    <span class="c1"># define the databuffers</span>
+    <span class="n">I</span>       <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>       <span class="c1"># final output buffer</span>
+    <span class="n">Q</span>       <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+    <span class="n">pipeI</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># FIFO helping calculation</span>
+    <span class="n">pipeQ</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">sumI</span>    <span class="o">=</span> <span class="mf">0.0</span>               <span class="c1"># accumulators</span>
+    <span class="n">sumQ</span>    <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">coef_id</span> <span class="o">=</span> <span class="mi">0</span>                 <span class="c1"># index for data selection</span>
+    <span class="n">pipe_id</span> <span class="o">=</span> <span class="n">n</span>
+
+    <span class="c1"># do demodulation</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+        <span class="c1"># fill the FIFO a new multiplication</span>
+        <span class="n">pipeI</span><span class="p">[</span><span class="n">pipe_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">raw_wf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">I_coef</span><span class="p">[</span><span class="n">coef_id</span><span class="p">]</span>
+        <span class="n">pipeQ</span><span class="p">[</span><span class="n">pipe_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">raw_wf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">Q_coef</span><span class="p">[</span><span class="n">coef_id</span><span class="p">]</span>
+
+        <span class="c1"># calculate difference btw FIFO new/old, and accumulate</span>
+        <span class="n">sumI</span> <span class="o">+=</span> <span class="n">pipeI</span><span class="p">[</span><span class="n">pipe_id</span><span class="p">]</span> <span class="o">-</span> <span class="n">pipeI</span><span class="p">[</span><span class="n">pipe_id</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">sumQ</span> <span class="o">+=</span> <span class="n">pipeQ</span><span class="p">[</span><span class="n">pipe_id</span><span class="p">]</span> <span class="o">-</span> <span class="n">pipeQ</span><span class="p">[</span><span class="n">pipe_id</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># update the output for an sample</span>
+        <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sumI</span>
+        <span class="n">Q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sumQ</span>
+
+        <span class="c1"># update the index</span>
+        <span class="n">coef_id</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">coef_id</span> <span class="o">&gt;=</span> <span class="n">n</span><span class="p">:</span>
+            <span class="n">coef_id</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="n">pipe_id</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">pipe_id</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">pipe_id</span> <span class="o">=</span> <span class="n">n</span>
+
+    <span class="c1"># return the results</span>
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">Q</span></div>
+
+
+<div class="viewcode-block" id="twop_demod">
+<a class="viewcode-back" href="../generated/rf_det_act.html#rf_det_act.twop_demod">[docs]</a>
+<span class="k">def</span> <span class="nf">twop_demod</span><span class="p">(</span><span class="n">raw_wf</span><span class="p">,</span> <span class="n">f_if</span><span class="p">,</span> <span class="n">fs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Demodulation with two points (refer to LLRF Book section 5.2.2).</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        raw_wf: numpy array, raw waveform to be demodulated</span>
+<span class="sd">        f_if:   float, IF frequency, Hz</span>
+<span class="sd">        fs:     float, sampling frequency, Hz</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status: boolean, success (True) or faile (False)</span>
+<span class="sd">        I, Q:   numpy array, I/Q waveforms</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">raw_wf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">f_if</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">fs</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="c1"># reserve the buffer</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">raw_wf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                 <span class="c1"># number of the points in WF</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+
+    <span class="c1"># make the demodulation    </span>
+    <span class="n">dphi_rad</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f_if</span> <span class="o">/</span> <span class="n">fs</span>  <span class="c1"># phase advance per sample</span>
+    <span class="n">sn_dphi</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">dphi_rad</span><span class="p">)</span>    
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+        <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span> <span class="n">raw_wf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">((</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">dphi_rad</span><span class="p">)</span> <span class="o">-</span> <span class="n">raw_wf</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">dphi_rad</span><span class="p">))</span> <span class="o">/</span> <span class="n">sn_dphi</span>
+        <span class="n">Q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">raw_wf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">((</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">dphi_rad</span><span class="p">)</span> <span class="o">+</span> <span class="n">raw_wf</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">dphi_rad</span><span class="p">))</span> <span class="o">/</span> <span class="n">sn_dphi</span>
+
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">Q</span></div>
+
+
+<div class="viewcode-block" id="asyn_demod">
+<a class="viewcode-back" href="../generated/rf_det_act.html#rf_det_act.asyn_demod">[docs]</a>
+<span class="k">def</span> <span class="nf">asyn_demod</span><span class="p">(</span><span class="n">raw_wf</span><span class="p">,</span> <span class="n">ref_wf</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Asynchronous demodulation (need reference).</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        raw_wf:      numpy array, signal waveform to be demodulated</span>
+<span class="sd">        ref_wf:      numpy array, samples of the RF reference signal</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status:      boolean, success (True) or faile (False)</span>
+<span class="sd">        I, Q:        numpy array, I/Q waveforms of final demodulation</span>
+<span class="sd">        Isig, Qsig:  numpy array, I/Q waveforms of raw_wf (with inaccurate phase)</span>
+<span class="sd">        Iref, Qsig:  numpy array, I/Q waveforms of ref_wf (with inaccurate phase)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">raw_wf</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">ref_wf</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">raw_wf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">6</span>
+
+    <span class="c1"># estimate the reference frequency </span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">raw_wf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                         <span class="c1"># number of the points in WF</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">ref_wf</span><span class="p">)</span>
+    <span class="n">f_if</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y</span><span class="p">[:</span><span class="nb">round</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)]))</span>    <span class="c1"># find the peak, respresenting the IF freq</span>
+    <span class="n">fs</span>   <span class="o">=</span> <span class="n">N</span>                                    <span class="c1"># represent the sampling frequency</span>
+
+    <span class="c1"># demodulate with twop_demod</span>
+    <span class="n">status1</span><span class="p">,</span> <span class="n">Isig</span><span class="p">,</span> <span class="n">Qsig</span> <span class="o">=</span> <span class="n">twop_demod</span><span class="p">(</span><span class="n">raw_wf</span><span class="p">,</span> <span class="n">f_if</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+    <span class="n">status2</span><span class="p">,</span> <span class="n">Iref</span><span class="p">,</span> <span class="n">Qref</span> <span class="o">=</span> <span class="n">twop_demod</span><span class="p">(</span><span class="n">ref_wf</span><span class="p">,</span> <span class="n">f_if</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">status1</span> <span class="ow">and</span> <span class="n">status2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">6</span>
+
+    <span class="c1"># get the reference phase</span>
+    <span class="n">status</span><span class="p">,</span> <span class="n">Aref</span><span class="p">,</span> <span class="n">Pref_deg</span> <span class="o">=</span> <span class="n">iq2ap_wf</span><span class="p">(</span><span class="n">Iref</span><span class="p">,</span> <span class="n">Qref</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">status</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">6</span>
+
+    <span class="c1"># unwrap the reference phase</span>
+    <span class="n">Pref_deg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unwrap</span><span class="p">(</span><span class="n">Pref_deg</span><span class="p">,</span> <span class="n">period</span> <span class="o">=</span> <span class="mf">360.0</span><span class="p">)</span>
+
+    <span class="c1"># get the linear fitting of the phase (exclude first points)</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>   
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">Pref_deg</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># reconstruct the clean phase of reference</span>
+    <span class="n">Pref_rec_deg</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+    <span class="n">Pref_rec_deg</span> <span class="o">-=</span> <span class="n">Pref_rec_deg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># remove the phase slope from the signal phase</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="p">(</span><span class="n">Isig</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">Qsig</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">Pref_rec_deg</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">C</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">C</span><span class="p">),</span> <span class="n">Isig</span><span class="p">,</span> <span class="n">Qsig</span><span class="p">,</span> <span class="n">Iref</span><span class="p">,</span> <span class="n">Qref</span></div>
+
+
+<div class="viewcode-block" id="self_demod_ap">
+<a class="viewcode-back" href="../generated/rf_det_act.html#rf_det_act.self_demod_ap">[docs]</a>
+<span class="k">def</span> <span class="nf">self_demod_ap</span><span class="p">(</span><span class="n">raw_wf</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Self demodulation with Hilbert transform (later may implement padding to</span>
+<span class="sd">    mitigate the edge effects).</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        raw_wf: numpy array, signal waveform to be demodulated</span>
+<span class="sd">        n:      int, number of points covering full cycles (for coherent sampling)</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status: boolean, success (True) or faile (False)</span>
+<span class="sd">        A, P:   numpy array, amplitude and phase waveforms, P in degree</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="n">raw_wf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="c1"># perform Hilbert transform</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">raw_wf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>             <span class="c1"># number of points in WF</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">N</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">n</span>              <span class="c1"># tailor</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">hilbert</span><span class="p">(</span><span class="n">raw_wf</span><span class="p">[:</span><span class="n">L</span><span class="p">])</span>  <span class="c1"># hilbert transform</span>
+    
+    <span class="c1"># to the correct length</span>
+    <span class="k">if</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="n">L</span><span class="p">:</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">C</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="n">L</span><span class="p">)))</span>
+
+    <span class="c1"># get the amplitude and phase in deg</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">deg</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">P</span></div>
+
+
+<div class="viewcode-block" id="iq2ap_wf">
+<a class="viewcode-back" href="../generated/rf_det_act.html#rf_det_act.iq2ap_wf">[docs]</a>
+<span class="k">def</span> <span class="nf">iq2ap_wf</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">Q</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    I/Q to A/P waveforms.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        I, Q: numpy array, I/Q waveforms</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        A, P: numpy array, amplitude/phase waveforms, P in degree</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">I</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">Q</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="c1"># convert to complex</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">I</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">Q</span>
+
+    <span class="c1"># return the results</span>
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">C</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">deg</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ap2iq_wf">
+<a class="viewcode-back" href="../generated/rf_det_act.html#rf_det_act.ap2iq_wf">[docs]</a>
+<span class="k">def</span> <span class="nf">ap2iq_wf</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    A/P to I/Q waveforms.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        A, P: numpy array, amplitude/phase waveforms, P in degree</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        I, Q: numpy array, I/Q waveforms</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">P</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="c1"># do calculation</span>
+    <span class="n">P_rad</span> <span class="o">=</span> <span class="n">P</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">P_rad</span><span class="p">)</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">P_rad</span><span class="p">)</span>
+
+    <span class="c1"># return the results</span>
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">Q</span></div>
+
+
+<div class="viewcode-block" id="norm_phase">
+<a class="viewcode-back" href="../generated/rf_det_act.html#rf_det_act.norm_phase">[docs]</a>
+<span class="k">def</span> <span class="nf">norm_phase</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;+-180&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    normalize phase to +-180 degree or between 0 to 360 degree.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        P:     float, phase in degree</span>
+<span class="sd">        cmd:   string &#39;+-180&#39; or &#39;0to360&#39;</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Pnorm: float, normalized phase, degree</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># convert using the complex numbers</span>
+    <span class="n">Pnorm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">P</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">),</span> <span class="n">deg</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>    <span class="c1"># to +-180 deg</span>
+    <span class="k">if</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s1">&#39;0to360&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">Pnorm</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+            <span class="n">Pnorm</span> <span class="o">=</span> <span class="p">(</span><span class="n">Pnorm</span> <span class="o">+</span> <span class="mf">360.0</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">Pnorm</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">)</span> <span class="k">else</span> <span class="n">Pnorm</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">Pnorm</span><span class="p">[</span><span class="n">Pnorm</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">360</span>
+
+    <span class="c1"># return the result</span>
+    <span class="k">return</span> <span class="n">Pnorm</span></div>
+
+
+<div class="viewcode-block" id="pulse_info">
+<a class="viewcode-back" href="../generated/rf_det_act.html#rf_det_act.pulse_info">[docs]</a>
+<span class="k">def</span> <span class="nf">pulse_info</span><span class="p">(</span><span class="n">pulse</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    get information of a pulse.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        pulse:     numpy array, the pulse data</span>
+<span class="sd">        threshold: float, threshold for edge detection </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        offs:      int, offset id of the pulse</span>
+<span class="sd">        pulw:      int, pulse width as number of samples</span>
+<span class="sd">        peak:      float, peak magnitude of the pulse</span>
+
+<span class="sd">    To be done:</span>
+<span class="sd">        a. detect the rise time and falling time</span>
+<span class="sd">        b. detect the flattop region and average</span>
+<span class="sd">        c. calculate the energy in the pulse</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pulse</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pulse</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pulse</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">pulse</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">threshold</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="c1"># be sure the pulse is positive</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="c1"># get the peak</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;peak&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>           <span class="c1"># peak value of the pulse</span>
+    <span class="n">low_l</span> <span class="o">=</span> <span class="n">threshold</span> <span class="o">*</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;peak&#39;</span><span class="p">]</span>      <span class="c1"># the low limit of the pulse</span>
+
+    <span class="c1"># get the pulse info</span>
+    <span class="n">over_lowl</span> <span class="o">=</span> <span class="n">data</span> <span class="o">&gt;</span> <span class="n">low_l</span>
+    <span class="n">n</span>         <span class="o">=</span> <span class="n">over_lowl</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>          <span class="c1"># size of the pulse</span>
+    <span class="n">start_id</span>  <span class="o">=</span> <span class="mi">0</span>                           <span class="c1"># init the pulse start id</span>
+    <span class="n">end_id</span>    <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>                       <span class="c1"># init the pulse end id</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># find the pulse start id</span>
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">over_lowl</span><span class="p">[:</span><span class="n">i</span><span class="p">]))</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">over_lowl</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]):</span>
+            <span class="n">start_id</span> <span class="o">=</span> <span class="n">i</span>
+    
+        <span class="c1"># find the pulse end id</span>
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">over_lowl</span><span class="p">[</span><span class="n">i</span><span class="p">:]))</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">over_lowl</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="n">i</span><span class="p">]):</span>
+            <span class="n">end_id</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;offs&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="n">start_id</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;pulw&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="n">end_id</span> <span class="o">-</span> <span class="n">start_id</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="c1"># return the results</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, Paul Scherrer Institute.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

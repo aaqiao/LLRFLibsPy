@@ -1,0 +1,636 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>rf_fit &#8212; LLRFLibsPy  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script src="../_static/documentation_options.js?v=7f41d439"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generated/rf_fit';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="rf_det_act" href="rf_det_act.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">LLRFLibsPy  documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../introduction.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../architecture.html">
+                        Architecture
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../module_index.html">
+                        Modules
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://git.psi.ch/GFA/RF/Libraries/llrflibspy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../introduction.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../architecture.html">
+                        Architecture
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../module_index.html">
+                        Modules
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://git.psi.ch/GFA/RF/Libraries/llrflibspy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../rf_misc.html">rf_misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rf_noise.html">rf_noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rf_plot.html">rf_plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rf_sim.html">rf_sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rf_sysid.html">rf_sysid</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rf_calib.html">rf_calib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_control.html">rf_control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_det_act.html">rf_det_act</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">rf_fit</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../module_index.html" class="nav-link">LLRFLibsPy Modules</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">rf_fit</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="module-rf_fit">
+<span id="rf-fit"></span><h1>rf_fit<a class="headerlink" href="#module-rf_fit" title="Link to this heading">#</a></h1>
+<p>Fit data to sine/cosine, circle, ellipse or Gaussian functions.</p>
+<p class="rubric">Functions</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_fit.fit_Gaussian" title="rf_fit.fit_Gaussian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_Gaussian</span></code></a>(X, Y)</p></td>
+<td><p>Fit a Guassian distribution function.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_fit.fit_circle" title="rf_fit.fit_circle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_circle</span></code></a>(X, Y)</p></td>
+<td><p>Fit a circle.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_fit.fit_ellipse" title="rf_fit.fit_ellipse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_ellipse</span></code></a>(X, Y)</p></td>
+<td><p>Fit an ellipse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_fit.fit_sincos" title="rf_fit.fit_sincos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_sincos</span></code></a>(X_rad, Y[, target])</p></td>
+<td><p>Fit the sine or cosine function</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_fit.fit_Gaussian">
+<span class="sig-name descname"><span class="pre">fit_Gaussian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_fit.html#fit_Gaussian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_fit.fit_Gaussian" title="Link to this definition">#</a></dt>
+<dd><p>Fit a Guassian distribution function.
+See the webpage: <a class="reference external" href="https://pythonguides.com/scipy-normal-distribution/">https://pythonguides.com/scipy-normal-distribution/</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – numpy array, x-coordinate of the points</p></li>
+<li><p><strong>Y</strong> – numpy array, y-coordinate of the points</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>a</strong> – float, magnitude scale of the un-normalized distribution</p></li>
+<li><p><strong>mu</strong> – float, mean value</p></li>
+<li><p><strong>sigma</strong> – float, standard deviation</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_fit.fit_circle">
+<span class="sig-name descname"><span class="pre">fit_circle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_fit.html#fit_circle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_fit.fit_circle" title="Link to this definition">#</a></dt>
+<dd><p>Fit a circle. Given <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> data points and find <code class="docutils literal notranslate"><span class="pre">x0</span></code>, <code class="docutils literal notranslate"><span class="pre">y0</span></code> and <code class="docutils literal notranslate"><span class="pre">r</span></code> following
+<code class="docutils literal notranslate"><span class="pre">(x</span> <span class="pre">-</span> <span class="pre">x0)^2</span> <span class="pre">+</span> <span class="pre">(y</span> <span class="pre">-</span> <span class="pre">y0)^2</span> <span class="pre">=</span> <span class="pre">r^2</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – numpy array, x-coordinate of the points</p></li>
+<li><p><strong>Y</strong> – numpy array, y-coordinate of the points</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>x0, y0</strong> – float, center coordinate of the circle</p></li>
+<li><p><strong>r</strong> – float, radius of the circle</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_fit.fit_ellipse">
+<span class="sig-name descname"><span class="pre">fit_ellipse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_fit.html#fit_ellipse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_fit.fit_ellipse" title="Link to this definition">#</a></dt>
+<dd><p>Fit an ellipse. Get the general ellipse function and its characteristics, including
+semi-major axis <code class="docutils literal notranslate"><span class="pre">a</span></code>, semi-minor axis <code class="docutils literal notranslate"><span class="pre">b</span></code>, center coordinates <code class="docutils literal notranslate"><span class="pre">(x0,</span> <span class="pre">y0)</span></code> and rotation
+angle <code class="docutils literal notranslate"><span class="pre">sita</span></code> (the angle from the positive horizontal axis to the ellipse’s major axis).
+The general ellipse equation is <code class="docutils literal notranslate"><span class="pre">A*X^2</span> <span class="pre">+</span> <span class="pre">B*X*Y</span> <span class="pre">+</span> <span class="pre">C*Y^2</span> <span class="pre">+</span> <span class="pre">D*X</span> <span class="pre">+</span> <span class="pre">E*Y</span> <span class="pre">+</span> <span class="pre">F</span> <span class="pre">=</span> <span class="pre">0</span></code>.
+When making the fitting, we divide the equation by <code class="docutils literal notranslate"><span class="pre">C</span></code> to normalize the coefficient of
+<code class="docutils literal notranslate"><span class="pre">Y^2</span></code> to 1 and move it to the right side of the fitting equation. The ellipse is derived
+with the following steps:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><dl class="simple">
+<dt>define a canonical ellipse:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">X1</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">cos(phi)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y1</span> <span class="pre">=</span> <span class="pre">b</span> <span class="pre">*</span> <span class="pre">sin(phi)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<p>where <code class="docutils literal notranslate"><span class="pre">phi</span></code> is a phase vector covering from 0 to 2*pi</p>
+</li>
+<li><dl class="simple">
+<dt>rotate the canonical ellipse:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">X2</span> <span class="pre">=</span> <span class="pre">X1</span> <span class="pre">*</span> <span class="pre">cos(sita)</span> <span class="pre">-</span> <span class="pre">Y1</span> <span class="pre">*</span> <span class="pre">sin(sita)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y2</span> <span class="pre">=</span> <span class="pre">X1</span> <span class="pre">*</span> <span class="pre">sin(sita)</span> <span class="pre">+</span> <span class="pre">Y1</span> <span class="pre">*</span> <span class="pre">cos(sita)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>add offset to the rotated ellipse:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">X2</span> <span class="pre">+</span> <span class="pre">x0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Y</span> <span class="pre">=</span> <span class="pre">Y2</span> <span class="pre">+</span> <span class="pre">y0</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
+<p>See the webpage: <a class="reference external" href="https://en.wikipedia.org/wiki/Ellipse">https://en.wikipedia.org/wiki/Ellipse</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – numpy array, x-coordinate of the points</p></li>
+<li><p><strong>Y</strong> – numpy array, y-coordinate of the points</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>Coef</strong> – list, coefficiets derived from the least-square fitting</p></li>
+<li><p><strong>a</strong> – float, semi-major</p></li>
+<li><p><strong>b</strong> – float, semi-minor</p></li>
+<li><p><strong>x0, y0</strong> – float, center of the ellipse</p></li>
+<li><p><strong>sita</strong> – float, angle of the ellipse (see above), rad</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_fit.fit_sincos">
+<span class="sig-name descname"><span class="pre">fit_sincos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_rad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cos'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_fit.html#fit_sincos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_fit.fit_sincos" title="Link to this definition">#</a></dt>
+<dd><dl class="simple">
+<dt>Fit the sine or cosine function</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">A</span> <span class="pre">*</span> <span class="pre">cos(x</span> <span class="pre">+</span> <span class="pre">phi)</span> <span class="pre">+</span> <span class="pre">c</span> <span class="pre">=</span> <span class="pre">(A*cos(phi))</span> <span class="pre">*</span> <span class="pre">cos(x)</span> <span class="pre">-</span> <span class="pre">(A*sin(phi))</span> <span class="pre">*</span> <span class="pre">sin(x)</span> <span class="pre">+</span> <span class="pre">c</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">A</span> <span class="pre">*</span> <span class="pre">sin(x</span> <span class="pre">+</span> <span class="pre">phi)</span> <span class="pre">+</span> <span class="pre">c</span> <span class="pre">=</span> <span class="pre">(A*cos(phi))</span> <span class="pre">*</span> <span class="pre">sin(x)</span> <span class="pre">+</span> <span class="pre">(A*sin(phi))</span> <span class="pre">*</span> <span class="pre">cos(x)</span> <span class="pre">+</span> <span class="pre">c</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_rad</strong> – numpy array, phase array in radian</p></li>
+<li><p><strong>Y</strong> – numpy array, value of the sine or cosine function</p></li>
+<li><p><strong>target</strong> – ‘sin’ or ‘cos’, determine which function to fit to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>A</strong> – float, amplitude of the function</p></li>
+<li><p><strong>phi_rad</strong> – float, phase of the function, rad</p></li>
+<li><p><strong>c</strong> – float, offset of the function</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rf_det_act.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">rf_det_act</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_fit.fit_Gaussian"><code class="docutils literal notranslate"><span class="pre">fit_Gaussian()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_fit.fit_circle"><code class="docutils literal notranslate"><span class="pre">fit_circle()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_fit.fit_ellipse"><code class="docutils literal notranslate"><span class="pre">fit_ellipse()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_fit.fit_sincos"><code class="docutils literal notranslate"><span class="pre">fit_sincos()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, Paul Scherrer Institute.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

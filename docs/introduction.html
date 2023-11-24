@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>LLRFLibsPy Introduction &#8212; LLRFLibsPy  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script src="_static/documentation_options.js?v=7f41d439"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'introduction';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="LLRFLibsPy Contents" href="architecture.html" />
+    <link rel="prev" title="Welcome to LLRFLibsPy" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">LLRFLibsPy  documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="architecture.html">
+                        Architecture
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="module_index.html">
+                        Modules
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://git.psi.ch/GFA/RF/Libraries/llrflibspy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="architecture.html">
+                        Architecture
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="module_index.html">
+                        Modules
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://git.psi.ch/GFA/RF/Libraries/llrflibspy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">LLRFLibsPy...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="llrflibspy-introduction">
+<h1>LLRFLibsPy Introduction<a class="headerlink" href="#llrflibspy-introduction" title="Link to this heading">#</a></h1>
+<p><strong>LLRFLibsPy</strong> is a library of LLRF domain algorithms implemented in Python. It’s main purpose is to implement common LLRF algorithms benificial for the development of LLRF high-level applications, automation, and test software. Here we introduce the backgroud and motivation for this work.</p>
+<section id="survey-of-firmware-software-libraries-in-llrf-community">
+<h2>Survey of Firmware/Software Libraries in LLRF Community<a class="headerlink" href="#survey-of-firmware-software-libraries-in-llrf-community" title="Link to this heading">#</a></h2>
+<p>After years’ development of digital LLRF systems, their architecture are now quite mature with similar patterns. Though pushing the RF field stability to extreme and applying advanced algorithms like modern control algorithms and machine learning are still guiding the R&amp;D, standardization of the LLRF hardware, firmware and software has been started. DESY is in advance to standardize the LLRF hardware based on the MicroTCA platform. Some basic firmware/software libraries have been developed at DESY and PSI:</p>
+<ul class="simple">
+<li><p>PSI Firmware/Software Libraries</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/paulscherrerinstitute/psi_fix">psi_fix</a>: bittrue implementations in VHDL (for synthesis) and Python (for fast simulations) of standard signal processing components.</p></li>
+<li><p><a class="reference external" href="https://github.com/paulscherrerinstitute/psi_common">psi_common</a>: contains general VHDL code that is not very application specific and can be reused easily.</p></li>
+<li><p><a class="reference external" href="https://github.com/paulscherrerinstitute/psi_tb">psi_tb</a>: contains VHDL code that is useful for testbenches.</p></li>
+<li><p><a class="reference external" href="https://github.com/paulscherrerinstitute/PsiSim">PsiSim</a>: TCL framework allows easily creating regression tests using modelsim, VHDL and Vivado-Simulator.</p></li>
+<li><p><a class="reference external" href="https://git.psi.ch/GFA/RF/Libraries/llrflibs">LLRFLibs</a>: LLRF algorithm library implemented in C language.</p></li>
+<li><p><a class="reference external" href="https://git.psi.ch/GFA/RF/Libraries/llrflibspy"><strong>LLRFLibsPy</strong></a>: LLRF algorithm library implemented in Python (code of this website).</p></li>
+<li><p><a class="reference external" href="https://git.psi.ch/GFA/RF/Libraries/ooepics">ooEpics</a>: C++ framework for EPICS module development.</p></li>
+<li><p><a class="reference external" href="https://git.psi.ch/GFA/RF/Libraries/ooPye">ooPye</a>: Python framework for EPICS soft IOC development.</p></li>
+</ul>
+</li>
+<li><p>DESY Firmware/Software Libraries</p>
+<ul>
+<li><p><a class="reference external" href="https://gitlab.desy.de/fpgafw/fwk">FWK</a>: a library for firmware framework.</p></li>
+<li><p><a class="reference external" href="https://github.com/ChimeraTK">ChimeraTK</a>: a library for software framework</p></li>
+</ul>
+</li>
+</ul>
+<p>These libraries are used either to build the architecture, framework and infrastructure of the firmware/software or to implement domain algorithms related to LLRF and accelerator controls. To understand the motivations to develop these libraries, let us first have a look at the roles and locations of these libraries within the LLRF system.</p>
+</section>
+<section id="motivation-for-libraries">
+<h2>Motivation for Libraries<a class="headerlink" href="#motivation-for-libraries" title="Link to this heading">#</a></h2>
+<p>A general logical (functional) architecture of LLRF systems is depicted in Figure 1. Note that different implementations may map the functional blocks into different physical architecture. For example, the new SwissFEL X-band LLRF system combines the “LO &amp; Clock Generator” and “RF Transceiver” into a single custom chassis, whereas DESY’s MicroTCA system has a separated box for “LO &amp; Clock Generator” and implements the “RF Transceiver” into an RTM board.</p>
+<figure>
+<img align="center" src="_static/llrf_logical_arc.png">
+<figcaption align = "center"><b>Figure 1: A general functional architecture of a LLRF system</b></figcaption>
+</figure>
+<p>In Figure 1, the FPGA and CPU (a LLRF station may have multiple FPGAs and CPUs) are the digital processing units hosting the firmware and software entities. The logistical (functional) architecture of the firmware and software are depicted in Figure 2, including allocations into the FPGA and CPU.
+The firmware architecture are explained as follows:</p>
+<ul class="simple">
+<li><p>We separate the “Platform Support Firmware Modules” and the “Application Firmware Modules”. These two parts can be developed by different teams since different domain knowledge is required. To implement the platform support modules, the developers need to know the detailed protocols and electronic characteristics to access the on-board hardware components, such as the ADCs, DACs, memories and data buses (e.g., PCI express). On the other hand, the application firmware requires domain knowledge for RF signal detection, filtering, feedback control, and so on.</p></li>
+<li><p>The “Application Interface” of firmware should be designed as generic as possible to decouple the platform and application modules.</p></li>
+</ul>
+<p>The following firmware libraries can be beneficial for LLRF firmware development:</p>
+<ul class="simple">
+<li><p><strong>Firmware Framework Library</strong>:
+Such a library helps construct the firmware project structure, simulate the firmware code, and automate the firmware synthesize. Of course, platform support modules for accessing widely used hardware components (e.g., popular ADC chips, DAC chips, PCI express driver) can also be compiled into the library.</p></li>
+<li><p><strong>Basic Firmware Library</strong>:
+This library collects firmware build-up components (e.g., FIFO, filters… as shown in the diagram) that can be used in any firmware implementation.</p></li>
+<li><p><strong>RF Control Firmware Library</strong>:
+This library aims at implementing generic high-level configurable LLRF control modules. These modules can be assembled and configured to derive a working LLRF controller quickly.</p></li>
+</ul>
+<p>These libraries enables fast prototyping of LLRF controllers containing most fundamental features to satisfy most of the RF control requirements. The LLRF developer can make further development based on these libraries to include specific features for solving the particular RF control problems that they are facing.</p>
+<p>The software architecture are explained as follows:</p>
+<ul class="simple">
+<li><p>A layered architecture is constructed. The “OS &amp; Drivers” layer is at the bottom that is platform specific. The “Platform Control Interface” is a wrapper to separate the platform and application software, which has the similar role as the “Application Interface” in the firmware.</p></li>
+<li><p>The “Low-Level Applications” are usually soft real time for fast processing. In most LLRF systems, this layer is thin since most real-time functions can be implemented in the FPGA firmware, leaving this layer small only implementing necessary software-based real-time functions like data streaming, fast (complex) diagnostics/protection, and pulse-to-pulse feedback (for pulsed machine).</p></li>
+<li><p>The “High-Level Applications” are non-real-time functions performing the automation of the operation of LLRF system. This part requires lots of LLRF domain knowledge (e.g., cavity model, control theory, signal processing theory, etc.) since the high-level applications need to interpret the raw results from FPGA to values with physical meanings.</p></li>
+</ul>
+<p>The following Software libraries can be beneficial for LLRF software development:</p>
+<ul class="simple">
+<li><p><strong>Software Framework Library</strong>: The library defines a common software architecture and implements the infrastructures for multithreading, hardware access and network communication.</p></li>
+<li><p><strong>LLRF Algorithm Library (C/C++)</strong>: This library implements RF control domain algorithms. If written in C/C++ languages, the library can be used in “Low-Level Applications” for fast processing.</p></li>
+<li><p><strong>LLRF Algorithm Library (Python)</strong>: This library is suitable to implement “High-Level Applications”, including the RF test and conditioning automation software. Python is an excellent language for such applications. In addition to the same algorithms as in the C/C++ libraries, the Python library may also implement the features for noise analysis, feedback controller design, analysis and simulation. With such features, we can further reduce the reliance on Matlab for controller design.</p></li>
+</ul>
+<figure>
+<img align="center" src="_static/lib_arc.png">
+<figcaption align = "center"><b>Figure 2: A general functional architecture of the LLRF firmware and software and the libraries</b></figcaption>
+</figure>
+<p>This document describes the architecture, algorithms, and manual for the <strong>LLRFLibsPy</strong> library implemented at PSI.</p>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">#</a></h2>
+<p><strong>LLRFLibsPy</strong> depends on the following Python modules:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/">numpy</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/">scipy</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/">matplotlib</a> (only if <code class="docutils literal notranslate"><span class="pre">rf_plot</span></code> is imported)</p></li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<p>To be documented …</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to LLRFLibsPy</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="architecture.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">LLRFLibsPy Contents</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#survey-of-firmware-software-libraries-in-llrf-community">Survey of Firmware/Software Libraries in LLRF Community</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-for-libraries">Motivation for Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies">Dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, Paul Scherrer Institute.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
