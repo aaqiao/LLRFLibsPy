@@ -1,5 +1,5 @@
 # LLRF Algorithm Python Library (**LLRFLibsPy**)
-The PDF version of the manual and an introduction can be found in the `doc` folder.
+The PDF version of the manual and an introduction can be found in the `doc` folder. The webpage-based documentation can be found at https://aaqiao.github.io/LLRFLibsPy/.
 
 ## Description of Files and Folders
 - `src`:     folder containing source files of the library.
