@@ -1,0 +1,828 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>LLRFLibsPy Algorithms &#8212; LLRFLibsPy  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script src="_static/documentation_options.js?v=7f41d439"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'algorithms';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="LLRFLibsPy Modules" href="module_index.html" />
+    <link rel="prev" title="LLRFLibsPy Contents" href="architecture.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">LLRFLibsPy  documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="introduction.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="architecture.html">
+                        Architecture
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Algorithms
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="module_index.html">
+                        Modules
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/aaqiao/LLRFLibsPy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="introduction.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="architecture.html">
+                        Architecture
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Algorithms
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="module_index.html">
+                        Modules
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/aaqiao/LLRFLibsPy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">LLRFLibsPy...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="llrflibspy-algorithms">
+<h1>LLRFLibsPy Algorithms<a class="headerlink" href="#llrflibspy-algorithms" title="Link to this heading">#</a></h1>
+<section id="general-information">
+<h2>General Information<a class="headerlink" href="#general-information" title="Link to this heading">#</a></h2>
+<p>The reference articles for most algorithms used in <strong>LLRFLibsPy</strong> are documented in code pages (see <code class="docutils literal notranslate"><span class="pre">Modules</span></code>).
+Here we collect additional info about the algorithms used in the library.</p>
+</section>
+<section id="rf-sysid-functions">
+<h2><code class="docutils literal notranslate"><span class="pre">rf_sysid</span></code> Functions<a class="headerlink" href="#rf-sysid-functions" title="Link to this heading">#</a></h2>
+<section id="prbs">
+<h3><code class="docutils literal notranslate"><span class="pre">prbs</span></code><a class="headerlink" href="#prbs" title="Link to this heading">#</a></h3>
+<p>The routine generates a Pseudorandom Binary Sequence (PRBS), which can be used as a stimuli signal for system identification.
+Note that the number of point <span class="math notranslate nohighlight">\(n\)</span> should satisfy</p>
+<div class="math notranslate nohighlight">
+\[n = {2^k} - 1\]</div>
+<p>with <span class="math notranslate nohighlight">\(k\)</span> an integer, to achieve a constant magnitude in the Power Spectral Density (PSD) of the resulting time series.</p>
+</section>
+<section id="etfe">
+<h3><code class="docutils literal notranslate"><span class="pre">etfe</span></code><a class="headerlink" href="#etfe" title="Link to this heading">#</a></h3>
+<p>The ETFE algorithm estimates the frequency response of the system using the Discrete Fourier Transform (DFT) of the output (<span class="math notranslate nohighlight">\(y\)</span>)
+and input (<span class="math notranslate nohighlight">\(u\)</span>), given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{l}
+G\left( {{f_k}} \right) = {{Y\left( {{f_k}} \right)} \mathord{\left/
+ {\vphantom {{Y\left( {{f_k}} \right)} {U\left( {{f_k}} \right)}}} \right.
+} {U\left( {{f_k}} \right)}},\\
+{\rm{where}}\\
+U\left( {{f_k}} \right) = DFT\left\{ {u(t)} \right\},{\rm{ }}{\quad}Y\left( {{f_k}} \right) = DFT\left\{ {y(t)} \right\},{\rm{ }}\\
+{\rm{with  }}{f_k} = {{k{f_s}} \mathord{\left/
+ {\vphantom {{k{f_s}} N}} \right.
+} N},{\rm{ }}{\quad}k = 0,...,N - 1
+\end{array}\end{split}\]</div>
+<p>Here <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are the DFT of <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, respectively. The DFT is calculated with <span class="math notranslate nohighlight">\(N\)</span> samples sampled at frequency <span class="math notranslate nohighlight">\(f_s\)</span>.
+There are two methods implemented to improve the performance of ETFE:</p>
+<ul class="simple">
+<li><p>Using repeated inputs (with <span class="math notranslate nohighlight">\(r\)</span> batches of data by repeating the same input series by <span class="math notranslate nohighlight">\(r\)</span> times) and making average to
+reduce the effects of measurement noise.</p></li>
+<li><p>Remove the data in the transient of the system response (i.e., the first several batches of data).</p></li>
+</ul>
+</section>
+<section id="cav-drv-est">
+<h3><code class="docutils literal notranslate"><span class="pre">cav_drv_est</span></code><a class="headerlink" href="#cav-drv-est" title="Link to this heading">#</a></h3>
+<p>This function estimates the waveforms of the cavity drive signal (<span class="math notranslate nohighlight">\({{{\bf{v}}_{for}}}\)</span>) and reflected signal (<span class="math notranslate nohighlight">\({{{\bf{v}}_{ref}}}\)</span>) using the cavity probe signal
+(<span class="math notranslate nohighlight">\({{{\bf{v}}_{C}}}\)</span>) as reference. The input coupling factor (<span class="math notranslate nohighlight">\(\beta \)</span>), half-bandwidth (<span class="math notranslate nohighlight">\({\omega _{1/2}}\)</span>), and detuning (<span class="math notranslate nohighlight">\({\Delta \omega }\)</span>) should be given.
+The algorithm uses the following cavity equation with voltage drives (Eq. (3.31) of LLRF Book [1]):</p>
+<div class="math notranslate nohighlight">
+\[{{\bf{\dot v}}_C} + \left( {{\omega _{1/2}} - j\Delta \omega } \right){{\bf{v}}_C} = 2{\omega _{1/2}}\left( {\frac{\beta }{{\beta  + 1}}{{\bf{v}}_{for}} + {{\bf{v}}_{b0}}} \right)\]</div>
+<p>with the beam drive voltage <span class="math notranslate nohighlight">\({{{\bf{v}}_{b0} = 0}}\)</span>. The forward and reflected voltage waveforms are calculated as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{l}
+{{\bf{v}}_{for}} = \frac{{\beta  + 1}}{\beta } \cdot \frac{{{{{\bf{\dot v}}}_C} + \left( {{\omega _{1/2}} - j\Delta \omega } \right){{\bf{v}}_C}}}{{2{\omega _{1/2}}}},\\
+{{\bf{v}}_{ref}} = {{\bf{v}}_C} - {{\bf{v}}_{for}}.
+\end{array}\end{split}\]</div>
+<p>The implementation has used the discretized cavity equation to avoid directly calculating the derivative of the cavity voltage.</p>
+</section>
+<section id="cav-par-pulse">
+<h3><code class="docutils literal notranslate"><span class="pre">cav_par_pulse</span></code><a class="headerlink" href="#cav-par-pulse" title="Link to this heading">#</a></h3>
+<p>The implementation actually uses the polar differential equations of the cavity given by Eq. (4.24) in the LLRF Book.
+The derivative is calculated with the gradient function of numpy, which is sensitive to the measurement noise.
+In the example code, one can compare the result of this function with that of <code class="docutils literal notranslate"><span class="pre">cav_par_pulse_obs</span></code>, which avoids
+calculating the derivative and therefore, gives more smooth results.</p>
+</section>
+<section id="cav-par-pulse-obs">
+<h3><code class="docutils literal notranslate"><span class="pre">cav_par_pulse_obs</span></code><a class="headerlink" href="#cav-par-pulse-obs" title="Link to this heading">#</a></h3>
+<p>This function uses a disturbance observer to estimate the cavity voltage (smoothen the cavity probe signal) and a
+general disturbance term. From the general disturbance term, the cavity half-bandwidth and detuning at each time
+step can be estimated. The algorithm is described in the referred paper. The major benefit of the observer is that
+we can avoid calculating the derivatives and obtain less noisy results. Note that the beam drive term (calibrated to
+the same reference plane as the cavity probe signal) should be input to calculate the time-varying half-bandwidth
+and detuning if the beam is present.</p>
+</section>
+<section id="cav-beam-pulse-obs">
+<h3><code class="docutils literal notranslate"><span class="pre">cav_beam_pulse_obs</span></code><a class="headerlink" href="#cav-beam-pulse-obs" title="Link to this heading">#</a></h3>
+<p>Similar to the <code class="docutils literal notranslate"><span class="pre">cav_par_pulse_obs</span></code> function, this function calculates the waveform of the beam drive voltage given
+the cavity probe, forward signals and the intra-pulse half-bandwidth and detuning (e.g., calculated when the beam
+is off). Here we assume that the cavity voltage with the beam present is well controlled to be the same as the case
+without beam. Only in this case, the half-bandwidth and detuning of the cavity during the RF pulse can be assumed
+unchanged after injecting the beam.</p>
+</section>
+<section id="iden-impulse">
+<h3><code class="docutils literal notranslate"><span class="pre">iden_impulse</span></code><a class="headerlink" href="#iden-impulse" title="Link to this heading">#</a></h3>
+<p>This function estimates the impulse response of a system using its input and output signals. Complex signals are
+allowed for the RF system with its input and output as phasors representing the signals’ complex envelopes. The
+relationship between the input <span class="math notranslate nohighlight">\(u\)</span>, output <span class="math notranslate nohighlight">\(y\)</span>, and the system’s impulse response <span class="math notranslate nohighlight">\(h\)</span> is described by Eq. (4.41) of the
+LLRF Book. Here we model the system as a Finite Impulse Response (FIR) filter, therefore, the order should be large
+enough to cover most of the significant elements in the impulse response <span class="math notranslate nohighlight">\(h\)</span>.</p>
+</section>
+</section>
+<section id="rf-calib-functions">
+<h2><code class="docutils literal notranslate"><span class="pre">rf_calib</span></code> Functions<a class="headerlink" href="#rf-calib-functions" title="Link to this heading">#</a></h2>
+<section id="calib-vprobe">
+<h3><code class="docutils literal notranslate"><span class="pre">calib_vprobe</span></code><a class="headerlink" href="#calib-vprobe" title="Link to this heading">#</a></h3>
+<p>One example to apply the virtual probe calibration is for the SwissFEL Gun, whose probe if strongly affected by
+the mechanical vibrations caused by the cooling system. As shown in the Figure 1, the forward and reflected signals
+picked before the Gun cavity input coupler are calibrated with two complex coefficients (<span class="math notranslate nohighlight">\(\bf{m}\)</span> and <span class="math notranslate nohighlight">\(\bf{n}\)</span>) to match one of
+the cavity probe signal (see the equation in the function description above).</p>
+<figure>
+<img align="center", src="_static/rf_gun.png">
+<figcaption align = "left"><b>Figure 1: Virtual probe calibration for SwissFEL RF Gun</b></figcaption>
+</figure>
+<p>After calibration, the virtual probe signal was used as the input for RF feedback. Figure 2 compares the amplitudes and
+phases of the physical probe (Pb1) and virtual probe. It can be seen that the resonance peaks in the probe amplitude
+(caused by the mechanical vibrations applied to the probe antenna) is not visible in the virtual probe signal.</p>
+<figure>
+<img align="center", src="_static/vprobe_stability.png">
+<figcaption align = "left"><b>Figure 2: Comparison of cavity probe (affected by mechanical vibrations) and virtual probe signals</b></figcaption>
+</figure>
+</section>
+<section id="calib-ncav-for-ref">
+<h3><code class="docutils literal notranslate"><span class="pre">calib_ncav_for_ref</span></code><a class="headerlink" href="#calib-ncav-for-ref" title="Link to this heading">#</a></h3>
+<p>The implementation used a simplified algorithm compared to the one described in the Sect. 9.3.5 of the LLRF Book.
+This simplification benefits from the assumption that the loaded Q and detuning of the cavity are constant. First,
+the theoretical cavity forward and reflected signals are estimated with the <code class="docutils literal notranslate"><span class="pre">cav_drv_est</span></code> function. Then, we estimate
+the coefficients <span class="math notranslate nohighlight">\(\bf{m} = \bf{a} + \bf{b}\)</span> and <span class="math notranslate nohighlight">\(\bf{n} = \bf{b} + \bf{d}\)</span> using the <code class="docutils literal notranslate"><span class="pre">calib_vprobe</span></code> function. After that, we estimate <span class="math notranslate nohighlight">\(\bf{a}\)</span> and <span class="math notranslate nohighlight">\(\bf{b}\)</span> based on
+the estimated theoretical forward signal and the measured forward and reflected signals (also using <code class="docutils literal notranslate"><span class="pre">calib_vprobe</span></code> –
+use its feature of least-square fitting). Finally, all the four parameters <span class="math notranslate nohighlight">\(\bf{a}\)</span>, <span class="math notranslate nohighlight">\(\bf{b}\)</span>, <span class="math notranslate nohighlight">\(\bf{c}\)</span>, and <span class="math notranslate nohighlight">\(\bf{d}\)</span> are calculated.</p>
+</section>
+<section id="calib-scav-for-ref">
+<h3><code class="docutils literal notranslate"><span class="pre">calib_scav_for_ref</span></code><a class="headerlink" href="#calib-scav-for-ref" title="Link to this heading">#</a></h3>
+<p>The implementation is slightly different compare to the algorithm described in the Sect. 9.3.5 of the LLRF Book.
+The major difference is the method to calculate the parameter <span class="math notranslate nohighlight">\(\bf{a}\)</span>. In this implementation, <span class="math notranslate nohighlight">\(\bf{a}\)</span> is calculated using
+the estimated theoretical forward signal around the end of the RF pulse, where the cavity half-bandwidth and
+detuning is assumed to be the same as the parameter values input to the function.</p>
+</section>
+<section id="for-ref-volt2power">
+<h3><code class="docutils literal notranslate"><span class="pre">for_ref_volt2power</span></code><a class="headerlink" href="#for-ref-volt2power" title="Link to this heading">#</a></h3>
+<p>When using this function (and other functions requiring specification of <code class="docutils literal notranslate"><span class="pre">machine</span></code>), one must notice the difference
+of the definitions of the normalized effective shunt impedance in storage rings and Linacs. In a Linac, the normalized
+effective shunt impedance (<span class="math notranslate nohighlight">\(r/Q\)</span>) of a standing-wave cavity is defined as</p>
+<div class="math notranslate nohighlight">
+\[{r \mathord{\left/
+ {\vphantom {r Q}} \right.
+ } Q} = \frac{{V_{acc}^2}}{{{\omega _0}W}}{\rm{,   }}{\quad}r = \frac{{V_{acc}^2}}{{{P_{cav}}}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(V_{acc}\)</span> is the accelerating voltage taking into account the transit time factor, <span class="math notranslate nohighlight">\(P_{cav}\)</span> is the RF power dissipated
+in the cavity wall, <span class="math notranslate nohighlight">\(\omega _0\)</span> is the cavity resonance frequency (angular frequency), and <span class="math notranslate nohighlight">\(W\)</span> is the stored electromagnetic
+field energy in the cavity. Here <span class="math notranslate nohighlight">\(r\)</span> is the effective shunt impedance. In a storage ring, we have the following definition:</p>
+<div class="math notranslate nohighlight">
+\[{R \mathord{\left/
+ {\vphantom {R Q}} \right.
+ } Q} = \frac{{V_{acc}^2}}{{2{\omega _0}W}}{\rm{,   }}{\quad}R = \frac{{V_{acc}^2}}{{2{P_{cav}}}}\]</div>
+<p>Therefore, we have the following relation between the <span class="math notranslate nohighlight">\(R/Q\)</span> given in storage-ring cavity specifications and the <span class="math notranslate nohighlight">\(r/Q\)</span> given
+in Linac cavity specifications:</p>
+<div class="math notranslate nohighlight">
+\[{R \mathord{\left/
+ {\vphantom {R Q}} \right.
+ } Q} = \frac{1}{2}{r \mathord{\left/
+ {\vphantom {r Q}} \right.
+ } Q}\]</div>
+<p>In the LLRF Book, the loaded resistance <span class="math notranslate nohighlight">\(R_L\)</span> (Sect. 3.3.1) is defined following the Linac convention. It can be rewritten as
+follows in either Linac or storage-ring conventions:</p>
+<div class="math notranslate nohighlight">
+\[{R_L} = \frac{1}{2}\left( {{r \mathord{\left/
+ {\vphantom {r Q}} \right.
+ } Q}} \right){Q_L} = \left( {{R \mathord{\left/
+ {\vphantom {R Q}} \right.
+ } Q}} \right){Q_L}\]</div>
+<p>Now let’s workout the method how to convert the forward/reflected voltages (already calibrated to physical units) into powers.
+The relation between the forward (reflected) current phasor and voltage phasor is</p>
+<div class="math notranslate nohighlight">
+\[{{\bf{i}}_{for}} = \frac{{\beta {{\bf{v}}_{for}}}}{{\left( {\beta  + 1} \right){R_L}}},{\rm{ }}{\quad}{{\bf{i}}_{ref}} = \frac{{\beta {{\bf{v}}_{ref}}}}{{\left( {\beta  + 1} \right){R_L}}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\beta\)</span> is the input coupling factor of the cavity. Therefore, the forward (reflected) power can be calculated from the forward (reflected) voltage as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{l}
+{P_{for}} = \frac{{{{\bf{v}}_{for}}{\bf{i}}_{for}^*}}{2} = \frac{\beta }{{\beta  + 1}} \cdot \frac{{{{\left| {{{\bf{v}}_{for}}} \right|}^2}}}{{2{R_L}}},\\
+{P_{ref}} = \frac{{{{\bf{v}}_{ref}}{\bf{i}}_{ref}^*}}{2} = \frac{\beta }{{\beta  + 1}} \cdot \frac{{{{\left| {{{\bf{v}}_{ref}}} \right|}^2}}}{{2{R_L}}}.
+\end{array}\end{split}\]</div>
+<p>Here * is the conjugate of the phasor. Note that for superconducting cavities,
+<span class="math notranslate nohighlight">\(\beta\)</span> is much larger than 1, then the terms with <span class="math notranslate nohighlight">\(\beta\)</span> can be neglected and we reach the Eq. (9.35) of the LLRF Book.</p>
+</section>
+</section>
+<section id="rf-control-functions">
+<h2><code class="docutils literal notranslate"><span class="pre">rf_control</span></code> Functions<a class="headerlink" href="#rf-control-functions" title="Link to this heading">#</a></h2>
+<section id="ss-discrete">
+<h3><code class="docutils literal notranslate"><span class="pre">ss_discrete</span></code><a class="headerlink" href="#ss-discrete" title="Link to this heading">#</a></h3>
+<p>This function converts the continuous state-space equation</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{l}
+{\bf{\dot x}}\left( t \right) = {{\bf{A}}_c}{\bf{x}}\left( t \right) + {{\bf{B}}_c}{\bf{u}}\left( t \right),\\
+{\bf{y}}\left( t \right) = {{\bf{C}}_c}{\bf{x}}\left( t \right) + {{\bf{D}}_c}{\bf{u}}\left( t \right)
+\end{array}\end{split}\]</div>
+<p>into a discrete state-space equation as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{c}
+{\bf{x}}\left( {k + 1} \right) = {{\bf{A}}_d}{\bf{x}}\left( k \right) + {{\bf{B}}_d}{\bf{u}}\left( k \right),\\
+{\bf{y}}\left( k \right) = {{\bf{C}}_d}{\bf{x}}\left( k \right) + {{\bf{D}}_d}{\bf{u}}\left( k \right)
+\end{array}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> is the index of the samples. If enabled, the frequency response of the continuous and discrete state-space
+equations can be plot for comparison. The parameters should be tuned to match the discrete system frequency response
+to the continuous system frequency response as much as possible.</p>
+</section>
+<section id="basic-rf-controller">
+<h3><code class="docutils literal notranslate"><span class="pre">basic_rf_controller</span></code><a class="headerlink" href="#basic-rf-controller" title="Link to this heading">#</a></h3>
+<p>The phasor transfer function of the basic RF controller is given by</p>
+<div class="math notranslate nohighlight">
+\[K\left( {\hat s} \right) = {K_P} + \frac{{{K_I}}}{{\hat s}} + \sum\limits_{i = 1}^n {\frac{{{g_i}{\omega _{1/2,i}}}}{{\hat s + {\omega _{1/2,i}} - j{\omega _{notch,i}}}}}  + \sum\limits_{i = 1}^n {\frac{{{g_i}{\omega _{1/2,i}}}}{{\hat s + {\omega _{1/2,i}} + j{\omega _{notch,i}}}}}\]</div>
+<p>This is a Proportional-Integral (PI) controller with frequency notches at <span class="math notranslate nohighlight">\(\omega _{notch,i}, {\quad} i = 1,…,n\)</span>. This controller is
+used in an I/Q control loop. It accepts a complex input (<span class="math notranslate nohighlight">\(I + jQ\)</span>) and produces a complex output actuating on the
+I and Q channels via its real and imaginary components, respectively. The parameters are described as follows:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(K_P\)</span>: proportional gain</p></li>
+<li><p><span class="math notranslate nohighlight">\(K_I\)</span>: integral gain</p></li>
+<li><p><span class="math notranslate nohighlight">\(g_i\)</span>: max gain of the ith notch filter</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega _{1/2,i}\)</span>: half bandwidth of the <span class="math notranslate nohighlight">\(i\)</span>th notch filter</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega _{notch,i}\)</span>: frequency to be suppressed by the <span class="math notranslate nohighlight">\(i\)</span>th notch filter</p></li>
+</ul>
+<p>Note that we apply notches at both sidebands with frequency offsets of <span class="math notranslate nohighlight">\( \pm \omega _{notch,i}\)</span>. If it is clear that the disturbance to be
+suppressed appears only at one sideband, the notch filter at the other sideband can be discarded. The returned controller is
+in the format of state-space equation. Figure 3 shows the open-loop bode plot of an RF control loop consisting of a cavity
+and a basic RF controller. The cavity parameters are: resonance frequency = 500 MHz, half-bandwidth = 281.7 kHz,
+detuning = 2 * 281.7 kHz. The controller is a P controller with <span class="math notranslate nohighlight">\(K_P\)</span> = 10 and with notches at 1*, 2*, and 3*1.04 MHz.</p>
+<figure>
+<img align="center", src="_static/bode_plot.png">
+<figcaption align = "left"><b>Figure 3: Bode plot of an RF control loop open-loop transfer function</b></figcaption>
+</figure>
+</section>
+<section id="loop-analysis">
+<h3><code class="docutils literal notranslate"><span class="pre">loop_analysis</span></code><a class="headerlink" href="#loop-analysis" title="Link to this heading">#</a></h3>
+<p>The open-loop transfer function is constructed by cascading the system state-space equation (<code class="docutils literal notranslate"><span class="pre">AG,</span> <span class="pre">BG,</span> <span class="pre">CG,</span> <span class="pre">DG</span></code>) and the
+controller state-space equation (<code class="docutils literal notranslate"><span class="pre">AK,</span> <span class="pre">BK,</span> <span class="pre">CK,</span> <span class="pre">DK</span></code>). The frequency response of the open loop can be used to construct
+the bode-plot and Nyquist plot, with which the closed-loop stability and the phase/gain margins can be examined.</p>
+</section>
+</section>
+<section id="rf-det-act-functions">
+<h2><code class="docutils literal notranslate"><span class="pre">rf_det_act</span></code> Functions<a class="headerlink" href="#rf-det-act-functions" title="Link to this heading">#</a></h2>
+<section id="noniq-demod">
+<h3><code class="docutils literal notranslate"><span class="pre">noniq_demod</span></code><a class="headerlink" href="#noniq-demod" title="Link to this heading">#</a></h3>
+<p>This function demodulates the input waveform into I and Q components. The algorithm follows Eq. (5.22) of the LLRF Book.
+However, the implementation applies some tricks originally aiming at implementing this algorithm in FPGA. See Figure 4.
+The “non-IQ Coefficients” are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{l}
+{C_I} = \frac{2}{n}\sin \left( {l\Delta \varphi } \right),{\rm{ }}{\quad}{C_Q} = \frac{2}{n}\cos \left( {l\Delta \varphi } \right),{\rm{ }}{\quad}l = 0,...,n - 1\\
+{\rm{where }}{\quad}\Delta \varphi  = 2\pi {{{f_{IF}}} \mathord{\left/
+ {\vphantom {{{f_{IF}}} {{f_{Clock}}}}} \right.
+ } {{f_{Clock}}}} = {{2\pi m} \mathord{\left/
+ {\vphantom {{2\pi m} n}} \right.
+ } n}.
+\end{array}\end{split}\]</div>
+<p>Note that in Figure 4, all the components are synchronized by the same clock as ADC.</p>
+<figure>
+<img align="center", src="_static/noniq_demod.png">
+<figcaption align = "left"><b>Figure 4: Implementation of non-I/Q demodulation algorithm (with minimum usage of multipliers)</b></figcaption>
+</figure>
+</section>
+<section id="asyn-demod">
+<h3><code class="docutils literal notranslate"><span class="pre">asyn_demod</span></code><a class="headerlink" href="#asyn-demod" title="Link to this heading">#</a></h3>
+<p>This function demodulates the input raw waveform using the reference tracking method. Note that the implementation here
+only works for buffered waveforms. You need to input the whole waveform of the signal to be demodulated and the waveform
+of the reference signal sampled at the same time. Modifications are needed if this algorithm is applied to streamed samples
+(e.g., in FPGA). Here summarize the key points in the implementation:</p>
+<ul class="simple">
+<li><p>The carrier (IF) frequency of the signal is estimated via FFT.</p></li>
+<li><p>The function <code class="docutils literal notranslate"><span class="pre">twop_demod</span></code> is used to demodulate both waveforms.</p></li>
+<li><p>The reference phase is used to detect the phase slope (representing the error of the estimated carrier frequency),
+which is used to correct the phase of the signal to be demodulated.</p></li>
+</ul>
+</section>
+<section id="self-demod-ap">
+<h3><code class="docutils literal notranslate"><span class="pre">self_demod_ap</span></code><a class="headerlink" href="#self-demod-ap" title="Link to this heading">#</a></h3>
+<p>For a real time-domain signal <span class="math notranslate nohighlight">\(y(t)\)</span>, its Hilbert transform is defined as</p>
+<div class="math notranslate nohighlight">
+\[H\left[ {y\left( t \right)} \right]: = {y^H}\left( t \right) = \frac{1}{\pi }\int_{ - \infty }^\infty  {\frac{{y\left( \tau  \right)}}{{t - \tau }}d\tau }\]</div>
+<p>Then for signal <span class="math notranslate nohighlight">\(y(t)\)</span>, a complex signal can be constructed as</p>
+<div class="math notranslate nohighlight">
+\[{\bf{y}}\left( t \right) = y\left( t \right) + j{y^H}\left( t \right)\]</div>
+<p>From it the amplitude and phase of the signal <span class="math notranslate nohighlight">\(y(t)\)</span> can be calculated as</p>
+<div class="math notranslate nohighlight">
+\[{A_y}\left( t \right) = \sqrt {{{\left[ {y\left( t \right)} \right]}^2} + {{\left[ {{y^H}\left( t \right)} \right]}^2}} ,{\rm{ }}{\varphi _y}\left( t \right) = {\rm{ta}}{{\rm{n}}^{ - 1}}\left[ {\frac{{{y^H}\left( t \right)}}{{y\left( t \right)}}} \right]\]</div>
+<p>This function can be used to estimate the amplitude and phase of a waveform without knowing the sampling parameters
+such as the carrier frequency or the sampling frequency. With the estimated amplitude and phase, the amplitude and
+phase jitter of the waveform can be examined.</p>
+</section>
+</section>
+<section id="rf-noise-functions">
+<h2><code class="docutils literal notranslate"><span class="pre">rf_noise</span></code> Functions<a class="headerlink" href="#rf-noise-functions" title="Link to this heading">#</a></h2>
+<section id="gen-noise-from-psd">
+<h3><code class="docutils literal notranslate"><span class="pre">gen_noise_from_psd</span></code><a class="headerlink" href="#gen-noise-from-psd" title="Link to this heading">#</a></h3>
+<p>This function generates a time series with its PSD spectrum the same as that given by input parameters.
+The implementation follows the algorithm below:</p>
+<ul class="simple">
+<li><p>Derive the PSD at the <span class="math notranslate nohighlight">\(N\)</span> frequency points (corresponding to <span class="math notranslate nohighlight">\(N\)</span> data points, covering from <span class="math notranslate nohighlight">\(f_s/N\)</span> to <span class="math notranslate nohighlight">\(f_s\)</span>)
+by linearly interpreting the given PSD spectrum with the frequency and PSD both in the logarithm scale.</p></li>
+<li><p>From the interpreted PSD, calculate the DFT magnitude of the positive frequencies by inversing the formula
+of the periodogram method. See Eq. (6.15) of the LLRF Book. Then derive the complex DFT at positive frequencies
+by assigning a random phase to each point.</p></li>
+<li><p>Construct the full DFT from 0 to <span class="math notranslate nohighlight">\(f_s\)</span> (the DFT from <span class="math notranslate nohighlight">\(f_s/2\)</span> to <span class="math notranslate nohighlight">\(f_s\)</span> is the conjugate of the image frequencies
+from <span class="math notranslate nohighlight">\(f_s/2\)</span> down to 0), and calculate the time series with the inversed DFT (IDFT).</p></li>
+</ul>
+</section>
+<section id="calc-rms-from-psd">
+<h3><code class="docutils literal notranslate"><span class="pre">calc_rms_from_psd</span></code><a class="headerlink" href="#calc-rms-from-psd" title="Link to this heading">#</a></h3>
+<p>This function interprets the given PSD spectrum (similar to <code class="docutils literal notranslate"><span class="pre">gen_noise_from_psd</span></code>) and calculates the RMS jitter by
+integrating the noise power from <code class="docutils literal notranslate"><span class="pre">freq_start</span></code> to different ending frequencies up to <code class="docutils literal notranslate"><span class="pre">freq_end</span></code>.</p>
+</section>
+</section>
+<section id="rf-sim-functions">
+<h2><code class="docutils literal notranslate"><span class="pre">rf_sim</span></code> Functions<a class="headerlink" href="#rf-sim-functions" title="Link to this heading">#</a></h2>
+<section id="sim-ncav-step-simple">
+<h3><code class="docutils literal notranslate"><span class="pre">sim_ncav_step_simple</span></code><a class="headerlink" href="#sim-ncav-step-simple" title="Link to this heading">#</a></h3>
+<p>This function discretize the cavity equation with the Euler method. The accuracy will become bad if the sampling
+time <span class="math notranslate nohighlight">\(T_s\)</span> is close to the time constant of the cavity dynamics (e.g., transient caused by large detuning or the
+dynamics of pass-band modes).</p>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<p>[1]	S. Simrock and Z. Geng, Low-Level Radio Frequency Systems, Springer, 2022. https://link.springer.com/book/10.1007/978-3-030-94419-3</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="architecture.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">LLRFLibsPy Contents</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="module_index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">LLRFLibsPy Modules</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-information">General Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-sysid-functions"><code class="docutils literal notranslate"><span class="pre">rf_sysid</span></code> Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prbs"><code class="docutils literal notranslate"><span class="pre">prbs</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#etfe"><code class="docutils literal notranslate"><span class="pre">etfe</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cav-drv-est"><code class="docutils literal notranslate"><span class="pre">cav_drv_est</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cav-par-pulse"><code class="docutils literal notranslate"><span class="pre">cav_par_pulse</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cav-par-pulse-obs"><code class="docutils literal notranslate"><span class="pre">cav_par_pulse_obs</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cav-beam-pulse-obs"><code class="docutils literal notranslate"><span class="pre">cav_beam_pulse_obs</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iden-impulse"><code class="docutils literal notranslate"><span class="pre">iden_impulse</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-calib-functions"><code class="docutils literal notranslate"><span class="pre">rf_calib</span></code> Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calib-vprobe"><code class="docutils literal notranslate"><span class="pre">calib_vprobe</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calib-ncav-for-ref"><code class="docutils literal notranslate"><span class="pre">calib_ncav_for_ref</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calib-scav-for-ref"><code class="docutils literal notranslate"><span class="pre">calib_scav_for_ref</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-ref-volt2power"><code class="docutils literal notranslate"><span class="pre">for_ref_volt2power</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-control-functions"><code class="docutils literal notranslate"><span class="pre">rf_control</span></code> Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ss-discrete"><code class="docutils literal notranslate"><span class="pre">ss_discrete</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-rf-controller"><code class="docutils literal notranslate"><span class="pre">basic_rf_controller</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loop-analysis"><code class="docutils literal notranslate"><span class="pre">loop_analysis</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-det-act-functions"><code class="docutils literal notranslate"><span class="pre">rf_det_act</span></code> Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#noniq-demod"><code class="docutils literal notranslate"><span class="pre">noniq_demod</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asyn-demod"><code class="docutils literal notranslate"><span class="pre">asyn_demod</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#self-demod-ap"><code class="docutils literal notranslate"><span class="pre">self_demod_ap</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-noise-functions"><code class="docutils literal notranslate"><span class="pre">rf_noise</span></code> Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gen-noise-from-psd"><code class="docutils literal notranslate"><span class="pre">gen_noise_from_psd</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calc-rms-from-psd"><code class="docutils literal notranslate"><span class="pre">calc_rms_from_psd</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-sim-functions"><code class="docutils literal notranslate"><span class="pre">rf_sim</span></code> Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sim-ncav-step-simple"><code class="docutils literal notranslate"><span class="pre">sim_ncav_step_simple</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, Paul Scherrer Institute.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
