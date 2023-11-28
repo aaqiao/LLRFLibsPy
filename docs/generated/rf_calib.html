@@ -42,7 +42,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="rf_control" href="rf_control.html" />
-    <link rel="prev" title="Module rf_sysid" href="../rf_sysid.html" />
+    <link rel="prev" title="LLRFLibsPy Modules" href="../module_index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -315,18 +315,16 @@ document.write(`
         <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../rf_misc.html">rf_misc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rf_noise.html">rf_noise</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rf_plot.html">rf_plot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rf_sim.html">rf_sim</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rf_sysid.html">rf_sysid</a></li>
-</ul>
-<ul class="current nav bd-sidenav">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">rf_calib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rf_control.html">rf_control</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rf_det_act.html">rf_det_act</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rf_fit.html">rf_fit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_misc.html">rf_misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_noise.html">rf_noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_plot.html">rf_plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_sim.html">rf_sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_sysid.html">rf_sysid</a></li>
 </ul>
 </div>
 </nav></div>
@@ -394,19 +392,19 @@ document.write(`
 <td><p>Calibrate the cavity forward signal: <code class="docutils literal notranslate"><span class="pre">vf</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">vf_m</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rf_calib.calib_dac_offs" title="rf_calib.calib_dac_offs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calib_dac_offs</span></code></a>(vdac, viqm, sig_ids, sig_ide, ...)</p></td>
-<td><p>Calibrate the DAC offset to remove carrier leakage for direct upconversion (refer to LLRF Book section 9.2.2).</p></td>
+<td><p>Calibrate the DAC offset to remove carrier leakage for direct upconversion.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rf_calib.calib_iqmod" title="rf_calib.calib_iqmod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calib_iqmod</span></code></a>(vdac, viqm)</p></td>
 <td><p>Calibrate the I/Q modulator imbalance, return <code class="docutils literal notranslate"><span class="pre">inv(M)</span></code> with <code class="docutils literal notranslate"><span class="pre">[real(viqm)</span> <span class="pre">imag(viqm)]'</span> <span class="pre">=</span> <span class="pre">M</span> <span class="pre">*</span> <span class="pre">[real(vdac)</span> <span class="pre">imag(vdac)]'</span> <span class="pre">+</span> <span class="pre">[iqm_offs_I</span> <span class="pre">iqm_offs_Q]'</span></code> This method is OK to calibrate the imbalance matrix M (use its inverse to pre-distort the DAC output) but the offset is not accurate to determine the DAC offset calibration.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rf_calib.calib_ncav_for_ref" title="rf_calib.calib_ncav_for_ref"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calib_ncav_for_ref</span></code></a>(vc, vf_m, vr_m, pul_ids, ...)</p></td>
-<td><p>Calibrate the cavity forward and reflected signals for a normal conducting cavity with constant loaded Q and detuning: <code class="docutils literal notranslate"><span class="pre">vf</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">vf_m</span> <span class="pre">+</span> <span class="pre">b</span> <span class="pre">*</span> <span class="pre">vr_m,</span> <span class="pre">vr</span> <span class="pre">=</span> <span class="pre">c</span> <span class="pre">*</span> <span class="pre">vf_m</span> <span class="pre">+</span> <span class="pre">d</span> <span class="pre">*</span> <span class="pre">vr_m</span></code> The resulting <code class="docutils literal notranslate"><span class="pre">vf</span></code> and <code class="docutils literal notranslate"><span class="pre">vr</span></code> are the cavity drive/reflected signals at the same reference plane as the cavity probe <code class="docutils literal notranslate"><span class="pre">vc</span></code> (refer to LLRF Book section 9.3.5).</p></td>
+<td><p>Calibrate the cavity forward and reflected signals for a normal conducting cavity with constant loaded Q and detuning: <code class="docutils literal notranslate"><span class="pre">vf</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">vf_m</span> <span class="pre">+</span> <span class="pre">b</span> <span class="pre">*</span> <span class="pre">vr_m,</span> <span class="pre">vr</span> <span class="pre">=</span> <span class="pre">c</span> <span class="pre">*</span> <span class="pre">vf_m</span> <span class="pre">+</span> <span class="pre">d</span> <span class="pre">*</span> <span class="pre">vr_m</span></code> The resulting <code class="docutils literal notranslate"><span class="pre">vf</span></code> and <code class="docutils literal notranslate"><span class="pre">vr</span></code> are the cavity drive/reflected signals at the same reference plane as the cavity probe <code class="docutils literal notranslate"><span class="pre">vc</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rf_calib.calib_scav_for_ref" title="rf_calib.calib_scav_for_ref"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calib_scav_for_ref</span></code></a>(vc, vf_m, vr_m, pul_ids, ...)</p></td>
-<td><p>Calibrate the cavity forward and reflected signals for a superconducting cavity with time-varying loaded Q or detuning: <code class="docutils literal notranslate"><span class="pre">vf</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">vf_m</span> <span class="pre">+</span> <span class="pre">b</span> <span class="pre">*</span> <span class="pre">vr_m,</span> <span class="pre">vr</span> <span class="pre">=</span> <span class="pre">c</span> <span class="pre">*</span> <span class="pre">vf_m</span> <span class="pre">+</span> <span class="pre">d</span> <span class="pre">*</span> <span class="pre">vr_m</span></code> The resulting <code class="docutils literal notranslate"><span class="pre">vf</span></code> and <code class="docutils literal notranslate"><span class="pre">vr</span></code> are the cavity drive/reflected signals at the same reference plane as the cavity probe <code class="docutils literal notranslate"><span class="pre">vc</span></code> (refer to LLRF Book section 9.3.5).</p></td>
+<td><p>Calibrate the cavity forward and reflected signals for a superconducting cavity with time-varying loaded Q or detuning: <code class="docutils literal notranslate"><span class="pre">vf</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">vf_m</span> <span class="pre">+</span> <span class="pre">b</span> <span class="pre">*</span> <span class="pre">vr_m,</span> <span class="pre">vr</span> <span class="pre">=</span> <span class="pre">c</span> <span class="pre">*</span> <span class="pre">vf_m</span> <span class="pre">+</span> <span class="pre">d</span> <span class="pre">*</span> <span class="pre">vr_m</span></code> The resulting <code class="docutils literal notranslate"><span class="pre">vf</span></code> and <code class="docutils literal notranslate"><span class="pre">vr</span></code> are the cavity drive/reflected signals at the same reference plane as the cavity probe <code class="docutils literal notranslate"><span class="pre">vc</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rf_calib.calib_sys_gain_pha" title="rf_calib.calib_sys_gain_pha"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calib_sys_gain_pha</span></code></a>(vact, vf[, beta])</p></td>
-<td><p>Calibrate the system gain and sytem phase (refer to LLRF Book section 9.4.2).</p></td>
+<td><p>Calibrate the system gain and sytem phase.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rf_calib.calib_vprobe" title="rf_calib.calib_vprobe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calib_vprobe</span></code></a>(vc, vf_m, vr_m)</p></td>
 <td><p>Calibrate the virtual probe signal of the cavity with <code class="docutils literal notranslate"><span class="pre">vc</span> <span class="pre">=</span> <span class="pre">m</span> <span class="pre">*</span> <span class="pre">vf_m</span> <span class="pre">+</span> <span class="pre">n</span> <span class="pre">*</span> <span class="pre">vr_m</span></code> aiming at reconstructing the probe signal with the forward and reflected signals.</p></td>
@@ -415,16 +413,16 @@ document.write(`
 <td><p>Calibrate the vector sum (poor man's solution by rotating and scaling all other channels refering to the first channel).</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rf_calib.egain_cav_power" title="rf_calib.egain_cav_power"><code class="xref py py-obj docutils literal notranslate"><span class="pre">egain_cav_power</span></code></a>(pfor, roQ_or_RoQ, QL[, ...])</p></td>
-<td><p>Standing-wave cavity energy gain estimate from RF drive power without beam loading (refer to LLRF Book section 9.3.2.1, Eq.</p></td>
+<td><p>Standing-wave cavity energy gain estimate from RF drive power without beam loading.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rf_calib.egain_cgstr_power" title="rf_calib.egain_cgstr_power"><code class="xref py py-obj docutils literal notranslate"><span class="pre">egain_cgstr_power</span></code></a>(pfor, f0, rs, L, Q, Tf)</p></td>
-<td><p>Traveling-wave constant gradient structure energy gain estimate from RF drive power without beam loading (refer to LLRF Book section 9.3.2.1, equation (9.14)).</p></td>
+<td><p>Traveling-wave constant gradient structure energy gain estimate from RF drive power without beam loading.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rf_calib.for_ref_volt2power" title="rf_calib.for_ref_volt2power"><code class="xref py py-obj docutils literal notranslate"><span class="pre">for_ref_volt2power</span></code></a>(roQ_or_RoQ, QL[, ...])</p></td>
-<td><p>Convert the calibrated forward and reflected signals (in physical unit, V) to forward and reflected power (in W) (refer to LLRF Book section 3.3.9).</p></td>
+<td><p>Convert the calibrated forward and reflected signals (in physical unit, V) to forward and reflected power (in W).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rf_calib.phasing_energy" title="rf_calib.phasing_energy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">phasing_energy</span></code></a>(phi_vec, E_vec[, machine])</p></td>
-<td><p>Calibrate the beam phase using the beam energy measured by scanning RF phase (refer to LLRF Book section 9.3.2.3).</p></td>
+<td><p>Calibrate the beam phase using the beam energy measured by scanning RF phase.</p></td>
 </tr>
 </tbody>
 </table>
@@ -432,8 +430,8 @@ document.write(`
 <dt class="sig sig-object py" id="rf_calib.calib_cav_for">
 <span class="sig-name descname"><span class="pre">calib_cav_for</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vf_m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pul_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pul_ide</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">half_bw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detuning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_calib.html#calib_cav_for"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_calib.calib_cav_for" title="Link to this definition">#</a></dt>
 <dd><p>Calibrate the cavity forward signal: <code class="docutils literal notranslate"><span class="pre">vf</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">vf_m</span></code>. The resulting <code class="docutils literal notranslate"><span class="pre">vf</span></code> is
-the cavity drive signal at the same reference plane as the cavity probe <code class="docutils literal notranslate"><span class="pre">vc</span></code>
-(refer to LLRF Book section 4.6.1.3).</p>
+the cavity drive signal at the same reference plane as the cavity probe <code class="docutils literal notranslate"><span class="pre">vc</span></code>.</p>
+<p>Refer to LLRF Book section 4.6.1.3.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -467,8 +465,8 @@ specify it if more accurate calibration is needed)</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="rf_calib.calib_dac_offs">
 <span class="sig-name descname"><span class="pre">calib_dac_offs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vdac</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">viqm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_ide</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak_ide</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_calib.html#calib_dac_offs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_calib.calib_dac_offs" title="Link to this definition">#</a></dt>
-<dd><p>Calibrate the DAC offset to remove carrier leakage for direct upconversion
-(refer to LLRF Book section 9.2.2).</p>
+<dd><p>Calibrate the DAC offset to remove carrier leakage for direct upconversion.</p>
+<p>Refer to LLRF Book section 9.2.2.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -501,9 +499,9 @@ better results</p></li>
 This method is OK to calibrate the imbalance matrix M (use its inverse
 to pre-distort the DAC output) but the offset is not accurate to determine
 the DAC offset calibration. It is suggested to calibrate the DAC offset
-first using the routine <code class="docutils literal notranslate"><span class="pre">calib_dac_offs</span></code> before executing this function
-(Geng Z, Hong B (2016) Design and calibration of an RF actuator for
-low-level RF systems. IEEE Trans Nucl Sci 63(1):281-287).</p>
+first using the routine <code class="docutils literal notranslate"><span class="pre">calib_dac_offs</span></code> before executing this function.</p>
+<p>Refer to paper “Geng Z, Hong B (2016) Design and calibration of an RF actuator for
+low-level RF systems. IEEE Trans Nucl Sci 63(1):281-287”.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -530,8 +528,8 @@ correct the I/Q modulator imbalance</p></li>
 cavity with constant loaded Q and detuning:
 <code class="docutils literal notranslate"><span class="pre">vf</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">vf_m</span> <span class="pre">+</span> <span class="pre">b</span> <span class="pre">*</span> <span class="pre">vr_m,</span> <span class="pre">vr</span> <span class="pre">=</span> <span class="pre">c</span> <span class="pre">*</span> <span class="pre">vf_m</span> <span class="pre">+</span> <span class="pre">d</span> <span class="pre">*</span> <span class="pre">vr_m</span></code>
 The resulting <code class="docutils literal notranslate"><span class="pre">vf</span></code> and <code class="docutils literal notranslate"><span class="pre">vr</span></code> are the cavity drive/reflected signals at the
-same reference plane as the cavity probe <code class="docutils literal notranslate"><span class="pre">vc</span></code>
-(refer to LLRF Book section 9.3.5).</p>
+same reference plane as the cavity probe <code class="docutils literal notranslate"><span class="pre">vc</span></code>.</p>
+<p>Refer to LLRF Book section 9.3.5.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -567,8 +565,8 @@ cover entire pulse)</p></li>
 cavity with time-varying loaded Q or detuning:
 <code class="docutils literal notranslate"><span class="pre">vf</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">*</span> <span class="pre">vf_m</span> <span class="pre">+</span> <span class="pre">b</span> <span class="pre">*</span> <span class="pre">vr_m,</span> <span class="pre">vr</span> <span class="pre">=</span> <span class="pre">c</span> <span class="pre">*</span> <span class="pre">vf_m</span> <span class="pre">+</span> <span class="pre">d</span> <span class="pre">*</span> <span class="pre">vr_m</span></code>
 The resulting <code class="docutils literal notranslate"><span class="pre">vf</span></code> and <code class="docutils literal notranslate"><span class="pre">vr</span></code> are the cavity drive/reflected signals at the
-same reference plane as the cavity probe <code class="docutils literal notranslate"><span class="pre">vc</span></code>
-(refer to LLRF Book section 9.3.5).</p>
+same reference plane as the cavity probe <code class="docutils literal notranslate"><span class="pre">vc</span></code>.</p>
+<p>Refer to LLRF Book section 9.3.5.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -603,8 +601,8 @@ or you can specify it if more accurate calibration is needed)</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="rf_calib.calib_sys_gain_pha">
 <span class="sig-name descname"><span class="pre">calib_sys_gain_pha</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vact</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_calib.html#calib_sys_gain_pha"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_calib.calib_sys_gain_pha" title="Link to this definition">#</a></dt>
-<dd><p>Calibrate the system gain and sytem phase
-(refer to LLRF Book section 9.4.2).</p>
+<dd><p>Calibrate the system gain and sytem phase.</p>
+<p>Refer to LLRF Book section 9.4.2.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -679,8 +677,8 @@ channels refering to the first channel).</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="rf_calib.egain_cav_power">
 <span class="sig-name descname"><span class="pre">egain_cav_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pfor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roQ_or_RoQ</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">machine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linac'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_calib.html#egain_cav_power"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_calib.egain_cav_power" title="Link to this definition">#</a></dt>
-<dd><p>Standing-wave cavity energy gain estimate from RF drive power without beam loading
-(refer to LLRF Book section 9.3.2.1, Eq. (9.13)).</p>
+<dd><p>Standing-wave cavity energy gain estimate from RF drive power without beam loading.</p>
+<p>Refer to LLRF Book section 9.3.2.1, equation (9.13).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -716,8 +714,8 @@ specify the <code class="docutils literal notranslate"><span class="pre">machine
 <dt class="sig sig-object py" id="rf_calib.egain_cgstr_power">
 <span class="sig-name descname"><span class="pre">egain_cgstr_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pfor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_calib.html#egain_cgstr_power"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_calib.egain_cgstr_power" title="Link to this definition">#</a></dt>
 <dd><p>Traveling-wave constant gradient structure energy gain estimate from RF
-drive power without beam loading
-(refer to LLRF Book section 9.3.2.1, equation (9.14)).</p>
+drive power without beam loading.</p>
+<p>Refer to LLRF Book section 9.3.2.1, equation (9.14).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -742,8 +740,8 @@ drive power without beam loading
 <dt class="sig sig-object py" id="rf_calib.for_ref_volt2power">
 <span class="sig-name descname"><span class="pre">for_ref_volt2power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">roQ_or_RoQ</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vf_pcal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vr_pcal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">machine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linac'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_calib.html#for_ref_volt2power"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_calib.for_ref_volt2power" title="Link to this definition">#</a></dt>
 <dd><p>Convert the calibrated forward and reflected signals (in physical unit, V)
-to forward and reflected power (in W)
-(refer to LLRF Book section 3.3.9).</p>
+to forward and reflected power (in W).</p>
+<p>Refer to LLRF Book section 3.3.9.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -781,8 +779,8 @@ specify the <code class="docutils literal notranslate"><span class="pre">machine
 <dl class="py function">
 <dt class="sig sig-object py" id="rf_calib.phasing_energy">
 <span class="sig-name descname"><span class="pre">phasing_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi_vec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E_vec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">machine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linac'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_calib.html#phasing_energy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_calib.phasing_energy" title="Link to this definition">#</a></dt>
-<dd><p>Calibrate the beam phase using the beam energy measured by scanning RF phase
-(refer to LLRF Book section 9.3.2.3).</p>
+<dd><p>Calibrate the beam phase using the beam energy measured by scanning RF phase.</p>
+<p>Refer to LLRF Book section 9.3.2.3.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -820,12 +818,12 @@ the consine convention is used with 0 degree for on-crest acceleration.</p>
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../rf_sysid.html"
+       href="../module_index.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Module rf_sysid</p>
+        <p class="prev-next-title">LLRFLibsPy Modules</p>
       </div>
     </a>
     <a class="right-next"

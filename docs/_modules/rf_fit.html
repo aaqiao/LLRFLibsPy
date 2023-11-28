@@ -358,6 +358,11 @@ document.write(`
                   
   <h1>Source code for rf_fit</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Fit data to sine/cosine, circle, ellipse or Gaussian functions.&quot;&quot;&quot;</span>
+<span class="c1">#############################################################################</span>
+<span class="c1">#  Copyright (c) 2023 by Paul Scherrer Institute, Switzerland</span>
+<span class="c1">#  All rights reserved.</span>
+<span class="c1">#  Authors: Zheqiao Geng</span>
+<span class="c1">#############################################################################</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">#########################################################################</span>
 <span class="sd">Here collects routines for fitting algorithms</span>
@@ -367,8 +372,6 @@ document.write(`
 <span class="sd">    - fit_circle    : fit the 2D points to a circle function</span>
 <span class="sd">    - fit_ellipse   : fit the 2D points to an ellipse function</span>
 <span class="sd">    - fit_Gaussian  : fit a 1D Guassian function</span>
-
-<span class="sd">Created by Zheqiao Geng on March 09, 2022</span>
 <span class="sd">#########################################################################</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -518,6 +521,7 @@ document.write(`
 <span class="k">def</span> <span class="nf">fit_Gaussian</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Fit a Guassian distribution function. </span>
+<span class="sd">    </span>
 <span class="sd">    See the webpage: https://pythonguides.com/scipy-normal-distribution/.</span>
 
 <span class="sd">    Parameters:</span>

@@ -315,18 +315,16 @@ document.write(`
         <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../rf_misc.html">rf_misc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rf_noise.html">rf_noise</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rf_plot.html">rf_plot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rf_sim.html">rf_sim</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rf_sysid.html">rf_sysid</a></li>
-</ul>
-<ul class="current nav bd-sidenav">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="rf_calib.html">rf_calib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rf_control.html">rf_control</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">rf_det_act</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rf_fit.html">rf_fit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_misc.html">rf_misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_noise.html">rf_noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_plot.html">rf_plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_sim.html">rf_sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_sysid.html">rf_sysid</a></li>
 </ul>
 </div>
 </nav></div>
@@ -400,7 +398,7 @@ document.write(`
 <td><p>I/Q to A/P waveforms.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rf_det_act.noniq_demod" title="rf_det_act.noniq_demod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noniq_demod</span></code></a>(raw_wf, n[, m])</p></td>
-<td><p>Non-I/Q demodulation (refer to LLRF Book section 5.2.2).</p></td>
+<td><p>Non-I/Q demodulation.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rf_det_act.norm_phase" title="rf_det_act.norm_phase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">norm_phase</span></code></a>(P[, cmd])</p></td>
 <td><p>normalize phase to +-180 degree or between 0 to 360 degree.</p></td>
@@ -412,7 +410,7 @@ document.write(`
 <td><p>Self demodulation with Hilbert transform (later may implement padding to mitigate the edge effects).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rf_det_act.twop_demod" title="rf_det_act.twop_demod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">twop_demod</span></code></a>(raw_wf, f_if, fs)</p></td>
-<td><p>Demodulation with two points (refer to LLRF Book section 5.2.2).</p></td>
+<td><p>Demodulation with two points.</p></td>
 </tr>
 </tbody>
 </table>
@@ -475,7 +473,8 @@ document.write(`
 <dl class="py function">
 <dt class="sig sig-object py" id="rf_det_act.noniq_demod">
 <span class="sig-name descname"><span class="pre">noniq_demod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_wf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_det_act.html#noniq_demod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_det_act.noniq_demod" title="Link to this definition">#</a></dt>
-<dd><p>Non-I/Q demodulation (refer to LLRF Book section 5.2.2).</p>
+<dd><p>Non-I/Q demodulation.</p>
+<p>Refer to LLRF Book section 5.2.2.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -563,7 +562,8 @@ mitigate the edge effects).</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="rf_det_act.twop_demod">
 <span class="sig-name descname"><span class="pre">twop_demod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_wf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_if</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_det_act.html#twop_demod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_det_act.twop_demod" title="Link to this definition">#</a></dt>
-<dd><p>Demodulation with two points (refer to LLRF Book section 5.2.2).</p>
+<dd><p>Demodulation with two points.</p>
+<p>Refer to LLRF Book section 5.2.2.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">

@@ -1,0 +1,866 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>rf_sysid &#8212; LLRFLibsPy  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script src="../_static/documentation_options.js?v=7f41d439"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generated/rf_sysid';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="rf_sim" href="rf_sim.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">LLRFLibsPy  documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../introduction.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../architecture.html">
+                        Architecture
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../module_index.html">
+                        Modules
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://git.psi.ch/GFA/RF/Libraries/llrflibspy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../introduction.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../architecture.html">
+                        Architecture
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../module_index.html">
+                        Modules
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://git.psi.ch/GFA/RF/Libraries/llrflibspy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rf_calib.html">rf_calib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_control.html">rf_control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_det_act.html">rf_det_act</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_fit.html">rf_fit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_misc.html">rf_misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_noise.html">rf_noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_plot.html">rf_plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_sim.html">rf_sim</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">rf_sysid</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../module_index.html" class="nav-link">LLRFLibsPy Modules</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">rf_sysid</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="module-rf_sysid">
+<span id="rf-sysid"></span><h1>rf_sysid<a class="headerlink" href="#module-rf_sysid" title="Link to this heading">#</a></h1>
+<p>Identify the RF system transfer function and characteristic parameters.</p>
+<p class="rubric">Functions</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_sysid.beta_powers" title="rf_sysid.beta_powers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">beta_powers</span></code></a>(pf, pr[, weak])</p></td>
+<td><p>Identify the cavity input coupling factor using the steady-state forward/reflected powers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_sysid.cav_beam_pulse_obs" title="rf_sysid.cav_beam_pulse_obs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cav_beam_pulse_obs</span></code></a>(vc, vf, wh_pul, dw_pul, ...)</p></td>
+<td><p>Calculate the beam drive waveform of a standing-wave cavity given the intra-pulse half-bandwidth and detuning.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_sysid.cav_drv_est" title="rf_sysid.cav_drv_est"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cav_drv_est</span></code></a>(vc, half_bw, Ts[, detuning, beta])</p></td>
+<td><p>Calculate the theoritical drive waveform for the cavity probe waveform.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_sysid.cav_observer" title="rf_sysid.cav_observer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cav_observer</span></code></a>(vc, vf, half_bw, Ts[, beta, ...])</p></td>
+<td><p>Estimate the cavity voltage (denoised) and the general disturbance with the ADRC observer.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_sysid.cav_par_pulse" title="rf_sysid.cav_par_pulse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cav_par_pulse</span></code></a>(vc, vf, half_bw, Ts[, beta])</p></td>
+<td><p>Calculate the half-bandwidth and detuning of a standing-wave cavity within an RF pulse with beam off (directly solve the cavity equation).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_sysid.cav_par_pulse_obs" title="rf_sysid.cav_par_pulse_obs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cav_par_pulse_obs</span></code></a>(vc, vf, half_bw, Ts[, vb, ...])</p></td>
+<td><p>Calculate the half-bandwidth and detuning of a standing-wave cavity within an RF pulse with beam on/off (use ADRC observer).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_sysid.detuning_decay" title="rf_sysid.detuning_decay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">detuning_decay</span></code></a>(pha_wf_deg, decay_ids, ...)</p></td>
+<td><p>Calculate the detuning of a standing-wave cavity from RF pulse decay.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_sysid.etfe" title="rf_sysid.etfe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">etfe</span></code></a>(u, y[, r, exclude_transient, ...])</p></td>
+<td><p>Implement the Empirical Transfer Function Estimation (ETFE).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_sysid.half_bw_decay" title="rf_sysid.half_bw_decay"><code class="xref py py-obj docutils literal notranslate"><span class="pre">half_bw_decay</span></code></a>(amp_wf, decay_ids, decay_ide, Ts)</p></td>
+<td><p>Calculate the half-bandwidth of a standing-wave cavity from RF pulse decay.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_sysid.iden_impulse" title="rf_sysid.iden_impulse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iden_impulse</span></code></a>(U, Y[, order])</p></td>
+<td><p>Identify the impulse response using the input-output data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_sysid.prbs" title="rf_sysid.prbs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prbs</span></code></a>(n[, lower_b, upper_b])</p></td>
+<td><p>Generate prbs signal (PRBS monic polynomials)</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_sysid.beta_powers">
+<span class="sig-name descname"><span class="pre">beta_powers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weak</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_sysid.html#beta_powers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_sysid.beta_powers" title="Link to this definition">#</a></dt>
+<dd><p>Identify the cavity input coupling factor using the steady-state forward/reflected powers.</p>
+<p>Refer to LLRF Book section 9.4.1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pf</strong> – float, forward power in steady-state</p></li>
+<li><p><strong>pr</strong> – float, reflected power in steady-state (with the same unit as pf)</p></li>
+<li><p><strong>weak</strong> – boolean, True for weak coupling (beta &lt; 1), False for strong coupling (beta &gt; 1)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, True for success</p></li>
+<li><p><strong>beta</strong> – float, cavity input coupling factor</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_sysid.cav_beam_pulse_obs">
+<span class="sig-name descname"><span class="pre">cav_beam_pulse_obs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wh_pul</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dw_pul</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">half_bw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pole_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_sysid.html#cav_beam_pulse_obs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_sysid.cav_beam_pulse_obs" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the beam drive waveform of a standing-wave cavity given the intra-pulse half-bandwidth
+and detuning.</p>
+<p>Refer to the paper “Geng Z (2017a) Superconducting cavity control and model identification
+based on active disturbance rejection control. IEEE Trans Nucl Sci 64(3):951-958”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vc</strong> – numpy array (complex), cavity probe waveform (reference plane)</p></li>
+<li><p><strong>vf</strong> – numpy array (complex), cavity forward waveform (calibrated to
+the same reference plane as the cavity probe signal)</p></li>
+<li><p><strong>wh_pul</strong> – numpy array, half-bandwidth in the pulse, rad/s</p></li>
+<li><p><strong>dw_pul</strong> – numpy array, detuning in the pulse, rad/s</p></li>
+<li><p><strong>half_bw</strong> – float, half bandwidth of the cavity (derived from early part of decay), rad/s</p></li>
+<li><p><strong>Ts</strong> – float, sampling time, s</p></li>
+<li><p><strong>beta</strong> – float, input coupling factor (needed for NC cavities;
+for SC cavities, can use the default value, or you can
+specify it if more accurate calibration is needed)</p></li>
+<li><p><strong>pole_scale</strong> – float, scale of the cavity half-bandwidth for the observer pole,
+it should be tens of times of the closed-loop bandwidth of the cavity</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>vb_est</strong> – numpy array (complex), beam drive waveform (estimated by observer)</p></li>
+<li><p><strong>vc_est</strong> – numpy array (complex), cavity probe waveform (estimated by observer)</p></li>
+<li><p><strong>f_est</strong> – numpy array (complex), general disturbance WF (estimated by observer)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_sysid.cav_drv_est">
+<span class="sig-name descname"><span class="pre">cav_drv_est</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">half_bw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detuning</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_sysid.html#cav_drv_est"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_sysid.cav_drv_est" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the theoritical drive waveform for the cavity probe waveform.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vc</strong> – numpy array (complex), cavity probe waveform</p></li>
+<li><p><strong>half_bw</strong> – float, half bandwidth of the cavity, rad/s</p></li>
+<li><p><strong>Ts</strong> – float, sampling time, s</p></li>
+<li><p><strong>detuning</strong> – float, detuning of the cavity, rad/s</p></li>
+<li><p><strong>beta</strong> – float, input coupling factor (needed for NC cavities;
+for SC cavities, can use the default value, or you can
+specify it if more accurate calibration is needed)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>vf</strong> – numpy array (complex), estimated cavity drive waveform</p></li>
+<li><p><strong>vr</strong> – numpy array (complex), estimated cavity reflected waveform</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>If the cavity probe signal contains pass-band modes, better
+notch filter them.</p></li>
+<li><p>The estimate is useful to determine how to move the measured
+forward and reflected signals to align with the timing of the
+cavity probe signal.</p></li>
+</ol>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_sysid.cav_observer">
+<span class="sig-name descname"><span class="pre">cav_observer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">half_bw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pole_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_sysid.html#cav_observer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_sysid.cav_observer" title="Link to this definition">#</a></dt>
+<dd><p>Estimate the cavity voltage (denoised) and the general disturbance with the ADRC
+observer.</p>
+<p>Refer to the paper “Geng Z (2017a) Superconducting cavity control and model
+identification based on active disturbance rejection control. IEEE Trans Nucl Sci 64(3):951-958”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vc</strong> – numpy array (complex), cavity probe waveform (reference plane)</p></li>
+<li><p><strong>vf</strong> – numpy array (complex), cavity forward waveform (calibrated to
+the same reference plane as the cavity probe signal)</p></li>
+<li><p><strong>half_bw</strong> – float, half bandwidth of the cavity (derived from early part of decay), rad/s</p></li>
+<li><p><strong>Ts</strong> – float, sampling time, s</p></li>
+<li><p><strong>beta</strong> – float, input coupling factor (needed for NC cavities;
+for SC cavities, can use the default value, or you can
+specify it if more accurate calibration is needed)</p></li>
+<li><p><strong>pole_scale</strong> – float, scale of the cavity half-bandwidth for the observer pole,
+it should be tens of times of the closed-loop bandwidth of the cavity</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>vc_est</strong> – numpy array (complex), cavity probe waveform (estimated by observer)</p></li>
+<li><p><strong>f_est</strong> – numpy array (complex), general disturbance WF (estimated by observer)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_sysid.cav_par_pulse">
+<span class="sig-name descname"><span class="pre">cav_par_pulse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">half_bw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_sysid.html#cav_par_pulse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_sysid.cav_par_pulse" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the half-bandwidth and detuning of a standing-wave cavity
+within an RF pulse with beam off (directly solve the cavity equation).</p>
+<p>Refer to LLRF Book section 9.4.3.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vc</strong> – numpy array (complex), cavity probe waveform (reference plane)</p></li>
+<li><p><strong>vf</strong> – numpy array (complex), cavity forward waveform (calibrated to the
+same reference plan as the cavity probe signal)</p></li>
+<li><p><strong>half_bw</strong> – float, half bandwidth of the cavity (derived from early part
+of decay), rad/s</p></li>
+<li><p><strong>Ts</strong> – float, sampling time, s</p></li>
+<li><p><strong>beta</strong> – float, input coupling factor (needed for NC cavities;
+for SC cavities, can use the default value, or you can
+specify it if more accurate calibration is needed)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>wh_pul</strong> – numpy array, half-bandwidth in the pulse, rad/s</p></li>
+<li><p><strong>dw_pul</strong> – numpy array, detuning in the pulse, rad/s</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_sysid.cav_par_pulse_obs">
+<span class="sig-name descname"><span class="pre">cav_par_pulse_obs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">half_bw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pole_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_sysid.html#cav_par_pulse_obs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_sysid.cav_par_pulse_obs" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the half-bandwidth and detuning of a standing-wave cavity within an RF pulse with
+beam on/off (use ADRC observer).</p>
+<p>Refer to the paper “Geng Z (2017a) Superconducting cavity
+control and model identification based on active disturbance rejection control. IEEE
+Trans Nucl Sci 64(3):951-958”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vc</strong> – numpy array (complex), cavity probe waveform (reference plane)</p></li>
+<li><p><strong>vf</strong> – numpy array (complex), cavity forward waveform (calibrated to the
+same reference plan as the cavity probe signal)</p></li>
+<li><p><strong>half_bw</strong> – float, half bandwidth of the cavity (derived from early part of decay), rad/s</p></li>
+<li><p><strong>Ts</strong> – float, sampling time, s</p></li>
+<li><p><strong>vb</strong> – numpy array (complex), beam drive waveform (calibrated to the
+same reference plan as the cavity probe signal)</p></li>
+<li><p><strong>beta</strong> – float, input coupling factor (needed for NC cavities;
+for SC cavities, can use the default value, or you can
+specify it if more accurate calibration is needed)</p></li>
+<li><p><strong>pole_scale</strong> – float, scale of the cavity half-bandwidth for the observer pole,
+it should be tens of times of the closed-loop bandwidth of the cavity</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>wh_pul</strong> – numpy array, half-bandwidth in the pulse, rad/s</p></li>
+<li><p><strong>dw_pul</strong> – numpy array, detuning in the pulse, rad/s</p></li>
+<li><p><strong>vc_est</strong> – numpy array (complex), cavity probe waveform (estimated by observer)</p></li>
+<li><p><strong>f_est</strong> – numpy array (complex), general disturbance WF (estimated by observer)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_sysid.detuning_decay">
+<span class="sig-name descname"><span class="pre">detuning_decay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pha_wf_deg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay_ide</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ts</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_sysid.html#detuning_decay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_sysid.detuning_decay" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the detuning of a standing-wave cavity from RF pulse decay.</p>
+<p>Refer to LLRF Book section 9.4.3.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pha_wf_deg</strong> – numpy array, phase waveform, deg</p></li>
+<li><p><strong>decay_ids</strong> – int, starting index of calc window</p></li>
+<li><p><strong>decay_ide</strong> – int, ending index of calc window</p></li>
+<li><p><strong>Ts</strong> – float, sampling time, s</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, ‘True’ for successful calculation</p></li>
+<li><p><strong>detuning</strong> – float, detuning, rad/s</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_sysid.etfe">
+<span class="sig-name descname"><span class="pre">etfe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_transient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transient_batch_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_sysid.html#etfe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_sysid.etfe" title="Link to this definition">#</a></dt>
+<dd><p>Implement the Empirical Transfer Function Estimation (ETFE).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> – numpy array, system input waveform</p></li>
+<li><p><strong>y</strong> – numpy array, system output waveform</p></li>
+<li><p><strong>r</strong> – int, periods (number of batches) in the waveform</p></li>
+<li><p><strong>exclude_transient</strong> – boolean, True to exclude the transient (the first
+<code class="docutils literal notranslate"><span class="pre">transient_batch_num</span></code> batches will be excluded from
+calculation)</p></li>
+<li><p><strong>transient_batch_num</strong> – int, number of transient batches</p></li>
+<li><p><strong>fs</strong> – float, sampling frequency, Hz</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, True for success</p></li>
+<li><p><strong>freq</strong> – numpy array, frequency vector</p></li>
+<li><p><strong>G</strong> – numpy array (complex), frequency response of the system</p></li>
+<li><p><strong>u_fft</strong> – numpy array (complex), spectrum of the input waveform</p></li>
+<li><p><strong>y_fft</strong> – numpy array (complex), spectrum of the output waveform</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_sysid.half_bw_decay">
+<span class="sig-name descname"><span class="pre">half_bw_decay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amp_wf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decay_ide</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ts</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_sysid.html#half_bw_decay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_sysid.half_bw_decay" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the half-bandwidth of a standing-wave cavity from RF pulse decay.</p>
+<p>Refer to LLRF Book section 9.4.3.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>amp_wf</strong> – numpy array, amplitude waveform</p></li>
+<li><p><strong>decay_ids</strong> – int, starting index of calc window</p></li>
+<li><p><strong>decay_ide</strong> – int, ending index of calc window</p></li>
+<li><p><strong>Ts</strong> – float, sampling time, s</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, ‘True’ for successful calculation</p></li>
+<li><p><strong>half_bw</strong> – float, half bandwidth, rad/s</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_sysid.iden_impulse">
+<span class="sig-name descname"><span class="pre">iden_impulse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_sysid.html#iden_impulse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_sysid.iden_impulse" title="Link to this definition">#</a></dt>
+<dd><p>Identify the impulse response using the input-output data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>U</strong> – numpy array (complex), input waveforms</p></li>
+<li><p><strong>Y</strong> – numpy array (complex), output waveforms</p></li>
+<li><p><strong>order</strong> – int, order of the impulse response</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>h</strong> – numpy array (complex), impulse response</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_sysid.prbs">
+<span class="sig-name descname"><span class="pre">prbs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower_b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_sysid.html#prbs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_sysid.prbs" title="Link to this definition">#</a></dt>
+<dd><dl class="simple">
+<dt>Generate prbs signal (PRBS monic polynomials)</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS3</span>&#160;&#160; <span class="pre">=</span> <span class="pre">x^3</span> <span class="pre">+</span> <span class="pre">x^2</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS4</span>&#160;&#160; <span class="pre">=</span> <span class="pre">x^4</span> <span class="pre">+</span> <span class="pre">x^3</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS5</span>&#160;&#160; <span class="pre">=</span> <span class="pre">x^5</span> <span class="pre">+</span> <span class="pre">x^3</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS6</span>&#160;&#160; <span class="pre">=</span> <span class="pre">x^6</span> <span class="pre">+</span> <span class="pre">x^5</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS7</span>&#160;&#160; <span class="pre">=</span> <span class="pre">x^7</span> <span class="pre">+</span> <span class="pre">x^6</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS8</span>&#160;&#160; <span class="pre">=</span> <span class="pre">x^8</span> <span class="pre">+</span> <span class="pre">x^6</span> <span class="pre">+</span> <span class="pre">x^5</span> <span class="pre">+</span> <span class="pre">x^4</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS9</span>&#160;&#160; <span class="pre">=</span> <span class="pre">x^9</span> <span class="pre">+</span> <span class="pre">x^5</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS10</span>&#160; <span class="pre">=</span> <span class="pre">x^10</span> <span class="pre">+</span> <span class="pre">x^7</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS11</span>&#160; <span class="pre">=</span> <span class="pre">x^11</span> <span class="pre">+</span> <span class="pre">x^9</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS12</span>&#160; <span class="pre">=</span> <span class="pre">x^12</span> <span class="pre">+</span> <span class="pre">x^11</span> <span class="pre">+</span> <span class="pre">x^10</span> <span class="pre">+</span> <span class="pre">x^4</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS13</span>&#160; <span class="pre">=</span> <span class="pre">x^13</span> <span class="pre">+</span> <span class="pre">x^12</span> <span class="pre">+</span> <span class="pre">x^11</span> <span class="pre">+</span> <span class="pre">x^8</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS14</span>&#160; <span class="pre">=</span> <span class="pre">x^14</span> <span class="pre">+</span> <span class="pre">x^13</span> <span class="pre">+</span> <span class="pre">x^12</span> <span class="pre">+</span> <span class="pre">x^2</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS15</span>&#160; <span class="pre">=</span> <span class="pre">x^15</span> <span class="pre">+</span> <span class="pre">x^14</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS16</span>&#160; <span class="pre">=</span> <span class="pre">x^16</span> <span class="pre">+</span> <span class="pre">x^14</span> <span class="pre">+</span> <span class="pre">x^13</span> <span class="pre">+</span> <span class="pre">x^11</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS17</span>&#160; <span class="pre">=</span> <span class="pre">x^17</span> <span class="pre">+</span> <span class="pre">x^14</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS18</span>&#160; <span class="pre">=</span> <span class="pre">x^18</span> <span class="pre">+</span> <span class="pre">x^11</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS19</span>&#160; <span class="pre">=</span> <span class="pre">x^19</span> <span class="pre">+</span> <span class="pre">x^18</span> <span class="pre">+</span> <span class="pre">x^17</span> <span class="pre">+</span> <span class="pre">x^14</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS20</span>&#160; <span class="pre">=</span> <span class="pre">x^20</span> <span class="pre">+</span> <span class="pre">x^3</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS23</span>&#160; <span class="pre">=</span> <span class="pre">x^23</span> <span class="pre">+</span> <span class="pre">x^18</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRBS31</span>&#160; <span class="pre">=</span> <span class="pre">x^31</span> <span class="pre">+</span> <span class="pre">x^28</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> – int, number of point</p></li>
+<li><p><strong>lower_b</strong> – float, lower boundary</p></li>
+<li><p><strong>upper_b</strong> – float, upper boundary</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – good or not</p></li>
+<li><p><strong>data</strong> – numpy array, 1-D array of PRBS signal</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The prototype is found here
+<a class="reference external" href="https://gist.github.com/Btremaine/d2f861947fe3f49053116e7a679252e9">https://gist.github.com/Btremaine/d2f861947fe3f49053116e7a679252e9</a>.</p>
+</div>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rf_sim.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">rf_sim</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sysid.beta_powers"><code class="docutils literal notranslate"><span class="pre">beta_powers()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sysid.cav_beam_pulse_obs"><code class="docutils literal notranslate"><span class="pre">cav_beam_pulse_obs()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sysid.cav_drv_est"><code class="docutils literal notranslate"><span class="pre">cav_drv_est()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sysid.cav_observer"><code class="docutils literal notranslate"><span class="pre">cav_observer()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sysid.cav_par_pulse"><code class="docutils literal notranslate"><span class="pre">cav_par_pulse()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sysid.cav_par_pulse_obs"><code class="docutils literal notranslate"><span class="pre">cav_par_pulse_obs()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sysid.detuning_decay"><code class="docutils literal notranslate"><span class="pre">detuning_decay()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sysid.etfe"><code class="docutils literal notranslate"><span class="pre">etfe()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sysid.half_bw_decay"><code class="docutils literal notranslate"><span class="pre">half_bw_decay()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sysid.iden_impulse"><code class="docutils literal notranslate"><span class="pre">iden_impulse()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sysid.prbs"><code class="docutils literal notranslate"><span class="pre">prbs()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, Paul Scherrer Institute.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

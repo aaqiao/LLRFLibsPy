@@ -41,7 +41,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'module_index';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Module rf_misc" href="rf_misc.html" />
+    <link rel="next" title="rf_calib" href="generated/rf_calib.html" />
     <link rel="prev" title="LLRFLibsPy Contents" href="architecture.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -312,17 +312,15 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="rf_misc.html">rf_misc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rf_noise.html">rf_noise</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rf_plot.html">rf_plot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rf_sim.html">rf_sim</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rf_sysid.html">rf_sysid</a></li>
-</ul>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="generated/rf_calib.html">rf_calib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/rf_control.html">rf_control</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/rf_det_act.html">rf_det_act</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generated/rf_fit.html">rf_fit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/rf_misc.html">rf_misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/rf_noise.html">rf_noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/rf_plot.html">rf_plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/rf_sim.html">rf_sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/rf_sysid.html">rf_sysid</a></li>
 </ul>
 </div>
 </nav></div>
@@ -380,15 +378,6 @@ document.write(`
   <section id="llrflibspy-modules">
 <h1>LLRFLibsPy Modules<a class="headerlink" href="#llrflibspy-modules" title="Link to this heading">#</a></h1>
 <p>Here document the details of each function in the <strong>LLRFLibsPy</strong> library.</p>
-<ul class="simple">
-<li><p><strong>rf_misc</strong>: Misc. functions like saving data to files and reading data from files.</p></li>
-<li><p><strong>rf_noise</strong>: Noise analysis, generation, and filtering.</p></li>
-<li><p><strong>rf_plot</strong>: Plot functions for internal usage.</p></li>
-<li><p><strong>rf_sim</strong>: Simulate the cavity response; determine the operation parameters.</p></li>
-<li><p><strong>rf_sysid</strong>: Identify the system transfer function and characteristic parameters (e.g., cavity QL and detuning).</p></li>
-</ul>
-<div class="toctree-wrapper compound">
-</div>
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/rf_calib.html#module-rf_calib" title="rf_calib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rf_calib</span></code></a></p></td>
@@ -402,6 +391,21 @@ document.write(`
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/rf_fit.html#module-rf_fit" title="rf_fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rf_fit</span></code></a></p></td>
 <td><p>Fit data to sine/cosine, circle, ellipse or Gaussian functions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/rf_misc.html#module-rf_misc" title="rf_misc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rf_misc</span></code></a></p></td>
+<td><p>Save/read data to/from Matlab files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/rf_noise.html#module-rf_noise" title="rf_noise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rf_noise</span></code></a></p></td>
+<td><p>Analyze, generate and filter noise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/rf_plot.html#module-rf_plot" title="rf_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rf_plot</span></code></a></p></td>
+<td><p>Plotting functions for internal use.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/rf_sim.html#module-rf_sim" title="rf_sim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rf_sim</span></code></a></p></td>
+<td><p>Simulate the RF cavity response in the presence of RF drive and beam loading.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/rf_sysid.html#module-rf_sysid" title="rf_sysid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rf_sysid</span></code></a></p></td>
+<td><p>Identify the RF system transfer function and characteristic parameters.</p></td>
 </tr>
 </tbody>
 </table>
@@ -427,11 +431,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="rf_misc.html"
+       href="generated/rf_calib.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Module rf_misc</p>
+        <p class="prev-next-title">rf_calib</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -315,18 +315,16 @@ document.write(`
         <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../rf_misc.html">rf_misc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rf_noise.html">rf_noise</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rf_plot.html">rf_plot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rf_sim.html">rf_sim</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rf_sysid.html">rf_sysid</a></li>
-</ul>
-<ul class="current nav bd-sidenav">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="rf_calib.html">rf_calib</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">rf_control</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rf_det_act.html">rf_det_act</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rf_fit.html">rf_fit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_misc.html">rf_misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_noise.html">rf_noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_plot.html">rf_plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_sim.html">rf_sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_sysid.html">rf_sysid</a></li>
 </ul>
 </div>
 </nav></div>
@@ -391,25 +389,25 @@ document.write(`
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rf_control.ADRC_control_step" title="rf_control.ADRC_control_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ADRC_control_step</span></code></a>(Akd, Bkd, Ckd, Dkd, Aobd, ...)</p></td>
-<td><p>Controller execute for one step based on the controller's discrete state-space equation including the ADRC observer (refer to LLRF Book Figure 4.6).</p></td>
+<td><p>Controller execute for one step based on the controller's discrete state-space equation including the ADRC observer.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rf_control.ADRC_controller" title="rf_control.ADRC_controller"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ADRC_controller</span></code></a>(half_bw[, pole_scale])</p></td>
 <td><p>Generate the continous ADRC controller.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rf_control.AFF_ilc" title="rf_control.AFF_ilc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AFF_ilc</span></code></a>(vc_err, L)</p></td>
-<td><p>Apply the ILC (refer to LLRF Book section 4.5.2).</p></td>
+<td><p>Apply the ILC.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rf_control.AFF_ilc_design" title="rf_control.AFF_ilc_design"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AFF_ilc_design</span></code></a>(h, pulw[, P, Q])</p></td>
-<td><p>Adaptive feedforward with optimal iterative learning control (ILC) (refer to LLRF Book section 4.5.2).</p></td>
+<td><p>Adaptive feedforward with optimal iterative learning control (ILC).</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rf_control.AFF_timerev_lpf" title="rf_control.AFF_timerev_lpf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AFF_timerev_lpf</span></code></a>(vfb, fcut, fs[, vff_cor])</p></td>
-<td><p>Time-reversed low-pass filter, we only apply the first order IIR low-pass, which gives up to 90 degrees phase lead (refer to LLRF Book section 4.5.1).</p></td>
+<td><p>Time-reversed low-pass filter, we only apply the first order IIR low-pass, which gives up to 90 degrees phase lead.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rf_control.basic_rf_controller" title="rf_control.basic_rf_controller"><code class="xref py py-obj docutils literal notranslate"><span class="pre">basic_rf_controller</span></code></a>(Kp, Ki[, notch_conf, ...])</p></td>
 <td><p>Generate the continous state-space equation for a basic controller with</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rf_control.cav_sp_ff" title="rf_control.cav_sp_ff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cav_sp_ff</span></code></a>(half_bw, filling_len, flattop_len, ...)</p></td>
-<td><p>Generate the basic cavity set point and feedforward used to configure the LLRF controller (later may apply smooth in the edges) (refer to LLRF Book section 9.2.1).</p></td>
+<td><p>Generate the basic cavity set point and feedforward used to configure the LLRF controller (later may apply smooth in the edges).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rf_control.control_step" title="rf_control.control_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">control_step</span></code></a>(Akd, Bkd, Ckd, Dkd, err_step, ...)</p></td>
 <td><p>Controller execute for one step based on the discrete state-space equation.</p></td>
@@ -418,10 +416,10 @@ document.write(`
 <td><p>Control loop analysis, including</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rf_control.resp_inv_lsm" title="rf_control.resp_inv_lsm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resp_inv_lsm</span></code></a>(R[, regu])</p></td>
-<td><p>Response matrix inversion with least-square method (refer to Beam Control Book section 2.4.3).</p></td>
+<td><p>Response matrix inversion with least-square method.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rf_control.resp_inv_svd" title="rf_control.resp_inv_svd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resp_inv_svd</span></code></a>(R[, singular_val_filt])</p></td>
-<td><p>Response matrix inversion with SVD (refer to Beam Control Book section 2.4.2).</p></td>
+<td><p>Response matrix inversion with SVD.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rf_control.ss_cascade" title="rf_control.ss_cascade"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ss_cascade</span></code></a>(A1, B1, C1, D1, A2, B2, C2, D2[, Ts])</p></td>
 <td><p>Cascade two state-space systems with the first system applyed to the input first.</p></td>
@@ -438,8 +436,8 @@ document.write(`
 <dt class="sig sig-object py" id="rf_control.ADRC_control_step">
 <span class="sig-name descname"><span class="pre">ADRC_control_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Akd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Bkd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ckd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Dkd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Aobd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Bobd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sp_step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vc_step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vd_step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_k0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_ob0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ff_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_to_err</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#ADRC_control_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.ADRC_control_step" title="Link to this definition">#</a></dt>
 <dd><p>Controller execute for one step based on the controller’s discrete state-space equation
-including the ADRC observer
-(refer to LLRF Book Figure 4.6).</p>
+including the ADRC observer.</p>
+<p>Refer to LLRF Book Figure 4.6.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -504,8 +502,8 @@ has been normalized to 1 and the system phase corrected to 0. Therefore,
 the referred cavity equation is
 <code class="docutils literal notranslate"><span class="pre">dvc/dt</span> <span class="pre">+</span> <span class="pre">(half_bw</span> <span class="pre">-</span> <span class="pre">1j</span> <span class="pre">*</span> <span class="pre">detuning)*vc</span> <span class="pre">=</span> <span class="pre">half_bw</span> <span class="pre">*</span> <span class="pre">vd</span></code>
 where <code class="docutils literal notranslate"><span class="pre">vc</span></code> is the vector of cavity voltage and <code class="docutils literal notranslate"><span class="pre">vd</span></code> is the vector of cavity
-drive (in principle <code class="docutils literal notranslate"><span class="pre">vd</span> <span class="pre">=</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">beta</span> <span class="pre">*</span> <span class="pre">vf</span> <span class="pre">/</span> <span class="pre">(beta</span> <span class="pre">+</span> <span class="pre">1)</span></code>)
-(refer to LLRF Book section 4.2.3).</p>
+drive (in principle <code class="docutils literal notranslate"><span class="pre">vd</span> <span class="pre">=</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">beta</span> <span class="pre">*</span> <span class="pre">vf</span> <span class="pre">/</span> <span class="pre">(beta</span> <span class="pre">+</span> <span class="pre">1)</span></code>).</p>
+<p>Refer to LLRF Book section 4.2.3.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -526,7 +524,8 @@ drive (in principle <code class="docutils literal notranslate"><span class="pre"
 <dl class="py function">
 <dt class="sig sig-object py" id="rf_control.AFF_ilc">
 <span class="sig-name descname"><span class="pre">AFF_ilc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vc_err</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#AFF_ilc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.AFF_ilc" title="Link to this definition">#</a></dt>
-<dd><p>Apply the ILC (refer to LLRF Book section 4.5.2).</p>
+<dd><p>Apply the ILC.</p>
+<p>Refer to LLRF Book section 4.5.2.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -543,8 +542,8 @@ drive (in principle <code class="docutils literal notranslate"><span class="pre"
 <dl class="py function">
 <dt class="sig sig-object py" id="rf_control.AFF_ilc_design">
 <span class="sig-name descname"><span class="pre">AFF_ilc_design</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#AFF_ilc_design"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.AFF_ilc_design" title="Link to this definition">#</a></dt>
-<dd><p>Adaptive feedforward with optimal iterative learning control (ILC)
-(refer to LLRF Book section 4.5.2).</p>
+<dd><p>Adaptive feedforward with optimal iterative learning control (ILC).</p>
+<p>Refer to LLRF Book section 4.5.2.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -567,8 +566,8 @@ drive (in principle <code class="docutils literal notranslate"><span class="pre"
 <dt class="sig sig-object py" id="rf_control.AFF_timerev_lpf">
 <span class="sig-name descname"><span class="pre">AFF_timerev_lpf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vfb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fcut</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vff_cor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#AFF_timerev_lpf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.AFF_timerev_lpf" title="Link to this definition">#</a></dt>
 <dd><p>Time-reversed low-pass filter, we only apply the first order IIR low-pass,
-which gives up to 90 degrees phase lead
-(refer to LLRF Book section 4.5.1).</p>
+which gives up to 90 degrees phase lead.</p>
+<p>Refer to LLRF Book section 4.5.1.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -624,8 +623,8 @@ which gives up to 90 degrees phase lead
 <dt class="sig sig-object py" id="rf_control.cav_sp_ff">
 <span class="sig-name descname"><span class="pre">cav_sp_ff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">half_bw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filling_len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flattop_len</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pno</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vc0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detuning</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">const_fpow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ib0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phib_deg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beam_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beam_ide</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roQ_or_RoQ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3000000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">machine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linac'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#cav_sp_ff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.cav_sp_ff" title="Link to this definition">#</a></dt>
 <dd><p>Generate the basic cavity set point and feedforward used to configure
-the LLRF controller (later may apply smooth in the edges)
-(refer to LLRF Book section 9.2.1).</p>
+the LLRF controller (later may apply smooth in the edges).</p>
+<p>Refer to LLRF Book section 9.2.1.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -746,8 +745,8 @@ systems (<code class="docutils literal notranslate"><span class="pre">Ts</span><
 <dl class="py function">
 <dt class="sig sig-object py" id="rf_control.resp_inv_lsm">
 <span class="sig-name descname"><span class="pre">resp_inv_lsm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#resp_inv_lsm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.resp_inv_lsm" title="Link to this definition">#</a></dt>
-<dd><p>Response matrix inversion with least-square method
-(refer to Beam Control Book section 2.4.3).</p>
+<dd><p>Response matrix inversion with least-square method.</p>
+<p>Refer to Beam Control Book section 2.4.3.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -764,7 +763,8 @@ systems (<code class="docutils literal notranslate"><span class="pre">Ts</span><
 <dl class="py function">
 <dt class="sig sig-object py" id="rf_control.resp_inv_svd">
 <span class="sig-name descname"><span class="pre">resp_inv_svd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">singular_val_filt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_control.html#resp_inv_svd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_control.resp_inv_svd" title="Link to this definition">#</a></dt>
-<dd><p>Response matrix inversion with SVD (refer to Beam Control Book section 2.4.2).</p>
+<dd><p>Response matrix inversion with SVD.</p>
+<p>Refer to Beam Control Book section 2.4.2.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">

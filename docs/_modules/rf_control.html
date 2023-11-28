@@ -358,6 +358,11 @@ document.write(`
                   
   <h1>Source code for rf_control</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Design and analyze RF feedback/feedforward controllers.&quot;&quot;&quot;</span>
+<span class="c1">#############################################################################</span>
+<span class="c1">#  Copyright (c) 2023 by Paul Scherrer Institute, Switzerland</span>
+<span class="c1">#  All rights reserved.</span>
+<span class="c1">#  Authors: Zheqiao Geng</span>
+<span class="c1">#############################################################################</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">#########################################################################</span>
 <span class="sd">Here collects routines for RF controller design, analysis and simulation</span>
@@ -391,8 +396,6 @@ document.write(`
 <span class="sd">https://link.springer.com/book/10.1007/978-3-030-94419-3 (&quot;LLRF Book&quot;)</span>
 <span class="sd">Z. Geng and S. Simrock, Intelligent Beam Control in Accelerators, Springer, 2023</span>
 <span class="sd">https://link.springer.com/book/10.1007/978-3-031-28597-4 (&quot;Beam Control Book&quot;)</span>
-
-<span class="sd">Created by Zheqiao Geng on March 09, 2022</span>
 <span class="sd">#########################################################################</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -733,8 +736,9 @@ document.write(`
                 <span class="n">machine</span>    <span class="o">=</span> <span class="s1">&#39;linac&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Generate the basic cavity set point and feedforward used to configure</span>
-<span class="sd">    the LLRF controller (later may apply smooth in the edges)</span>
-<span class="sd">    (refer to LLRF Book section 9.2.1).</span>
+<span class="sd">    the LLRF controller (later may apply smooth in the edges).</span>
+<span class="sd">    </span>
+<span class="sd">    Refer to LLRF Book section 9.2.1.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters:</span>
 <span class="sd">        half_bw:     float, half bandwidth of the cavity, rad/s</span>
@@ -837,8 +841,9 @@ document.write(`
 <span class="sd">    the referred cavity equation is</span>
 <span class="sd">    ``dvc/dt + (half_bw - 1j * detuning)*vc = half_bw * vd``</span>
 <span class="sd">    where ``vc`` is the vector of cavity voltage and ``vd`` is the vector of cavity </span>
-<span class="sd">    drive (in principle ``vd = 2 * beta * vf / (beta + 1)``) </span>
-<span class="sd">    (refer to LLRF Book section 4.2.3).</span>
+<span class="sd">    drive (in principle ``vd = 2 * beta * vf / (beta + 1)``).</span>
+<span class="sd">    </span>
+<span class="sd">    Refer to LLRF Book section 4.2.3.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters:</span>
 <span class="sd">        half_bw:    float, half bandwidth of the cavity, rad/s</span>
@@ -879,8 +884,9 @@ document.write(`
                       <span class="n">ff_step</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">apply_to_err</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Controller execute for one step based on the controller&#39;s discrete state-space equation</span>
-<span class="sd">    including the ADRC observer</span>
-<span class="sd">    (refer to LLRF Book Figure 4.6).</span>
+<span class="sd">    including the ADRC observer.</span>
+<span class="sd">    </span>
+<span class="sd">    Refer to LLRF Book Figure 4.6.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters:</span>
 <span class="sd">        Akd, Bkd, Ckd, Dkd: numpy matrix (complex), discrete RF controller</span>
@@ -959,8 +965,9 @@ document.write(`
 <span class="k">def</span> <span class="nf">AFF_timerev_lpf</span><span class="p">(</span><span class="n">vfb</span><span class="p">,</span> <span class="n">fcut</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">vff_cor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Time-reversed low-pass filter, we only apply the first order IIR low-pass,</span>
-<span class="sd">    which gives up to 90 degrees phase lead</span>
-<span class="sd">    (refer to LLRF Book section 4.5.1).</span>
+<span class="sd">    which gives up to 90 degrees phase lead.</span>
+<span class="sd">    </span>
+<span class="sd">    Refer to LLRF Book section 4.5.1.</span>
 
 <span class="sd">    Parameters:</span>
 <span class="sd">        vfb:     numpy array (complex), feedback control waveform</span>
@@ -998,8 +1005,9 @@ document.write(`
 <a class="viewcode-back" href="../generated/rf_control.html#rf_control.AFF_ilc_design">[docs]</a>
 <span class="k">def</span> <span class="nf">AFF_ilc_design</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">pulw</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Q</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Adaptive feedforward with optimal iterative learning control (ILC)</span>
-<span class="sd">    (refer to LLRF Book section 4.5.2).</span>
+<span class="sd">    Adaptive feedforward with optimal iterative learning control (ILC).</span>
+<span class="sd">    </span>
+<span class="sd">    Refer to LLRF Book section 4.5.2.</span>
 
 <span class="sd">    Parameters:</span>
 <span class="sd">        h:      numpy array (complex), impulse response</span>
@@ -1041,7 +1049,9 @@ document.write(`
 <a class="viewcode-back" href="../generated/rf_control.html#rf_control.AFF_ilc">[docs]</a>
 <span class="k">def</span> <span class="nf">AFF_ilc</span><span class="p">(</span><span class="n">vc_err</span><span class="p">,</span> <span class="n">L</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Apply the ILC (refer to LLRF Book section 4.5.2).</span>
+<span class="sd">    Apply the ILC.</span>
+
+<span class="sd">    Refer to LLRF Book section 4.5.2.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters:</span>
 <span class="sd">        vc_err:  numpy array (complex), error of the cavity voltage waveform</span>
@@ -1057,7 +1067,9 @@ document.write(`
 <a class="viewcode-back" href="../generated/rf_control.html#rf_control.resp_inv_svd">[docs]</a>
 <span class="k">def</span> <span class="nf">resp_inv_svd</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">singular_val_filt</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Response matrix inversion with SVD (refer to Beam Control Book section 2.4.2).</span>
+<span class="sd">    Response matrix inversion with SVD.</span>
+
+<span class="sd">    Refer to Beam Control Book section 2.4.2.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters:</span>
 <span class="sd">        R:                 numpy matrix, response matrix</span>
@@ -1074,8 +1086,9 @@ document.write(`
 <a class="viewcode-back" href="../generated/rf_control.html#rf_control.resp_inv_lsm">[docs]</a>
 <span class="k">def</span> <span class="nf">resp_inv_lsm</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">regu</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Response matrix inversion with least-square method </span>
-<span class="sd">    (refer to Beam Control Book section 2.4.3).</span>
+<span class="sd">    Response matrix inversion with least-square method.</span>
+<span class="sd">    </span>
+<span class="sd">    Refer to Beam Control Book section 2.4.3.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters:</span>
 <span class="sd">        R:    numpy matrix, response matrix</span>

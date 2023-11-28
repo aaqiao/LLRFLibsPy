@@ -1,0 +1,928 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rf_noise &#8212; LLRFLibsPy  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script src="../_static/documentation_options.js?v=7f41d439"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/rf_noise';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">LLRFLibsPy  documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../introduction.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../architecture.html">
+                        Architecture
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../module_index.html">
+                        Modules
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://git.psi.ch/GFA/RF/Libraries/llrflibspy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../introduction.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../architecture.html">
+                        Architecture
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../module_index.html">
+                        Modules
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://git.psi.ch/GFA/RF/Libraries/llrflibspy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">rf_noise</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for rf_noise</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Analyze, generate and filter noise.&quot;&quot;&quot;</span>
+<span class="c1">#############################################################################</span>
+<span class="c1">#  Copyright (c) 2023 by Paul Scherrer Institute, Switzerland</span>
+<span class="c1">#  All rights reserved.</span>
+<span class="c1">#  Authors: Zheqiao Geng</span>
+<span class="c1">#############################################################################</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">#########################################################################</span>
+<span class="sd">Here collects routines for RF noise analysis</span>
+<span class="sd"> </span>
+<span class="sd">Implemented:</span>
+<span class="sd">    - calc_psd_coherent   : calculate the power spectral density (PSD) of a </span>
+<span class="sd">                            coherent sampled data series</span>
+<span class="sd">    - calc_psd            : calculate the PSD of a general data series</span>
+<span class="sd">    - rand_unif           : generate uniform distributed random numbers</span>
+<span class="sd">    - gen_noise_from_psd  : generate noise series from a given PSD spectrum</span>
+<span class="sd">    - calc_rms_from_psd   : calculate the RMS jitter from a given PSD spectrum</span>
+<span class="sd">    - notch_filt          : apply notch filter to a data series</span>
+<span class="sd">    - design_notch_filter : design a notch filter in state-space format</span>
+<span class="sd">    - filt_step           : apply a single time step of state-space filter</span>
+
+<span class="sd">To be implemented:</span>
+<span class="sd">    - correlation</span>
+<span class="sd">    - sum and sub of dB values</span>
+<span class="sd">    - random sub/sum (RMS values)</span>
+<span class="sd">    - moving average filter (with group delay compensated)</span>
+<span class="sd">    - estimate the RF detector nonlinearity caused meas. errors</span>
+
+<span class="sd">Some algorithms are referred to the following books:</span>
+<span class="sd">S. Simrock and Z. Geng, Low-Level Radio Frequency Systems, Springer, 2022</span>
+<span class="sd">https://link.springer.com/book/10.1007/978-3-030-94419-3 (&quot;LLRF Book&quot;)</span>
+<span class="sd">#########################################################################</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
+
+<div class="viewcode-block" id="calc_psd_coherent">
+<a class="viewcode-back" href="../generated/rf_noise.html#rf_noise.calc_psd_coherent">[docs]</a>
+<span class="k">def</span> <span class="nf">calc_psd_coherent</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">bit</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n_noniq</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">plot</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Calculate the power spectral density of the input waveform (coherent sampling).</span>
+<span class="sd">    </span>
+<span class="sd">    Refer to LLRF Book section 6.1.2.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        data:        numpy array, 1-D array of the raw waveform</span>
+<span class="sd">        fs:          float, sampling frequency, Hz</span>
+<span class="sd">        bit:         int, number of bit of data. If bit = 0, do not scale data</span>
+<span class="sd">        n_noniq:     int, non-I/Q parameters (n samples cover a full cycle)</span>
+<span class="sd">        plot:        boolean, True for plot the spectrum</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        freq:        numpy array, frequency waveform, Hz</span>
+<span class="sd">        amp_resp:    numpy array, amplitude response, dBFS/Hz</span>
+<span class="sd">        pha_resp:    numpy array, phase response, degree</span>
+<span class="sd">        signal_freq: float, signal frequency, Hz</span>
+<span class="sd">        signal_mag:  float, signal level, dBFS</span>
+<span class="sd">        noise_flr:   float, noise floor, dBFS/Hz</span>
+<span class="sd">        snr:         float, signal-to-noise ratio, dB</span>
+<span class="sd">        bin_db:      float, offset for an FFT bin freq space, dB</span>
+<span class="sd">        status:      boolean, success (True) or fail (False)</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        The unit dBFS is for ADC raw data, if for phase in radian, it should be</span>
+<span class="sd">        replaced by dBrad^2; if for relative amplitude, should be replaced by dB.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># results</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+
+    <span class="c1"># get the input data size</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span> <span class="n">L</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>     <span class="n">L</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>                            <span class="n">L</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># tailor the data: multiple of n_noniq (coherent)</span>
+    <span class="k">if</span> <span class="n">n_noniq</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span> <span class="n">n_noniq</span> <span class="o">=</span> <span class="mi">1</span>                        <span class="c1"># avoid dividing 0</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">L</span> <span class="o">/</span> <span class="n">n_noniq</span><span class="p">)</span> <span class="o">*</span> <span class="n">n_noniq</span>
+
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="n">N</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">or</span> <span class="n">fs</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">bit</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="c1"># calculate the FFT and get the results in Nyquist band</span>
+    <span class="k">if</span> <span class="n">bit</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">fftd</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span><span class="o">**</span><span class="p">(</span><span class="n">bit</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span><span class="p">))</span>  <span class="c1"># tailor the data and normalize with full scale</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fftd</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="p">]</span>
+
+    <span class="n">Y</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">fftd</span><span class="p">)</span>                             <span class="c1"># do FFT</span>
+    <span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span> <span class="o">*</span> <span class="n">fs</span>                        <span class="c1"># frequency vector, Hz</span>
+    <span class="n">ids</span>  <span class="o">=</span> <span class="n">freq</span> <span class="o">&lt;=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">fs</span>                             <span class="c1"># index of Nyquist band</span>
+    <span class="n">Y</span>    <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="n">ids</span><span class="p">]</span>                                       <span class="c1"># tailor the response</span>
+    <span class="n">freq</span> <span class="o">=</span> <span class="n">freq</span><span class="p">[</span><span class="n">ids</span><span class="p">]</span>                                    <span class="c1"># tailor the frequency vector</span>
+
+    <span class="c1"># calculate the PSD</span>
+    <span class="n">PSD</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">*</span> <span class="n">fs</span><span class="p">)</span>             <span class="c1"># SSB spectra, linear scale relative power / Hz</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">N</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="n">PSD</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">2.0</span>                   <span class="c1"># convert to DSB spectra (exclude DC and f_nyquist)</span>
+    <span class="k">else</span><span class="p">:</span>            <span class="n">PSD</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>   <span class="o">*=</span> <span class="mf">2.0</span>                   <span class="c1"># convert to DSB spectra (exclude DC)</span>
+
+    <span class="c1"># calculate the derived quantities</span>
+    <span class="n">amp_resp</span>    <span class="o">=</span> <span class="mf">10.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">PSD</span><span class="p">)</span>                  <span class="c1"># in dBFS/Hz</span>
+    <span class="n">pha_resp</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">deg</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>               <span class="c1"># in degree</span>
+    <span class="n">bin_dB</span>      <span class="o">=</span> <span class="mf">10.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">fs</span> <span class="o">/</span> <span class="n">N</span><span class="p">)</span>               <span class="c1"># offset in dB for an FFT bin frequency band</span>
+
+    <span class="n">sig_id</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">amp_resp</span><span class="p">)</span>                   <span class="c1"># bin index of the signal</span>
+    <span class="n">sig_level</span>   <span class="o">=</span> <span class="n">amp_resp</span><span class="p">[</span><span class="n">sig_id</span><span class="p">]</span> <span class="o">+</span> <span class="n">bin_dB</span>             <span class="c1"># signal power level, dBFS</span>
+
+    <span class="n">est_flr</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">amp_resp</span><span class="p">)</span>                     <span class="c1"># average the amplitude response in dB, a guess of noise floor</span>
+    <span class="n">spur_id</span>     <span class="o">=</span> <span class="n">amp_resp</span> <span class="o">&gt;</span> <span class="n">est_flr</span> <span class="o">+</span> <span class="mi">15</span>               <span class="c1"># find any spur 15 dB higher than the noise floor</span>
+
+    <span class="n">noise_bins</span>  <span class="o">=</span> <span class="n">PSD</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">invert</span><span class="p">(</span><span class="n">spur_id</span><span class="p">)]</span>               <span class="c1"># find all the noise bins (linear scale)</span>
+    <span class="n">noise_flr</span>   <span class="o">=</span> <span class="mf">10.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">noise_bins</span><span class="p">))</span>  <span class="c1"># average the noise spectral density, dBFS/Hz</span>
+
+    <span class="n">noise_level</span> <span class="o">=</span> <span class="n">noise_flr</span> <span class="o">+</span> <span class="mf">10.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">fs</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>     <span class="c1"># noise power level, dBFS</span>
+    <span class="n">snr</span>         <span class="o">=</span> <span class="n">sig_level</span> <span class="o">-</span> <span class="n">noise_level</span>               <span class="c1"># SNR, dB</span>
+
+    <span class="c1"># collect the results</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;freq&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="n">freq</span>                        <span class="c1"># Hz</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;psd&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="n">PSD</span>                         <span class="c1"># linear PSD (power / Hz)</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;amp_resp&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="n">amp_resp</span>                    <span class="c1"># dBFS/Hz</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;pha_resp&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="n">pha_resp</span>                    <span class="c1"># degree</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;signal_freq&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">freq</span><span class="p">[</span><span class="n">sig_id</span><span class="p">]</span>                <span class="c1"># signal frequency, Hz</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;signal_mag&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">sig_level</span>                   <span class="c1"># signal magnitude, dBFS</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;noise_flr&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="n">noise_flr</span>                   <span class="c1"># dBFS/Hz</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;snr&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="n">snr</span>                         <span class="c1"># dB</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;bin_db&#39;</span><span class="p">]</span>      <span class="o">=</span> <span class="n">bin_dB</span>                      <span class="c1"># dB</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span>      <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="c1"># make the plot</span>
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">rf_plot</span> <span class="kn">import</span> <span class="n">plot_calc_psd</span>
+        <span class="n">plot_calc_psd</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        
+    <span class="c1"># return</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="calc_psd">
+<a class="viewcode-back" href="../generated/rf_noise.html#rf_noise.calc_psd">[docs]</a>
+<span class="k">def</span> <span class="nf">calc_psd</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">bit</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">plot</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Calculate the power spectral density of the input waveform (nominal sampling).</span>
+<span class="sd">    </span>
+<span class="sd">    Refer to LLRF Book section 6.1.2.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        data:        numpy array, 1-D array of the raw waveform</span>
+<span class="sd">        fs:          float, sampling frequency, Hz</span>
+<span class="sd">        bit:         int, number of bit of data. If bit = 0, do not scale data</span>
+<span class="sd">        plot:        boolean, True for plot the spectrum</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        freq:        numpy array, frequency waveform, Hz</span>
+<span class="sd">        amp_resp:    numpy array, amplitude response, dBFS/Hz</span>
+<span class="sd">        pha_resp:    numpy array, phase response, degree</span>
+<span class="sd">        signal_freq: float, signal frequency, Hz</span>
+<span class="sd">        signal_mag:  float, signal level, dBFS</span>
+<span class="sd">        noise_flr:   float, noise floor, dBFS/Hz</span>
+<span class="sd">        snr:         float, signal-to-noise ratio, dB</span>
+<span class="sd">        bin_db:      float, offset for an FFT bin freq space, dB</span>
+<span class="sd">        enbw_db:     float, offset for an FFT bin freq space (correct windowing), dB</span>
+<span class="sd">        status:      boolean, success (True) or fail (False)</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        The unit dBFS is for ADC raw data, if for phase in radian, it should be</span>
+<span class="sd">        replaced by dBrad^2; if for relative amplitude, should be replaced by dB</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># results</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+
+    <span class="c1"># get the input data size</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span> 
+        <span class="n">N</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>     
+        <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="n">N</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">or</span> <span class="n">fs</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">bit</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="c1"># calculate the FFT and get the results in Nyquist band</span>
+    <span class="k">if</span> <span class="n">bit</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">fftd</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span><span class="o">**</span><span class="p">(</span><span class="n">bit</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span><span class="p">))</span>  <span class="c1"># tailor the data and normalize with full scale</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fftd</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="p">]</span>
+
+    <span class="n">win</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">blackman</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>                               <span class="c1"># blackman window    </span>
+    <span class="n">Y</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">fftd</span> <span class="o">*</span> <span class="n">win</span><span class="p">)</span>                       <span class="c1"># do FFT on windowed data</span>
+    <span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span> <span class="o">*</span> <span class="n">fs</span>                        <span class="c1"># frequency vector, Hz</span>
+    <span class="n">ids</span>  <span class="o">=</span> <span class="n">freq</span> <span class="o">&lt;=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">fs</span>                             <span class="c1"># index of Nyquist band</span>
+    <span class="n">Y</span>    <span class="o">=</span> <span class="n">Y</span><span class="p">[</span><span class="n">ids</span><span class="p">]</span>                                       <span class="c1"># tailor the response</span>
+    <span class="n">freq</span> <span class="o">=</span> <span class="n">freq</span><span class="p">[</span><span class="n">ids</span><span class="p">]</span>                                    <span class="c1"># tailor the frequency vector</span>
+
+    <span class="n">Wn</span>   <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">N</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">win</span> <span class="o">*</span> <span class="n">win</span><span class="p">)</span>                  <span class="c1"># window correction factor</span>
+    <span class="n">Ws</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">win</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> 
+    <span class="n">ENBW</span> <span class="o">=</span> <span class="n">Wn</span> <span class="o">/</span> <span class="n">Ws</span> <span class="o">*</span> <span class="n">fs</span> <span class="o">/</span> <span class="n">N</span>                             <span class="c1"># effective noise bandwidth for calculating the signal level</span>
+
+    <span class="c1"># calculate the PSD</span>
+    <span class="n">PSD</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">*</span> <span class="n">fs</span> <span class="o">*</span> <span class="n">Wn</span><span class="p">)</span>        <span class="c1"># SSB spectra, linear scale relative power / Hz</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">N</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="n">PSD</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">2.0</span>                   <span class="c1"># convert to DSB spectra (exclude DC and f_nyquist)</span>
+    <span class="k">else</span><span class="p">:</span>            <span class="n">PSD</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>   <span class="o">*=</span> <span class="mf">2.0</span>                   <span class="c1"># convert to DSB spectra (exclude DC)</span>
+
+    <span class="c1"># calculate the derived quantities</span>
+    <span class="n">amp_resp</span>    <span class="o">=</span> <span class="mf">10.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">PSD</span><span class="p">)</span>                  <span class="c1"># in dBFS/Hz</span>
+    <span class="n">pha_resp</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">deg</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>               <span class="c1"># in degree</span>
+    <span class="n">bin_dB</span>      <span class="o">=</span> <span class="mf">10.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">fs</span> <span class="o">/</span> <span class="n">N</span><span class="p">)</span>               <span class="c1"># offset in dB for an FFT bin frequency band</span>
+    <span class="n">enbw_dB</span>     <span class="o">=</span> <span class="mf">10.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">ENBW</span><span class="p">)</span>                 <span class="c1"># offset in dB for an FFT bin frequency band (corrected the windowing)</span>
+                                                        <span class="c1"># Note: &quot;bin_dB&quot; is used to integrate the noise power and the signal power</span>
+                                                        <span class="c1">#       (using all signal bins including the leaked ones); &quot;enbw_dB&quot; is only</span>
+                                                        <span class="c1">#       used in calcuating the signal level by taking only one central bin </span>
+                                                        <span class="c1">#       of the signal - to avoid integrating the spreaded signal bins (see</span>
+                                                        <span class="c1">#       below for the &quot;sig_level&quot; calculation)</span>
+
+    <span class="n">sig_id</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">amp_resp</span><span class="p">)</span>                   <span class="c1"># bin index of the signal</span>
+    <span class="n">sig_level</span>   <span class="o">=</span> <span class="n">amp_resp</span><span class="p">[</span><span class="n">sig_id</span><span class="p">]</span> <span class="o">+</span> <span class="n">enbw_dB</span>            <span class="c1"># signal power level (enbw_dB corrects the signal spectra leakage), dBFS</span>
+                                                        <span class="c1"># Note: by this treatment, we obtain a &quot;sig_level&quot; equivalent integrating</span>
+                                                        <span class="c1">#       all the signal bins that are formed by the leakage of the spectrum</span>
+
+    <span class="n">est_flr</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">amp_resp</span><span class="p">)</span>                     <span class="c1"># average the amplitude response in dB, a guess of noise floor</span>
+    <span class="n">spur_id</span>     <span class="o">=</span> <span class="n">amp_resp</span> <span class="o">&gt;</span> <span class="n">est_flr</span> <span class="o">+</span> <span class="mi">15</span>               <span class="c1"># find any spur 15 dB higher than the noise floor</span>
+
+    <span class="n">noise_id</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">invert</span><span class="p">(</span><span class="n">spur_id</span><span class="p">)</span>                    <span class="c1"># indices of noise bins</span>
+    <span class="n">noise_bins</span>  <span class="o">=</span> <span class="n">PSD</span><span class="p">[</span><span class="n">noise_id</span><span class="p">]</span>                         <span class="c1"># find all the noise bins (linear scale)    </span>
+    <span class="n">noise_flr</span>   <span class="o">=</span> <span class="mf">10.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">noise_bins</span><span class="p">))</span>  <span class="c1"># average the noise spectral density, dBFS/Hz</span>
+
+    <span class="n">noise_level</span> <span class="o">=</span> <span class="n">noise_flr</span> <span class="o">+</span> <span class="mf">10.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">fs</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>     <span class="c1"># noise power level, dBFS</span>
+    <span class="n">snr</span>         <span class="o">=</span> <span class="n">sig_level</span> <span class="o">-</span> <span class="n">noise_level</span>               <span class="c1"># SNR, dB</span>
+
+    <span class="c1"># collect the results</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;freq&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="n">freq</span>                        <span class="c1"># Hz</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;psd&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="n">PSD</span>                         <span class="c1"># complex PSD</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;amp_resp&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="n">amp_resp</span>                    <span class="c1"># dBFS/Hz</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;pha_resp&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="n">pha_resp</span>                    <span class="c1"># degree</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;signal_freq&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">freq</span><span class="p">[</span><span class="n">sig_id</span><span class="p">]</span>                <span class="c1"># signal frequency, Hz</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;signal_mag&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">sig_level</span>                   <span class="c1"># signal magnitude, dBFS</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;noise_flr&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="n">noise_flr</span>                   <span class="c1"># dBFS/Hz</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;snr&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="n">snr</span>                         <span class="c1"># dB</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;bin_db&#39;</span><span class="p">]</span>      <span class="o">=</span> <span class="n">bin_dB</span>                      <span class="c1"># dB</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;enbw_db&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="n">enbw_dB</span>                     <span class="c1"># dB</span>
+    <span class="n">result</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span>      <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="c1"># make the plot</span>
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">rf_plot</span> <span class="kn">import</span> <span class="n">plot_calc_psd</span>
+        <span class="n">plot_calc_psd</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+    <span class="c1"># return</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="rand_unif">
+<a class="viewcode-back" href="../generated/rf_noise.html#rf_noise.rand_unif">[docs]</a>
+<span class="k">def</span> <span class="nf">rand_unif</span><span class="p">(</span><span class="n">low</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    produce random number within a certain range.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        n:    int, number of output</span>
+<span class="sd">        low:  float, low limit of the data</span>
+<span class="sd">        high: float, high limit of the data</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        val:  if n = 1, it is a float number, if n &gt; 1, it is a np array</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="c1"># generate the random numbers</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+    <span class="c1"># make return</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>      <span class="k">return</span> <span class="n">val</span></div>
+
+
+<div class="viewcode-block" id="gen_noise_from_psd">
+<a class="viewcode-back" href="../generated/rf_noise.html#rf_noise.gen_noise_from_psd">[docs]</a>
+<span class="k">def</span> <span class="nf">gen_noise_from_psd</span><span class="p">(</span><span class="n">freq_vector</span><span class="p">,</span> <span class="n">pn_vector</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    generate noise series from DSB PSD.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        freq_vector: numpy array, offset frequency from carrier, Hz</span>
+<span class="sd">        pn_vector:   numpy array, DSB noise PSD, dBrad^2/Hz for phase noise</span>
+<span class="sd">        fs:          float, sampling frequency, Hz</span>
+<span class="sd">        N:           float, number of samples</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status:      boolean, success (True) or fail (False)</span>
+<span class="sd">        pn_series:   numpy array, time series of phase/amplitude noise</span>
+<span class="sd">        freq_p:      numpy array, interpreted freq_vector input</span>
+<span class="sd">        pn_p:        numpy array, interpreted pn_vector input</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check input</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">freq_vector</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">pn_vector</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">freq_vector</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">or</span> \
+       <span class="p">(</span><span class="n">fs</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">N</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="c1"># prepare the frequency vector of the data series</span>
+    <span class="n">df_bin</span>      <span class="o">=</span> <span class="n">fs</span> <span class="o">/</span> <span class="n">N</span>                                <span class="c1"># frequency bin size, Hz</span>
+    <span class="n">freq</span>        <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">df_bin</span>                 <span class="c1"># frequency vector, Hz</span>
+    <span class="n">freq</span><span class="p">[</span><span class="n">freq</span> <span class="o">&gt;</span> <span class="n">fs</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="n">fs</span>                             <span class="c1"># full freq vector with negative freq, Hz</span>
+    
+    <span class="c1"># interpolate the PSD at positive frequencies</span>
+    <span class="n">freq_p</span>      <span class="o">=</span> <span class="n">freq</span><span class="p">[</span><span class="n">freq</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>                        <span class="c1"># +freq (excl. DC but with fs/2 if exists), Hz</span>
+    <span class="n">pn_p</span>        <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freq_p</span><span class="p">),</span>        <span class="c1"># linear interpolation in log scale</span>
+                            <span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freq_vector</span><span class="p">),</span>
+                            <span class="n">pn_vector</span><span class="p">)</span>
+    
+    <span class="c1"># calculate the spectrum (see eq (6.15) of LLRF book) and add random phases</span>
+    <span class="n">pn_p_cplx</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">pn_p</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="n">N</span> <span class="o">*</span> <span class="n">fs</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> \
+                  <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">rand_unif</span><span class="p">(</span><span class="n">low</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">pn_p</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    
+    <span class="c1"># get the full complex spectrum (0 to fs) of the phase noise</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">pn_spec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">pn_p_cplx</span><span class="p">[</span><span class="mi">0</span><span class="p">]]),</span>         <span class="c1"># fs/2 bin exists</span>
+                                  <span class="n">pn_p_cplx</span><span class="p">,</span>                              
+                                  <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">pn_p_cplx</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">])])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">pn_spec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">pn_p_cplx</span><span class="p">[</span><span class="mi">0</span><span class="p">]]),</span>         <span class="c1"># fs/2 bin does not exist</span>
+                                  <span class="n">pn_p_cplx</span><span class="p">,</span>                              
+                                  <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">pn_p_cplx</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])])</span>
+
+    <span class="c1"># calculate the noise time series        </span>
+    <span class="n">pn_series</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft</span><span class="p">(</span><span class="n">pn_spec</span><span class="p">))</span>
+    <span class="n">pn_series</span> <span class="o">-=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">pn_series</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">pn_series</span><span class="p">,</span> <span class="n">freq_p</span><span class="p">,</span> <span class="n">pn_p</span></div>
+
+
+<div class="viewcode-block" id="calc_rms_from_psd">
+<a class="viewcode-back" href="../generated/rf_noise.html#rf_noise.calc_rms_from_psd">[docs]</a>
+<span class="k">def</span> <span class="nf">calc_rms_from_psd</span><span class="p">(</span><span class="n">freq_vector</span><span class="p">,</span> <span class="n">pn_vector</span><span class="p">,</span> <span class="n">freq_start</span><span class="p">,</span> <span class="n">freq_end</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    calculate the rms value from PSDs.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        freq_vector: numpy array, offset frequency from carrier, Hz</span>
+<span class="sd">        pn_vector:   numpy array, DSB noise PSD, dBrad^2/Hz for phase noise</span>
+<span class="sd">        freq_start:  float, starting frequency for integration, Hz</span>
+<span class="sd">        freq_end:    float, ending frequency for integration, Hz</span>
+<span class="sd">        fs:          float, sampling frequency, Hz</span>
+<span class="sd">        N:           int, number of points in the freq integration range</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status:      boolean, success (True) or fail (False)</span>
+<span class="sd">        freq_p:      numpy array, interpreted freq_vector input</span>
+<span class="sd">        pn_p:        numpy array, interpreted pn_vector input</span>
+<span class="sd">        jitter_p:    numpy array, integrated jitter starting from freq_start</span>
+<span class="sd">                      to different freq_p element values</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check input</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">freq_vector</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">pn_vector</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">freq_vector</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">or</span> \
+       <span class="p">(</span><span class="n">fs</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">N</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">freq_start</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">freq_end</span> <span class="o">&lt;=</span> <span class="n">freq_start</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+            
+    <span class="c1"># get the frequeny vector in the integration range and interpolate the PSD</span>
+    <span class="n">df_bin</span>  <span class="o">=</span> <span class="p">(</span><span class="n">freq_end</span> <span class="o">-</span> <span class="n">freq_start</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
+    <span class="n">freq_p</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">freq_start</span><span class="p">,</span> <span class="n">freq_end</span><span class="p">,</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">pn_p</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freq_p</span><span class="p">),</span>            <span class="c1"># linear interpolation in log scale</span>
+                        <span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">freq_vector</span><span class="p">),</span>
+                        <span class="n">pn_vector</span><span class="p">)</span>
+    
+    <span class="c1"># integrate the jitter in the frequency integration region</span>
+    <span class="n">bin_dB</span>      <span class="o">=</span> <span class="mf">10.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">df_bin</span><span class="p">)</span>
+    <span class="n">jitter_p</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">freq_p</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>    
+    <span class="n">noise_power</span> <span class="o">=</span> <span class="mf">0.0</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">jitter_p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">noise_power</span><span class="p">)</span>
+        <span class="n">noise_power</span> <span class="o">+=</span> <span class="mf">10.0</span><span class="o">**</span><span class="p">((</span><span class="n">pn_p</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">bin_dB</span><span class="p">)</span> <span class="o">/</span> <span class="mf">10.0</span><span class="p">)</span>    
+    
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">freq_p</span><span class="p">,</span> <span class="n">pn_p</span><span class="p">,</span> <span class="n">jitter_p</span></div>
+
+        
+<div class="viewcode-block" id="notch_filt">
+<a class="viewcode-back" href="../generated/rf_noise.html#rf_noise.notch_filt">[docs]</a>
+<span class="k">def</span> <span class="nf">notch_filt</span><span class="p">(</span><span class="n">wf</span><span class="p">,</span> <span class="n">fnotch</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Apply notch filter to the signal.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        wf:      numpy array, the waveform to be notch filtered</span>
+<span class="sd">        fnotch:  float, frequency to be notched, Hz</span>
+<span class="sd">        Q:       float, quality factor of the notch filter</span>
+<span class="sd">        fs:      float, sampling frequency, Hz</span>
+<span class="sd">        b, a:    numpy arrays filter coefficients. Note that the user can</span>
+<span class="sd">                  either input ``b, a``, or ``fnotch, Q, fs``</span>
+<span class="sd">                  </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status:  boolean, success (True) or fail (False)</span>
+<span class="sd">        wf_f:    numpy array, filtered waveform</span>
+<span class="sd">        b, a:    numpy array, filter coefficients. If the same filter </span>
+<span class="sd">                  is used to filter multiple waveforms, we can use it</span>
+<span class="sd">                  to avoid repeat the filter synthesis</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">wf</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">wf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">fnotch</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="ow">or</span> \
+       <span class="p">(</span><span class="n">Q</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">fs</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="c1"># create the notch filter if not available</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">b</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">iirnotch</span><span class="p">(</span><span class="n">fnotch</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+
+    <span class="c1"># filter the data</span>
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">signal</span><span class="o">.</span><span class="n">filtfilt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">wf</span><span class="p">),</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span></div>
+
+
+<div class="viewcode-block" id="design_notch_filter">
+<a class="viewcode-back" href="../generated/rf_noise.html#rf_noise.design_notch_filter">[docs]</a>
+<span class="k">def</span> <span class="nf">design_notch_filter</span><span class="p">(</span><span class="n">fnotch</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">fs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Design the notch filter (return a discrete filter).</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        fnotch:  float, frequency to be notched, Hz</span>
+<span class="sd">        Q:       float, quality factor of the notch filter</span>
+<span class="sd">        fs:      float, sampling frequency, Hz</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status:         boolean, success (True) or fail (False)</span>
+<span class="sd">        Ad, Bd, Cd, Dd: numpy matrix, discrete notch filter</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">fnotch</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">Q</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">fs</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">4</span>    
+
+    <span class="c1"># create the notch filter</span>
+    <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">iirnotch</span><span class="p">(</span><span class="n">fnotch</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>
+    <span class="n">dsys</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">dlti</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
+    <span class="n">dsys</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">StateSpace</span><span class="p">(</span><span class="n">dsys</span><span class="p">)</span>
+    <span class="n">Ad</span><span class="p">,</span> <span class="n">Bd</span><span class="p">,</span> <span class="n">Cd</span><span class="p">,</span> <span class="n">Dd</span><span class="p">,</span> <span class="n">dt</span> <span class="o">=</span> <span class="n">dsys</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="n">dsys</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">dsys</span><span class="o">.</span><span class="n">C</span><span class="p">,</span> <span class="n">dsys</span><span class="o">.</span><span class="n">D</span><span class="p">,</span> <span class="n">dsys</span><span class="o">.</span><span class="n">dt</span>    
+
+    <span class="c1"># filter the data</span>
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">Ad</span><span class="p">,</span> <span class="n">Bd</span><span class="p">,</span> <span class="n">Cd</span><span class="p">,</span> <span class="n">Dd</span></div>
+
+
+<div class="viewcode-block" id="filt_step">
+<a class="viewcode-back" href="../generated/rf_noise.html#rf_noise.filt_step">[docs]</a>
+<span class="k">def</span> <span class="nf">filt_step</span><span class="p">(</span><span class="n">Afd</span><span class="p">,</span> <span class="n">Bfd</span><span class="p">,</span> <span class="n">Cfd</span><span class="p">,</span> <span class="n">Dfd</span><span class="p">,</span> <span class="n">in_step</span><span class="p">,</span> <span class="n">state_f0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Apply a step of the filter.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        Afd, Bfd, Cfd, Dfd: numpy matrix, discrete filter model</span>
+<span class="sd">        in_step:            float or complex, input of the time step</span>
+<span class="sd">        state_f0:           numpy matrix, state of the filter of last step</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status:   boolean, success (True) or fail (False)</span>
+<span class="sd">        out_step: float or complex, filter output of this time step</span>
+<span class="sd">        state_f:  numpy matrix, state of the filter of this step, </span>
+<span class="sd">                   should input to the next execution    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># calculate the controller output</span>
+    <span class="n">state_f</span>  <span class="o">=</span> <span class="n">Afd</span> <span class="o">*</span> <span class="n">state_f0</span> <span class="o">+</span> <span class="n">Bfd</span> <span class="o">*</span> <span class="n">in_step</span>
+    <span class="n">out_step</span> <span class="o">=</span> <span class="n">Cfd</span> <span class="o">*</span> <span class="n">state_f0</span> <span class="o">+</span> <span class="n">Dfd</span> <span class="o">*</span> <span class="n">in_step</span>
+
+    <span class="c1"># return the results of the step</span>
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">out_step</span><span class="p">,</span> <span class="n">state_f</span></div>
+
+
+<div class="viewcode-block" id="moving_avg">
+<a class="viewcode-back" href="../generated/rf_noise.html#rf_noise.moving_avg">[docs]</a>
+<span class="k">def</span> <span class="nf">moving_avg</span><span class="p">(</span><span class="n">wf_in</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Moving average without compensating the group delay.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        wf_in:   numpy array, input waveform</span>
+<span class="sd">        n:       int, point number of moving average</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status:  boolean, success (True) or fail (False)</span>
+<span class="sd">        wf_out:  numpy array, output waveform</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">wf_in</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="c1"># make the moving average</span>
+    <span class="n">wf_out</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">wf_in</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+    <span class="n">wf_out</span><span class="p">[</span><span class="n">n</span><span class="p">:]</span> <span class="o">=</span> <span class="p">(</span><span class="n">wf_out</span><span class="p">[</span><span class="n">n</span><span class="p">:]</span> <span class="o">-</span> <span class="n">wf_out</span><span class="p">[:</span><span class="o">-</span><span class="n">n</span><span class="p">])</span> <span class="o">/</span> <span class="n">n</span>
+    <span class="n">wf_out</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">wf_in</span><span class="p">[:</span><span class="n">n</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">wf_out</span></div>
+
+    
+
+
+
+
+
+
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, Paul Scherrer Institute.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,767 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>rf_noise &#8212; LLRFLibsPy  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script src="../_static/documentation_options.js?v=7f41d439"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generated/rf_noise';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="rf_plot" href="rf_plot.html" />
+    <link rel="prev" title="rf_misc" href="rf_misc.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">LLRFLibsPy  documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../introduction.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../architecture.html">
+                        Architecture
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../module_index.html">
+                        Modules
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://git.psi.ch/GFA/RF/Libraries/llrflibspy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../introduction.html">
+                        Introduction
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../architecture.html">
+                        Architecture
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../module_index.html">
+                        Modules
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://git.psi.ch/GFA/RF/Libraries/llrflibspy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rf_calib.html">rf_calib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_control.html">rf_control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_det_act.html">rf_det_act</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_fit.html">rf_fit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_misc.html">rf_misc</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">rf_noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_plot.html">rf_plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_sim.html">rf_sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rf_sysid.html">rf_sysid</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../module_index.html" class="nav-link">LLRFLibsPy Modules</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">rf_noise</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="module-rf_noise">
+<span id="rf-noise"></span><h1>rf_noise<a class="headerlink" href="#module-rf_noise" title="Link to this heading">#</a></h1>
+<p>Analyze, generate and filter noise.</p>
+<p class="rubric">Functions</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_noise.calc_psd" title="rf_noise.calc_psd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_psd</span></code></a>(data, fs[, bit, plot])</p></td>
+<td><p>Calculate the power spectral density of the input waveform (nominal sampling).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_noise.calc_psd_coherent" title="rf_noise.calc_psd_coherent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_psd_coherent</span></code></a>(data, fs[, bit, n_noniq, plot])</p></td>
+<td><p>Calculate the power spectral density of the input waveform (coherent sampling).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_noise.calc_rms_from_psd" title="rf_noise.calc_rms_from_psd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_rms_from_psd</span></code></a>(freq_vector, pn_vector, ...)</p></td>
+<td><p>calculate the rms value from PSDs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_noise.design_notch_filter" title="rf_noise.design_notch_filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">design_notch_filter</span></code></a>(fnotch, Q, fs)</p></td>
+<td><p>Design the notch filter (return a discrete filter).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_noise.filt_step" title="rf_noise.filt_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filt_step</span></code></a>(Afd, Bfd, Cfd, Dfd, in_step, state_f0)</p></td>
+<td><p>Apply a step of the filter.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_noise.gen_noise_from_psd" title="rf_noise.gen_noise_from_psd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_noise_from_psd</span></code></a>(freq_vector, pn_vector, fs, N)</p></td>
+<td><p>generate noise series from DSB PSD.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_noise.moving_avg" title="rf_noise.moving_avg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moving_avg</span></code></a>(wf_in, n)</p></td>
+<td><p>Moving average without compensating the group delay.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_noise.notch_filt" title="rf_noise.notch_filt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">notch_filt</span></code></a>(wf, fnotch, Q, fs[, b, a])</p></td>
+<td><p>Apply notch filter to the signal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_noise.rand_unif" title="rf_noise.rand_unif"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rand_unif</span></code></a>([low, high, n])</p></td>
+<td><p>produce random number within a certain range.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_noise.calc_psd">
+<span class="sig-name descname"><span class="pre">calc_psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_noise.html#calc_psd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_noise.calc_psd" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the power spectral density of the input waveform (nominal sampling).</p>
+<p>Refer to LLRF Book section 6.1.2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – numpy array, 1-D array of the raw waveform</p></li>
+<li><p><strong>fs</strong> – float, sampling frequency, Hz</p></li>
+<li><p><strong>bit</strong> – int, number of bit of data. If bit = 0, do not scale data</p></li>
+<li><p><strong>plot</strong> – boolean, True for plot the spectrum</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>freq</strong> – numpy array, frequency waveform, Hz</p></li>
+<li><p><strong>amp_resp</strong> – numpy array, amplitude response, dBFS/Hz</p></li>
+<li><p><strong>pha_resp</strong> – numpy array, phase response, degree</p></li>
+<li><p><strong>signal_freq</strong> – float, signal frequency, Hz</p></li>
+<li><p><strong>signal_mag</strong> – float, signal level, dBFS</p></li>
+<li><p><strong>noise_flr</strong> – float, noise floor, dBFS/Hz</p></li>
+<li><p><strong>snr</strong> – float, signal-to-noise ratio, dB</p></li>
+<li><p><strong>bin_db</strong> – float, offset for an FFT bin freq space, dB</p></li>
+<li><p><strong>enbw_db</strong> – float, offset for an FFT bin freq space (correct windowing), dB</p></li>
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The unit dBFS is for ADC raw data, if for phase in radian, it should be
+replaced by dBrad^2; if for relative amplitude, should be replaced by dB</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_noise.calc_psd_coherent">
+<span class="sig-name descname"><span class="pre">calc_psd_coherent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_noniq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_noise.html#calc_psd_coherent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_noise.calc_psd_coherent" title="Link to this definition">#</a></dt>
+<dd><p>Calculate the power spectral density of the input waveform (coherent sampling).</p>
+<p>Refer to LLRF Book section 6.1.2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – numpy array, 1-D array of the raw waveform</p></li>
+<li><p><strong>fs</strong> – float, sampling frequency, Hz</p></li>
+<li><p><strong>bit</strong> – int, number of bit of data. If bit = 0, do not scale data</p></li>
+<li><p><strong>n_noniq</strong> – int, non-I/Q parameters (n samples cover a full cycle)</p></li>
+<li><p><strong>plot</strong> – boolean, True for plot the spectrum</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>freq</strong> – numpy array, frequency waveform, Hz</p></li>
+<li><p><strong>amp_resp</strong> – numpy array, amplitude response, dBFS/Hz</p></li>
+<li><p><strong>pha_resp</strong> – numpy array, phase response, degree</p></li>
+<li><p><strong>signal_freq</strong> – float, signal frequency, Hz</p></li>
+<li><p><strong>signal_mag</strong> – float, signal level, dBFS</p></li>
+<li><p><strong>noise_flr</strong> – float, noise floor, dBFS/Hz</p></li>
+<li><p><strong>snr</strong> – float, signal-to-noise ratio, dB</p></li>
+<li><p><strong>bin_db</strong> – float, offset for an FFT bin freq space, dB</p></li>
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The unit dBFS is for ADC raw data, if for phase in radian, it should be
+replaced by dBrad^2; if for relative amplitude, should be replaced by dB.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_noise.calc_rms_from_psd">
+<span class="sig-name descname"><span class="pre">calc_rms_from_psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq_vector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pn_vector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_noise.html#calc_rms_from_psd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_noise.calc_rms_from_psd" title="Link to this definition">#</a></dt>
+<dd><p>calculate the rms value from PSDs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>freq_vector</strong> – numpy array, offset frequency from carrier, Hz</p></li>
+<li><p><strong>pn_vector</strong> – numpy array, DSB noise PSD, dBrad^2/Hz for phase noise</p></li>
+<li><p><strong>freq_start</strong> – float, starting frequency for integration, Hz</p></li>
+<li><p><strong>freq_end</strong> – float, ending frequency for integration, Hz</p></li>
+<li><p><strong>fs</strong> – float, sampling frequency, Hz</p></li>
+<li><p><strong>N</strong> – int, number of points in the freq integration range</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>freq_p</strong> – numpy array, interpreted freq_vector input</p></li>
+<li><p><strong>pn_p</strong> – numpy array, interpreted pn_vector input</p></li>
+<li><p><strong>jitter_p</strong> – numpy array, integrated jitter starting from freq_start
+to different freq_p element values</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_noise.design_notch_filter">
+<span class="sig-name descname"><span class="pre">design_notch_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fnotch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_noise.html#design_notch_filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_noise.design_notch_filter" title="Link to this definition">#</a></dt>
+<dd><p>Design the notch filter (return a discrete filter).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fnotch</strong> – float, frequency to be notched, Hz</p></li>
+<li><p><strong>Q</strong> – float, quality factor of the notch filter</p></li>
+<li><p><strong>fs</strong> – float, sampling frequency, Hz</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>Ad, Bd, Cd, Dd</strong> – numpy matrix, discrete notch filter</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_noise.filt_step">
+<span class="sig-name descname"><span class="pre">filt_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Afd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Bfd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cfd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Dfd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_f0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_noise.html#filt_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_noise.filt_step" title="Link to this definition">#</a></dt>
+<dd><p>Apply a step of the filter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Afd</strong> – numpy matrix, discrete filter model</p></li>
+<li><p><strong>Bfd</strong> – numpy matrix, discrete filter model</p></li>
+<li><p><strong>Cfd</strong> – numpy matrix, discrete filter model</p></li>
+<li><p><strong>Dfd</strong> – numpy matrix, discrete filter model</p></li>
+<li><p><strong>in_step</strong> – float or complex, input of the time step</p></li>
+<li><p><strong>state_f0</strong> – numpy matrix, state of the filter of last step</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>out_step</strong> – float or complex, filter output of this time step</p></li>
+<li><p><strong>state_f</strong> – numpy matrix, state of the filter of this step,
+should input to the next execution</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_noise.gen_noise_from_psd">
+<span class="sig-name descname"><span class="pre">gen_noise_from_psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq_vector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pn_vector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_noise.html#gen_noise_from_psd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_noise.gen_noise_from_psd" title="Link to this definition">#</a></dt>
+<dd><p>generate noise series from DSB PSD.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>freq_vector</strong> – numpy array, offset frequency from carrier, Hz</p></li>
+<li><p><strong>pn_vector</strong> – numpy array, DSB noise PSD, dBrad^2/Hz for phase noise</p></li>
+<li><p><strong>fs</strong> – float, sampling frequency, Hz</p></li>
+<li><p><strong>N</strong> – float, number of samples</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>pn_series</strong> – numpy array, time series of phase/amplitude noise</p></li>
+<li><p><strong>freq_p</strong> – numpy array, interpreted freq_vector input</p></li>
+<li><p><strong>pn_p</strong> – numpy array, interpreted pn_vector input</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_noise.moving_avg">
+<span class="sig-name descname"><span class="pre">moving_avg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wf_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_noise.html#moving_avg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_noise.moving_avg" title="Link to this definition">#</a></dt>
+<dd><p>Moving average without compensating the group delay.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wf_in</strong> – numpy array, input waveform</p></li>
+<li><p><strong>n</strong> – int, point number of moving average</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>wf_out</strong> – numpy array, output waveform</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_noise.notch_filt">
+<span class="sig-name descname"><span class="pre">notch_filt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fnotch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_noise.html#notch_filt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_noise.notch_filt" title="Link to this definition">#</a></dt>
+<dd><p>Apply notch filter to the signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wf</strong> – numpy array, the waveform to be notch filtered</p></li>
+<li><p><strong>fnotch</strong> – float, frequency to be notched, Hz</p></li>
+<li><p><strong>Q</strong> – float, quality factor of the notch filter</p></li>
+<li><p><strong>fs</strong> – float, sampling frequency, Hz</p></li>
+<li><p><strong>b</strong> – numpy arrays filter coefficients. Note that the user can
+either input <code class="docutils literal notranslate"><span class="pre">b,</span> <span class="pre">a</span></code>, or <code class="docutils literal notranslate"><span class="pre">fnotch,</span> <span class="pre">Q,</span> <span class="pre">fs</span></code></p></li>
+<li><p><strong>a</strong> – numpy arrays filter coefficients. Note that the user can
+either input <code class="docutils literal notranslate"><span class="pre">b,</span> <span class="pre">a</span></code>, or <code class="docutils literal notranslate"><span class="pre">fnotch,</span> <span class="pre">Q,</span> <span class="pre">fs</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>wf_f</strong> – numpy array, filtered waveform</p></li>
+<li><p><strong>b, a</strong> – numpy array, filter coefficients. If the same filter
+is used to filter multiple waveforms, we can use it
+to avoid repeat the filter synthesis</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_noise.rand_unif">
+<span class="sig-name descname"><span class="pre">rand_unif</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">low</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_noise.html#rand_unif"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_noise.rand_unif" title="Link to this definition">#</a></dt>
+<dd><p>produce random number within a certain range.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> – int, number of output</p></li>
+<li><p><strong>low</strong> – float, low limit of the data</p></li>
+<li><p><strong>high</strong> – float, high limit of the data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>val</strong> – if n = 1, it is a float number, if n &gt; 1, it is a np array</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rf_misc.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">rf_misc</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rf_plot.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">rf_plot</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.calc_psd"><code class="docutils literal notranslate"><span class="pre">calc_psd()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.calc_psd_coherent"><code class="docutils literal notranslate"><span class="pre">calc_psd_coherent()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.calc_rms_from_psd"><code class="docutils literal notranslate"><span class="pre">calc_rms_from_psd()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.design_notch_filter"><code class="docutils literal notranslate"><span class="pre">design_notch_filter()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.filt_step"><code class="docutils literal notranslate"><span class="pre">filt_step()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.gen_noise_from_psd"><code class="docutils literal notranslate"><span class="pre">gen_noise_from_psd()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.moving_avg"><code class="docutils literal notranslate"><span class="pre">moving_avg()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.notch_filt"><code class="docutils literal notranslate"><span class="pre">notch_filt()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.rand_unif"><code class="docutils literal notranslate"><span class="pre">rand_unif()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, Paul Scherrer Institute.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

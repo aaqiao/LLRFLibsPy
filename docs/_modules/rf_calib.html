@@ -358,6 +358,11 @@ document.write(`
                   
   <h1>Source code for rf_calib</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;RF calibrations like virtual probe, RF actuator offset/imbalance, forward and reflected, and power calibrations.&quot;&quot;&quot;</span>
+<span class="c1">#############################################################################</span>
+<span class="c1">#  Copyright (c) 2023 by Paul Scherrer Institute, Switzerland</span>
+<span class="c1">#  All rights reserved.</span>
+<span class="c1">#  Authors: Zheqiao Geng</span>
+<span class="c1">#############################################################################</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">#########################################################################</span>
 <span class="sd">Here collects routines for RF system calibration</span>
@@ -383,8 +388,6 @@ document.write(`
 <span class="sd">Some algorithms are referred to the following books:</span>
 <span class="sd">S. Simrock and Z. Geng, Low-Level Radio Frequency Systems, Springer, 2022</span>
 <span class="sd">https://link.springer.com/book/10.1007/978-3-030-94419-3 (&quot;LLRF Book&quot;)</span>
-
-<span class="sd">Created by Zheqiao Geng on March 09, 2022</span>
 <span class="sd">#########################################################################</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -427,8 +430,9 @@ document.write(`
 <a class="viewcode-back" href="../generated/rf_calib.html#rf_calib.calib_dac_offs">[docs]</a>
 <span class="k">def</span> <span class="nf">calib_dac_offs</span><span class="p">(</span><span class="n">vdac</span><span class="p">,</span> <span class="n">viqm</span><span class="p">,</span> <span class="n">sig_ids</span><span class="p">,</span> <span class="n">sig_ide</span><span class="p">,</span> <span class="n">leak_ids</span><span class="p">,</span> <span class="n">leak_ide</span><span class="p">,</span> <span class="n">delay</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Calibrate the DAC offset to remove carrier leakage for direct upconversion </span>
-<span class="sd">    (refer to LLRF Book section 9.2.2).</span>
+<span class="sd">    Calibrate the DAC offset to remove carrier leakage for direct upconversion.</span>
+<span class="sd">    </span>
+<span class="sd">    Refer to LLRF Book section 9.2.2.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters:</span>
 <span class="sd">        vdac:     numpy array (complex), DAC output waveform</span>
@@ -475,9 +479,10 @@ document.write(`
 <span class="sd">    This method is OK to calibrate the imbalance matrix M (use its inverse</span>
 <span class="sd">    to pre-distort the DAC output) but the offset is not accurate to determine</span>
 <span class="sd">    the DAC offset calibration. It is suggested to calibrate the DAC offset</span>
-<span class="sd">    first using the routine ``calib_dac_offs`` before executing this function</span>
-<span class="sd">    (Geng Z, Hong B (2016) Design and calibration of an RF actuator for </span>
-<span class="sd">    low-level RF systems. IEEE Trans Nucl Sci 63(1):281-287).</span>
+<span class="sd">    first using the routine ``calib_dac_offs`` before executing this function.</span>
+<span class="sd">    </span>
+<span class="sd">    Refer to paper &quot;Geng Z, Hong B (2016) Design and calibration of an RF actuator for </span>
+<span class="sd">    low-level RF systems. IEEE Trans Nucl Sci 63(1):281-287&quot;.</span>
 <span class="sd"> </span>
 <span class="sd">    Parameters:</span>
 <span class="sd">        vdac: numpy array (complex), DAC actuation points</span>
@@ -514,8 +519,9 @@ document.write(`
 <span class="k">def</span> <span class="nf">calib_cav_for</span><span class="p">(</span><span class="n">vc</span><span class="p">,</span> <span class="n">vf_m</span><span class="p">,</span> <span class="n">pul_ids</span><span class="p">,</span> <span class="n">pul_ide</span><span class="p">,</span> <span class="n">half_bw</span><span class="p">,</span> <span class="n">detuning</span><span class="p">,</span> <span class="n">Ts</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">1e4</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Calibrate the cavity forward signal: ``vf = a * vf_m``. The resulting ``vf`` is</span>
-<span class="sd">    the cavity drive signal at the same reference plane as the cavity probe ``vc``</span>
-<span class="sd">    (refer to LLRF Book section 4.6.1.3).</span>
+<span class="sd">    the cavity drive signal at the same reference plane as the cavity probe ``vc``.</span>
+<span class="sd">    </span>
+<span class="sd">    Refer to LLRF Book section 4.6.1.3.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters:</span>
 <span class="sd">        vc:       numpy array (complex), cavity probe waveform (reference plane)</span>
@@ -561,8 +567,9 @@ document.write(`
 <span class="sd">    cavity with constant loaded Q and detuning:</span>
 <span class="sd">    ``vf = a * vf_m + b * vr_m, vr = c * vf_m + d * vr_m``</span>
 <span class="sd">    The resulting ``vf`` and ``vr`` are the cavity drive/reflected signals at the </span>
-<span class="sd">    same reference plane as the cavity probe ``vc``</span>
-<span class="sd">    (refer to LLRF Book section 9.3.5).</span>
+<span class="sd">    same reference plane as the cavity probe ``vc``.</span>
+<span class="sd">    </span>
+<span class="sd">    Refer to LLRF Book section 9.3.5.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters:</span>
 <span class="sd">        vc:        numpy array (complex), cavity probe waveform (reference plane)</span>
@@ -620,8 +627,9 @@ document.write(`
 <span class="sd">    cavity with time-varying loaded Q or detuning:</span>
 <span class="sd">    ``vf = a * vf_m + b * vr_m, vr = c * vf_m + d * vr_m``</span>
 <span class="sd">    The resulting ``vf`` and ``vr`` are the cavity drive/reflected signals at the </span>
-<span class="sd">    same reference plane as the cavity probe ``vc``</span>
-<span class="sd">    (refer to LLRF Book section 9.3.5).</span>
+<span class="sd">    same reference plane as the cavity probe ``vc``.</span>
+<span class="sd">    </span>
+<span class="sd">    Refer to LLRF Book section 9.3.5.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters:</span>
 <span class="sd">        vc:        numpy array (complex), cavity probe waveform (reference plane)</span>
@@ -687,8 +695,9 @@ document.write(`
                        <span class="n">machine</span>  <span class="o">=</span> <span class="s1">&#39;linac&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Convert the calibrated forward and reflected signals (in physical unit, V)</span>
-<span class="sd">    to forward and reflected power (in W)</span>
-<span class="sd">    (refer to LLRF Book section 3.3.9).</span>
+<span class="sd">    to forward and reflected power (in W).</span>
+<span class="sd">    </span>
+<span class="sd">    Refer to LLRF Book section 3.3.9.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters:</span>
 <span class="sd">        roQ_or_RoQ:  float, cavity r/Q of Linac or R/Q of circular accelerator, Ohm</span>
@@ -740,8 +749,9 @@ document.write(`
 <a class="viewcode-back" href="../generated/rf_calib.html#rf_calib.phasing_energy">[docs]</a>
 <span class="k">def</span> <span class="nf">phasing_energy</span><span class="p">(</span><span class="n">phi_vec</span><span class="p">,</span> <span class="n">E_vec</span><span class="p">,</span> <span class="n">machine</span>  <span class="o">=</span> <span class="s1">&#39;linac&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Calibrate the beam phase using the beam energy measured by scanning RF phase</span>
-<span class="sd">    (refer to LLRF Book section 9.3.2.3).</span>
+<span class="sd">    Calibrate the beam phase using the beam energy measured by scanning RF phase.</span>
+<span class="sd">    </span>
+<span class="sd">    Refer to LLRF Book section 9.3.2.3.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters:</span>
 <span class="sd">        phi_vec: numpy array, phase measurement, degree</span>
@@ -779,8 +789,9 @@ document.write(`
 <a class="viewcode-back" href="../generated/rf_calib.html#rf_calib.egain_cav_power">[docs]</a>
 <span class="k">def</span> <span class="nf">egain_cav_power</span><span class="p">(</span><span class="n">pfor</span><span class="p">,</span> <span class="n">roQ_or_RoQ</span><span class="p">,</span> <span class="n">QL</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">1e4</span><span class="p">,</span> <span class="n">machine</span> <span class="o">=</span> <span class="s1">&#39;linac&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Standing-wave cavity energy gain estimate from RF drive power without beam loading</span>
-<span class="sd">    (refer to LLRF Book section 9.3.2.1, Eq. (9.13)).</span>
+<span class="sd">    Standing-wave cavity energy gain estimate from RF drive power without beam loading.</span>
+<span class="sd">    </span>
+<span class="sd">    Refer to LLRF Book section 9.3.2.1, equation (9.13).</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters:</span>
 <span class="sd">        pfor:        float, cavity drive power, W</span>
@@ -823,8 +834,9 @@ document.write(`
 <span class="k">def</span> <span class="nf">egain_cgstr_power</span><span class="p">(</span><span class="n">pfor</span><span class="p">,</span> <span class="n">f0</span><span class="p">,</span> <span class="n">rs</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">Tf</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Traveling-wave constant gradient structure energy gain estimate from RF </span>
-<span class="sd">    drive power without beam loading</span>
-<span class="sd">    (refer to LLRF Book section 9.3.2.1, equation (9.14)).</span>
+<span class="sd">    drive power without beam loading.</span>
+<span class="sd">    </span>
+<span class="sd">    Refer to LLRF Book section 9.3.2.1, equation (9.14).</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters:</span>
 <span class="sd">        pfor: float, structure input RF power, W</span>
@@ -884,8 +896,9 @@ document.write(`
 <a class="viewcode-back" href="../generated/rf_calib.html#rf_calib.calib_sys_gain_pha">[docs]</a>
 <span class="k">def</span> <span class="nf">calib_sys_gain_pha</span><span class="p">(</span><span class="n">vact</span><span class="p">,</span> <span class="n">vf</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">1e4</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Calibrate the system gain and sytem phase </span>
-<span class="sd">    (refer to LLRF Book section 9.4.2).</span>
+<span class="sd">    Calibrate the system gain and sytem phase.</span>
+<span class="sd">    </span>
+<span class="sd">    Refer to LLRF Book section 9.4.2.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters:</span>
 <span class="sd">        vact:      numpy array (complex), RF actuation waveform (usually DAC output)</span>
