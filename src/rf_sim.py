@@ -126,17 +126,49 @@ def cav_ss(half_bw, detuning = 0.0, beta = 1e4, passband_modes = None,
     # return the results
     return True, Arf, Brf, Crf, Drf, Abm, Bbm, Cbm, Dbm
 
-def cav_ss_mech():
+def cav_ss_mech(mech_modes):
     '''
-    Derive the continous state-space equation of the cavity mechanical modes 
-    (to be implemented).
+    Derive the continous state-space equation of the cavity mechanical modes.
+    
+    Refer to LLRF book section 3.3.10.
     
     Parameters:
-    
+        mech_modes: dict, with the following items:
+            ``f`` : list, frequencies of mech modes, Hz;
+            ``Q`` : list, qualify factors;
+            ``K`` : list, K values, rad/s/(MV)^2.
     Returns:
-    
+        status:     boolean, success (True) or fail (False)
+        A, B, C, D: numpy matrix (real), continous mechanical model    
     '''
-    pass
+    # check 
+    if mech_modes is None:
+        return (False,) + (None,)*4
+    
+    if len(mech_modes['f']) < 1:
+        return (False,) + (None,)*4
+    
+    # get the paremters
+    fm = mech_modes['f']                # frequency of the mechanical mode, Hz
+    Qm = mech_modes['Q']                # quality factor
+    Km = mech_modes['K']                # K value, rad/s/(MV)^2    
+    
+    # build the transfer function of the first mechanical mode
+    w = 2 * np.pi * fm[0]               # get the angular freq, rad/s
+    num = [-Km[0] * w**2]
+    den = [1, w/Qm[0], w**2]
+        
+    # add the other mode transfer functions
+    if len(fm) > 1:
+        for i in range(1, len(fm)):
+            w = 2 * np.pi * fm[i]
+            num, den = add_tf(num, den, [-Km[i] * w**2], [1, w/Qm[i], w**2])
+
+    # get the state-space model
+    A, B, C, D = signal.tf2ss(num, den)    
+    
+    # return the results
+    return True, A, B, C, D
 
 def cav_impulse(half_bw, detuning, Ts, order = 20):
     '''
@@ -293,6 +325,58 @@ def sim_ncav_step_simple(half_bw, detuning, vf_step, vb_step, vc_step0, Ts, beta
 
     # return the results of the step
     return True, vc_step, vr_step
+
+def sim_scav_step(half_bw, detuning0, vf_step, vb_step, vc_step0, Ts, beta = 1e4,
+                  state_m0 = 0, Am = None, Bm = None, Cm = None, Dm = None):
+    '''
+    Simulate the cavity response for a time step using the simple discrete
+    cavtiy equation (Euler method for discretization) including the mechanical
+    modes. We first simulate one step of the mechanical mode and determine the 
+    detuning value, then use the ``sim_ncav_step_simple`` function to simulate
+    one step of the electrical model.
+
+    Parameters:
+        half_bw:   float, half bandwidth of the cavity (constant), rad/s
+        detuning0: float, pre-detuning (and microphonics) of the cavity, rad/s
+        vf_step:   complex, cavity forward voltage of this step, V
+        vb_step:   complex, beam drive voltage of this step, V
+        vc_step0:  complex, cavity voltage of the last step, V
+        Ts:        float, sampling time, s
+        beta:      float, input coupling factor (needed for NC cavities; 
+                    for SC cavities, can use the default value, or you can 
+                    specify it if more accurate result is needed)   
+        state_m0:  numpy matrix (real), last state of the mechanical equation 
+        Am, Bm, Cm, Dm: numpy matrix (real), state-space matrix of mech modes
+    Returns:
+        status:   boolean, success (True) or fail (False)
+        vc_step:  complex, cavity voltage of this step
+        vr_step:  complex, cavity reflected voltage of this step
+        dw:       float, detuning of this step, rad/s
+        state_m:  numpy matrix (real), updated state of the mechanical equation
+    '''
+    # check the input
+    if (half_bw <= 0.0) or (Ts <= 0.0) or (beta <= 0.0):
+        return (False,) + (None,)*4
+
+    # update the mechanical mode equation and get the detuning
+    if (state_m0 is None) or (Am is None) or (Bm is None) or (Cm is None) or (Dm is None):
+        state_m = None
+        dw      = detuning0
+    else:
+        state_m = Am * state_m0 + Bm * (abs(vc_step0) * 1.0e-6)**2
+        dw      = Cm * state_m0 + Dm * (abs(vc_step0) * 1.0e-6)**2 + detuning0        
+
+    # make a step of calculation of electrical equation (only pi mode)
+    status, vc_step, vr_step = sim_ncav_step_simple(half_bw, 
+                                                    dw, 
+                                                    vf_step, 
+                                                    vb_step, 
+                                                    vc_step0, 
+                                                    Ts, 
+                                                    beta = beta)
+    
+    # return the results of the step
+    return status, vc_step, vr_step, dw, state_m
 
 def rf_power_req(f0, vc0, ib0, phib, Q0, roQ_or_RoQ, 
                  QL_vec       = None,
