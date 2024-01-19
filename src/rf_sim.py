@@ -358,13 +358,16 @@ def sim_scav_step(half_bw, detuning0, vf_step, vb_step, vc_step0, Ts, beta = 1e4
     if (half_bw <= 0.0) or (Ts <= 0.0) or (beta <= 0.0):
         return (False,) + (None,)*4
 
-    # update the mechanical mode equation and get the detuning
+    # update the mechanical mode equation and get the detuning    
     if (state_m0 is None) or (Am is None) or (Bm is None) or (Cm is None) or (Dm is None):
         state_m = None
         dw      = detuning0
     else:
         state_m = Am * state_m0 + Bm * (abs(vc_step0) * 1.0e-6)**2
-        dw      = Cm * state_m0 + Dm * (abs(vc_step0) * 1.0e-6)**2 + detuning0        
+        dw      = Cm * state_m0 + Dm * (abs(vc_step0) * 1.0e-6)**2 + detuning0
+
+    # DEBUG - only consider the static Lorenz force detuning
+    #dw = -0.9 * 2 * np.pi * (abs(vc_step0) * 1.0e-6)**2 + detuning0
 
     # make a step of calculation of electrical equation (only pi mode)
     status, vc_step, vr_step = sim_ncav_step_simple(half_bw, 
