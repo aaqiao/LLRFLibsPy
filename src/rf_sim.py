@@ -326,7 +326,7 @@ def sim_ncav_step_simple(half_bw, detuning, vf_step, vb_step, vc_step0, Ts, beta
     # return the results of the step
     return True, vc_step, vr_step
 
-def sim_scav_step(half_bw, detuning0, vf_step, vb_step, vc_step0, Ts, beta = 1e4,
+def sim_scav_step(half_bw, dw_step0, detuning0, vf_step, vb_step, vc_step0, Ts, beta = 1e4,
                   state_m0 = 0, Am = None, Bm = None, Cm = None, Dm = None):
     '''
     Simulate the cavity response for a time step using the simple discrete
@@ -358,28 +358,26 @@ def sim_scav_step(half_bw, detuning0, vf_step, vb_step, vc_step0, Ts, beta = 1e4
     if (half_bw <= 0.0) or (Ts <= 0.0) or (beta <= 0.0):
         return (False,) + (None,)*4
 
-    # update the mechanical mode equation and get the detuning    
-    if (state_m0 is None) or (Am is None) or (Bm is None) or (Cm is None) or (Dm is None):
-        state_m = None
-        dw      = detuning0
-    else:
-        state_m = Am * state_m0 + Bm * (abs(vc_step0) * 1.0e-6)**2
-        dw      = Cm * state_m0 + Dm * (abs(vc_step0) * 1.0e-6)**2 + detuning0
-
-    # DEBUG - only consider the static Lorenz force detuning
-    #dw = -0.9 * 2 * np.pi * (abs(vc_step0) * 1.0e-6)**2 + detuning0
-
     # make a step of calculation of electrical equation (only pi mode)
-    status, vc_step, vr_step = sim_ncav_step_simple(half_bw, 
-                                                    dw, 
-                                                    vf_step, 
-                                                    vb_step, 
-                                                    vc_step0, 
-                                                    Ts, 
-                                                    beta = beta)
+    vc_step = (1 - Ts * (half_bw - 1j*dw_step0)) * vc_step0 + \
+              2 * half_bw * Ts * (beta * vf_step / (beta + 1) + vb_step)
+    vr_step = vc_step - vf_step
+
+    # update the mechanical mode equation and get the detuning    
+    #if (state_m0 is None) or (Am is None) or (Bm is None) or (Cm is None) or (Dm is None):
+    #    state_m = None
+    #    dw      = detuning0
+    #else:
+    #    state_m = Am * state_m0 + Bm * (abs(vc_step) * 1.0e-6)**2
+    #    dw      = Cm * state_m0 + Dm * (abs(vc_step) * 1.0e-6)**2 + detuning0
+    
+    # update the detuning
+    # DEBUG - only consider the static Lorenz force detuning
+    state_m = None
+    dw = -0.9 * 2 * np.pi * (abs(vc_step) * 1.0e-6)**2
     
     # return the results of the step
-    return status, vc_step, vr_step, dw, state_m
+    return True, vc_step, vr_step, dw, state_m
 
 def rf_power_req(f0, vc0, ib0, phib, Q0, roQ_or_RoQ, 
                  QL_vec       = None,
