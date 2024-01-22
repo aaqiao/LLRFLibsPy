@@ -337,7 +337,8 @@ def sim_scav_step(half_bw, dw_step0, detuning0, vf_step, vb_step, vc_step0, Ts, 
 
     Parameters:
         half_bw:   float, half bandwidth of the cavity (constant), rad/s
-        detuning0: float, pre-detuning (and microphonics) of the cavity, rad/s
+        dw_step0:  float, detuning of the last step, rad/s
+        detuning0: float, external detuning (tuner + microphonics), rad/s
         vf_step:   complex, cavity forward voltage of this step, V
         vb_step:   complex, beam drive voltage of this step, V
         vc_step0:  complex, cavity voltage of the last step, V
@@ -364,17 +365,16 @@ def sim_scav_step(half_bw, dw_step0, detuning0, vf_step, vb_step, vc_step0, Ts, 
     vr_step = vc_step - vf_step
 
     # update the mechanical mode equation and get the detuning    
-    #if (state_m0 is None) or (Am is None) or (Bm is None) or (Cm is None) or (Dm is None):
-    #    state_m = None
-    #    dw      = detuning0
-    #else:
-    #    state_m = Am * state_m0 + Bm * (abs(vc_step) * 1.0e-6)**2
-    #    dw      = Cm * state_m0 + Dm * (abs(vc_step) * 1.0e-6)**2 + detuning0
+    if (state_m0 is None) or (Am is None) or (Bm is None) or (Cm is None) or (Dm is None):
+        state_m = None
+        dw      = detuning0
+    else:
+        state_m = Am * state_m0 + Bm * (abs(vc_step) * 1.0e-6)**2
+        dw      = Cm * state_m0 + Dm * (abs(vc_step) * 1.0e-6)**2 + detuning0
     
-    # update the detuning
     # DEBUG - only consider the static Lorenz force detuning
-    state_m = None
-    dw = -0.9 * 2 * np.pi * (abs(vc_step) * 1.0e-6)**2
+    #state_m = None
+    #dw = -0.9 * 2 * np.pi * (abs(vc_step) * 1.0e-6)**2
     
     # return the results of the step
     return True, vc_step, vr_step, dw, state_m
