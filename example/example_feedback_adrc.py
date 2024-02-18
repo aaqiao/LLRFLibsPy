@@ -160,7 +160,8 @@ for i in range(simN):
     if use_ADRC:
         status, vf_all, _, state_k, state_ob, vc2_est[i], f[i] = ADRC_control_step(Akd, Bkd, Ckd, Dkd,
                                                                     Aobd, Bobd, b0, vc_sp[i], vc2[i], vf2[i], 
-                                                                    state_k, state_ob, ff_step = vf_ff[i], 
+                                                                    state_k, state_ob, 
+                                                                    vf_step = vf_ff[i if i == 0 else i-1], ff_step = vf_ff[i], 
                                                                     apply_to_err = True)   # set to True if the controller is not simple P control
     else:        
         # as comparison, simple controller (not stable because the passband modes => ADRC can even filter out the passband modes)

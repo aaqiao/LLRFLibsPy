@@ -494,9 +494,11 @@ def ADRC_controller(half_bw, pole_scale = 50.0):
 
 def ADRC_control_step(Akd, Bkd, Ckd, Dkd, 
                       Aobd, Bobd, b0, 
-                      sp_step, vc_step, vd_step, 
+                      sp_step, vc_step, vd_step,
                       state_k0, state_ob0, 
-                      ff_step = 0.0, apply_to_err = False):
+                      vf_step = 0.0, 
+                      ff_step = 0.0, 
+                      apply_to_err = False):
     '''
     Controller execute for one step based on the controller's discrete state-space equation
     including the ADRC observer.
@@ -508,11 +510,12 @@ def ADRC_control_step(Akd, Bkd, Ckd, Dkd,
         Aobd, Bobd:         numpy matrix (complex), discrete ADRC observer (C,D not needed)
         b0:                 float, ADRC gain
         sp_step:            complex, cavity voltage setpoint of this time step
-        vc_step:            complex, cavity voltage meas. of this time step
-        vd_step:            complex, cavity drive of the last time step
-        state_k0:           numpy matrix (complex), controller state of the last step
-        state_ob0:          numpy matrix (complex), ADRC observer state of the last step
-        ff_step:            complex, feedforward of this step
+        vc_step:            complex, cavity voltage meas. of last time step
+        vd_step:            complex, cavity drive of last time step
+        vf_step:            complex, feedfoward part of cavity drive of last time step
+        state_k0:           numpy matrix (complex), controller state of last time step
+        state_ob0:          numpy matrix (complex), ADRC observer state of last time step
+        ff_step:            complex, feedforward of this time step
         apply_to_err:       boolean, True to apply ADRC to error, or apply to whole cavity voltage
         
     Returns:
@@ -546,7 +549,7 @@ def ADRC_control_step(Akd, Bkd, Ckd, Dkd,
     # execute one step based on user preference
     if apply_to_err:
         # execute observer and estimate cavity voltage error (vc_err_est) and disturbance (f)
-        state_ob = Aobd * state_ob0 + Bobd * np.matrix([[vc_step - sp_step], [vd_step - ff_step]])
+        state_ob = Aobd * state_ob0 + Bobd * np.matrix([[vc_step - sp_step], [vd_step - vf_step]])
         vc_err_est, f = -state_ob[0, 0], state_ob[1, 0]
 
         # calculate the controller output
