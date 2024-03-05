@@ -9,13 +9,15 @@
 Here collects routines for RF system simulator
 
 Implemented:
-    - cav_ss                : derive a continous state-space equation of a cavity
-    - cav_ss_mech           : cavity state-space equation with mechanical modes (to be implemented)
+    - cav_ss                : derive a continous state-space equation of a cavity (all modes)
+    - cav_ss_passband       : derive a continous state-space equation of a cavity (only passband modes)
+    - cav_ss_mech           : derive a continous state-space equation of mechanical modes
     - cav_impulse           : derive the cavity impulse response from the cavity parameters
     - sim_ncav_pulse        : simulate cavity (with constant QL and detuning) response to a pulsed input
     - sim_ncav_step         : simulate cavity (with constant QL and detuning) response for a time step
     - sim_ncav_step_simple  : simulate cavity (with constant QL and detuning) response for a time step
                               (simplified cavity equation only with the fundamental passband mode)
+    - sim_scav_step         : simulate cavity response with mechanical modes for a time step
     - rf_power_req          : calculate the required RF power for diesired cavity voltage and beam
     - opt_QL_detuning       : calcualte the optimal QL and detuning for minimizing the reflection power
 
@@ -125,6 +127,54 @@ def cav_ss(half_bw, detuning = 0.0, beta = 1e4, passband_modes = None,
 
     # return the results
     return True, Arf, Brf, Crf, Drf, Abm, Bbm, Cbm, Dbm
+
+def cav_ss_passband(passband_modes, beta = 1e4):
+    '''
+    Derive the continuous state-space equation of the cavity, only the passband modes.      
+    Refer to LLRF Book section 3.3.7 and 3.4.3.
+    
+    Parameters:
+        passband_modes: dict, with the following items:
+                        ``freq_offs`` : list, offset frequencies of the modes, Hz;
+                        ``gain_rel``  : list, relative gain wrt fundamental mode;
+                        ``half_bw``   : list, half bandwidth of the mode, rad/s
+        beta:           float, input coupling factor (needed for NC cavities; 
+                         for SC cavities, can use the default value, or you can 
+                         specify it if more accurate result is needed)       
+    Returns:
+        status:             boolean, success (True) or fail (False)
+        Arf, Brf, Crf, Drf: numpy matrix (complex), continous passband model for RF drive
+    '''
+    # check the parameters
+    if (beta <= 0) or (passband_modes is None):
+        return (False,) + (None,)*4
+
+    if (not isinstance(passband_modes, dict)) or \
+       ('freq_offs' not in passband_modes.keys()) or \
+       ('gain_rel' not in passband_modes.keys()) or \
+       ('half_bw' not in passband_modes.keys()): 
+        return (False,) + (None,)*4
+
+    # transfer function initialization
+    rf_num = [0.0]
+    rf_den = [1.0]
+
+    # get the passband mode parameters
+    pb_f  = passband_modes['freq_offs']         # frequency offset compared to the fundamental mode, Hz
+    pb_g  = passband_modes['gain_rel']          # gain relative to the fundamental mode
+    pb_wh = passband_modes['half_bw']           # half bandwidth of the passband modes, rad/s
+
+    # add the passband mode transfer functions
+    for i in range(len(pb_f)):
+        rf_num, rf_den = add_tf(rf_num, rf_den, 
+                                [pb_g[i] * pb_wh[i]], 
+                                [1, pb_wh[i] - 1j*2*np.pi*pb_f[i]])
+
+    # get the state-space model
+    Arf, Brf, Crf, Drf = signal.tf2ss(rf_num, rf_den)
+
+    # return the results
+    return True, Arf, Brf, Crf, Drf
 
 def cav_ss_mech(mech_modes):
     '''
@@ -371,11 +421,7 @@ def sim_scav_step(half_bw, dw_step0, detuning0, vf_step, vb_step, vc_step0, Ts, 
     else:
         state_m = Am * state_m0 + Bm * (abs(vc_step) * 1.0e-6)**2
         dw      = Cm * state_m0 + Dm * (abs(vc_step) * 1.0e-6)**2 + detuning0
-    
-    # DEBUG - only consider the static Lorenz force detuning
-    #state_m = None
-    #dw = -0.9 * 2 * np.pi * (abs(vc_step) * 1.0e-6)**2
-    
+       
     # return the results of the step
     return True, vc_step, vr_step, dw, state_m
 
