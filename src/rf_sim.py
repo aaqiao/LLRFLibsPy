@@ -18,6 +18,7 @@ Implemented:
     - sim_ncav_step_simple  : simulate cavity (with constant QL and detuning) response for a time step
                               (simplified cavity equation only with the fundamental passband mode)
     - sim_scav_step         : simulate cavity response with mechanical modes for a time step
+    - sim_ss_step           : a generic state-space solver to execute for one step
     - rf_power_req          : calculate the required RF power for diesired cavity voltage and beam
     - opt_QL_detuning       : calcualte the optimal QL and detuning for minimizing the reflection power
 
@@ -128,7 +129,7 @@ def cav_ss(half_bw, detuning = 0.0, beta = 1e4, passband_modes = None,
     # return the results
     return True, Arf, Brf, Crf, Drf, Abm, Bbm, Cbm, Dbm
 
-def cav_ss_passband(passband_modes, beta = 1e4):
+def cav_ss_passband(passband_modes):
     '''
     Derive the continuous state-space equation of the cavity, only the passband modes.      
     Refer to LLRF Book section 3.3.7 and 3.4.3.
@@ -138,22 +139,22 @@ def cav_ss_passband(passband_modes, beta = 1e4):
                         ``freq_offs`` : list, offset frequencies of the modes, Hz;
                         ``gain_rel``  : list, relative gain wrt fundamental mode;
                         ``half_bw``   : list, half bandwidth of the mode, rad/s
-        beta:           float, input coupling factor (needed for NC cavities; 
-                         for SC cavities, can use the default value, or you can 
-                         specify it if more accurate result is needed)       
     Returns:
         status:             boolean, success (True) or fail (False)
         Arf, Brf, Crf, Drf: numpy matrix (complex), continous passband model for RF drive
     '''
     # check the parameters
-    if (beta <= 0) or (passband_modes is None):
+    if passband_modes is None:
         return (False,) + (None,)*4
 
     if (not isinstance(passband_modes, dict)) or \
        ('freq_offs' not in passband_modes.keys()) or \
-       ('gain_rel' not in passband_modes.keys()) or \
-       ('half_bw' not in passband_modes.keys()): 
+       ('gain_rel'  not in passband_modes.keys()) or \
+       ('half_bw'   not in passband_modes.keys()): 
         return (False,) + (None,)*4
+
+    if len(passband_modes['freq_offs']) < 1:
+        return (False,) + (None,)*4       
 
     # transfer function initialization
     rf_num = [0.0]
@@ -176,7 +177,7 @@ def cav_ss_passband(passband_modes, beta = 1e4):
     # return the results
     return True, Arf, Brf, Crf, Drf
 
-def cav_ss_mech(mech_modes):
+def cav_ss_mech(mech_modes, lpf_fc = None):
     '''
     Derive the continous state-space equation of the cavity mechanical modes.
     
@@ -187,6 +188,7 @@ def cav_ss_mech(mech_modes):
             ``f`` : list, frequencies of mech modes, Hz;
             ``Q`` : list, qualify factors;
             ``K`` : list, K values, rad/s/(MV)^2.
+        lpf_fc    : float, low-pass cutoff freq (optional), Hz
     Returns:
         status:     boolean, success (True) or fail (False)
         A, B, C, D: numpy matrix (real), continous mechanical model    
@@ -213,6 +215,12 @@ def cav_ss_mech(mech_modes):
         for i in range(1, len(fm)):
             w = 2 * np.pi * fm[i]
             num, den = add_tf(num, den, [-Km[i] * w**2], [1, w/Qm[i], w**2])
+
+    # add the LPF if applicable
+    if lpf_fc is not None:
+        if lpf_fc > 0.0:
+            w = 2 * np.pi * lpf_fc
+            num, den = add_tf(num, den, [w], [1, w])
 
     # get the state-space model
     A, B, C, D = signal.tf2ss(num, den)    
@@ -424,6 +432,22 @@ def sim_scav_step(half_bw, dw_step0, detuning0, vf_step, vb_step, vc_step0, Ts, 
        
     # return the results of the step
     return True, vc_step, vr_step, dw, state_m
+
+def sim_ss_step(Ad, Bd, Cd, Dd, vin_step, state0):
+    '''
+    A generic state-space solver to execute for one step.
+    Parameters:
+        Ad, Bd, Cd, Dd: numpy matrix (float/complex), discrete state-space matrices
+        vin_step:   float/complex, input of this step
+        state0:     numpy matrix (float/complex), state of last step
+    Returns:
+        status:     boolean, success (True) or fail (False)
+        vout_step:  float/complex, output of this step
+        state:      numpy matrix (float/complex), state of this step (input to next exe)
+    '''
+    state     = Ad * state0 + Bd * vin_step
+    vout_step = Cd * state0 + Dd * vin_step
+    return True, vout_step, state
 
 def rf_power_req(f0, vc0, ib0, phib, Q0, roQ_or_RoQ, 
                  QL_vec       = None,
