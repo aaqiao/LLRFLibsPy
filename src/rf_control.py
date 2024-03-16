@@ -46,7 +46,7 @@ from numpy.linalg import matrix_rank
 from rf_sysid import *
 from rf_misc import *
 
-def ss_discrete(Ac, Bc, Cc, Dc, Ts, method = 'zoh', alpha = 0.3, plot = False, plot_pno = 1000):
+def ss_discrete(Ac, Bc, Cc, Dc, Ts, method = 'zoh', alpha = 0.3, plot = False, plot_pno = 1000, spec_data = False):
     '''
     Derive the discrete state-space equation from a continous one and compare 
     their frequency responses.
@@ -59,6 +59,7 @@ def ss_discrete(Ac, Bc, Cc, Dc, Ts, method = 'zoh', alpha = 0.3, plot = False, p
         alpha:          float, 0 to 1 (see document of signal.cont2discrete) 
         plot:           boolean, enable the plot of frequency responses
         plot_pno:       int, number of point in the plot
+        spec_data:      boolean, return spectra data or not
         
     Returns:
         status:         boolean, success (True) or fail (False)
@@ -74,8 +75,7 @@ def ss_discrete(Ac, Bc, Cc, Dc, Ts, method = 'zoh', alpha = 0.3, plot = False, p
     Ad, Bd, Cd, Dd, _ = signal.cont2discrete((Ac, Bc, Cc, Dc), Ts, method = method, alpha = alpha)
 
     # calculate the responses of both continous and discrete versions
-    if (Ad is not None) and (Bd is not None) and (Cd is not None) and (Dd is not None) and \
-       matrix_rank(Cd) > 0 and matrix_rank(Dd) > 0:
+    if plot or spec_data:
         sc, fc, Ac_dB, Pc_deg, _ = ss_freqresp(Ac, Bc, Cc, Dc, plot_pno = plot_pno, plot_maxf = 1.0 / Ts)
         sd, fd, Ad_dB, Pd_deg, _ = ss_freqresp(Ad, Bd, Cd, Dd, plot_pno = plot_pno, Ts = Ts)
 
@@ -85,7 +85,7 @@ def ss_discrete(Ac, Bc, Cc, Dc, Ts, method = 'zoh', alpha = 0.3, plot = False, p
         spec = None
 
     # plot the responses
-    if plot and (spec is not None):
+    if plot:
         # make the plot
         if sc and sd:
             from rf_plot import plot_ss_discrete
