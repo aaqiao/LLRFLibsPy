@@ -57,7 +57,7 @@ Crf    = result[3]
 Drf    = result[4]
 
 # discretize the cavity equation (change plot to True to plot freq. response)
-status1, Arfd, Brfd, Crfd, Drfd = ss_discrete(Arf, Brf, Crf, Drf, Ts, 
+status1, Arfd, Brfd, Crfd, Drfd, _ = ss_discrete(Arf, Brf, Crf, Drf, Ts, 
                                               method = 'zoh', 
                                               plot   = True)
 
@@ -89,7 +89,7 @@ status, Akc, Bkc, Ckc, Dkc = basic_rf_controller(Kp, Ki,
                                                  plot_maxf  = 10e3)
 
 # get the discrete controller (set plot to True to show the freq. responses)
-status, Akd, Bkd, Ckd, Dkd = ss_discrete(Akc, Bkc, Ckc, Dkc, Ts, 
+status, Akd, Bkd, Ckd, Dkd, _ = ss_discrete(Akc, Bkc, Ckc, Dkc, Ts, 
                                          method     = 'bilinear', 
                                          plot       = True,
                                          plot_pno   = 10000)

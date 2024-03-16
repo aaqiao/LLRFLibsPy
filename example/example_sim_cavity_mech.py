@@ -26,7 +26,7 @@ mech_modes = {'f': [280, 341, 460, 487, 618],
               'K': [2, 0.8, 2, 0.6, 0.2]}
 
 status, Am, Bm, Cm, Dm = cav_ss_mech(mech_modes)
-status, Ad, Bd, Cd, Dd = ss_discrete(Am, Bm, Cm, Dm, 
+status, Ad, Bd, Cd, Dd, _ = ss_discrete(Am, Bm, Cm, Dm, 
                                      Ts     = Tsm, 
                                      method = 'zoh', 
                                      plot   = False,
@@ -58,9 +58,11 @@ vf[:] = RL * ig * 0.1
 
 state_m  = np.matrix(np.zeros(Bd.shape))        # state of the mechanical equation
 state_vc = 0.0                                  # state of cavity equation
+dw_step0 = 0.0
 
 for i in range(N):
     status, vc[i], vr[i], dw[i], state_m = sim_scav_step( wh, 
+                                                          dw_step0,
                                                           dw0, 
                                                           vf[i], 
                                                           vb[i], 
@@ -71,8 +73,10 @@ for i in range(N):
                                                           Am        = Ad, 
                                                           Bm        = Bd, 
                                                           Cm        = Cd, 
-                                                          Dm        = Dd)           
+                                                          Dm        = Dd,
+                                                          mech_exe  = True)           
     state_vc = vc[i]
+    dw_step0 = dw[i]
     
 # make the plot
 plt.figure()

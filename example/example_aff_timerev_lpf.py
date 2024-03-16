@@ -83,10 +83,10 @@ status, T1, vc1, vr1 = sim_ncav_pulse(Arf, Brf, Crf, Drf, vf_ff, Ts,
                                         vb   = vb)
 
 # discretize the cavity equation (change plot to True to plot freq. response)
-status1, Arfd, Brfd, Crfd, Drfd = ss_discrete(Arf, Brf, Crf, Drf, Ts, 
+status1, Arfd, Brfd, Crfd, Drfd, _ = ss_discrete(Arf, Brf, Crf, Drf, Ts, 
                                               method = 'zoh', 
                                               plot   = False)
-status2, Abmd, Bbmd, Cbmd, Dbmd = ss_discrete(Abm, Bbm, Cbm, Dbm, Ts, 
+status2, Abmd, Bbmd, Cbmd, Dbmd, _ = ss_discrete(Abm, Bbm, Cbm, Dbm, Ts, 
                                               method = 'bilinear', 
                                               plot   = False)
 
@@ -103,7 +103,7 @@ status, Akc, Bkc, Ckc, Dkc = basic_rf_controller(Kp, Ki,
                                                  plot_maxf  = 4e3)
 
 # get the discrete controller
-status, Akd, Bkd, Ckd, Dkd = ss_discrete(Akc, Bkc, Ckc, Dkc, Ts, 
+status, Akd, Bkd, Ckd, Dkd, _ = ss_discrete(Akc, Bkc, Ckc, Dkc, Ts, 
                                          method     = 'bilinear', 
                                          plot       = False,
                                          plot_pno   = 10000)

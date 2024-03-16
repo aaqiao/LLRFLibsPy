@@ -91,7 +91,7 @@ beam_pul[t_fill:t_flat] = ib
 
 # derived parameters
 status, Am, Bm, Cm, Dm = cav_ss_mech(mech_modes)
-status, Ad, Bd, Cd, Dd = ss_discrete(Am, Bm, Cm, Dm, 
+status, Ad, Bd, Cd, Dd, _ = ss_discrete(Am, Bm, Cm, Dm, 
                                      Ts       = Ts, 
                                      method   = 'zoh', 
                                      plot     = False,
@@ -101,7 +101,7 @@ status, Ad, Bd, Cd, Dd = ss_discrete(Am, Bm, Cm, Dm,
 state_m  = np.matrix(np.zeros(Bd.shape))        # state of the mechanical equation
 state_vc = 0.0                                  # state of cavity equation
 
-def sim_cav(half_bw, RL, detuning0, vf_step, state_vc, Ts, beta = 1e4,
+def sim_cav(half_bw, RL, dw_step0, detuning0, vf_step, state_vc, Ts, beta = 1e4,
             state_m0 = 0, Am = None, Bm = None, Cm = None, Dm = None,
             pulsed = True, beam_pul = None, beam_cw = 0, buf_id = 0):
     # get the beam
@@ -111,7 +111,8 @@ def sim_cav(half_bw, RL, detuning0, vf_step, state_vc, Ts, beta = 1e4,
         vb = beam_cw
 
     # execute for one step
-    status, vc, vr, dw, state_m = sim_scav_step(half_bw, 
+    status, vc, vr, dw, state_m = sim_scav_step(half_bw,
+                                                dw_step0,
                                                 detuning0, 
                                                 vf_step, 
                                                 vb, 
@@ -122,7 +123,8 @@ def sim_cav(half_bw, RL, detuning0, vf_step, state_vc, Ts, beta = 1e4,
                                                 Am        = Am, 
                                                 Bm        = Bm, 
                                                 Cm        = Cm, 
-                                                Dm        = Dm)           
+                                                Dm        = Dm,
+                                                mech_exe  = True)           
     state_vc = vc
     
     # return 
@@ -140,6 +142,8 @@ sig_amp = np.zeros(sim_len, dtype = complex)
 sig_vc  = np.zeros(sim_len, dtype = complex)
 sig_vr  = np.zeros(sim_len, dtype = complex)
 sig_dw  = np.zeros(sim_len, dtype = complex)
+
+dw = 0
 
 for i in range(sim_len):
     # RF signal source
@@ -165,7 +169,7 @@ for i in range(sim_len):
     dw_micr = 2.0 * np.pi * np.random.randn() * 10
 
     # cavity
-    vc, vr, dw, state_vc, state_m = sim_cav(wh, RL, dw0 + dw_micr, S2, state_vc, Ts, 
+    vc, vr, dw, state_vc, state_m = sim_cav(wh, RL, dw, dw0 + dw_micr, S2, state_vc, Ts, 
                                             beta        = beta,
                                             state_m0    = state_m, 
                                             Am          = Ad, 

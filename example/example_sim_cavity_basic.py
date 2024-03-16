@@ -96,11 +96,11 @@ plt.suptitle('Cavity Response Simulated with Continuous State-space Model')
 plt.show(block = False)
 
 # discretize the state-space equation (set plot to True to show the frequency response)
-status1, Arfd, Brfd, Crfd, Drfd = ss_discrete(Arf, Brf, Crf, Drf, 
+status1, Arfd, Brfd, Crfd, Drfd, _ = ss_discrete(Arf, Brf, Crf, Drf, 
                                               Ts     = Ts, 
                                               method = 'zoh', 
                                               plot   = True)       # discretize the RF response model
-status2, Abmd, Bbmd, Cbmd, Dbmd = ss_discrete(Abm, Bbm, Cbm, Dbm, 
+status2, Abmd, Bbmd, Cbmd, Dbmd, _ = ss_discrete(Abm, Bbm, Cbm, Dbm, 
                                               Ts     = Ts, 
                                               method = 'bilinear', 
                                               plot   = True)       # discretize the beam response model

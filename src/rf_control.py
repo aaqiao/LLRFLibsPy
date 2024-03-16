@@ -41,6 +41,7 @@ https://link.springer.com/book/10.1007/978-3-031-28597-4 ("Beam Control Book")
 '''
 import numpy as np
 from scipy import signal
+from numpy.linalg import matrix_rank
 
 from rf_sysid import *
 from rf_misc import *
@@ -65,26 +66,33 @@ def ss_discrete(Ac, Bc, Cc, Dc, Ts, method = 'zoh', alpha = 0.3, plot = False, p
     '''
     # check the input
     if (Ts <= 0):
-        return (False,) + (None,)*4
+        return (False,) + (None,)*5
 
     plot_pno = 1000 if (plot_pno <= 0) else plot_pno
 
     # discretize it
     Ad, Bd, Cd, Dd, _ = signal.cont2discrete((Ac, Bc, Cc, Dc), Ts, method = method, alpha = alpha)
 
-    # plot the responses
-    if plot:
-        # calculate the responses of both continous and discrete versions
-        sc, fc, Ac_dB, Pc_deg,_ = ss_freqresp(Ac, Bc, Cc, Dc, plot_pno = plot_pno, plot_maxf = 1.0 / Ts)
-        sd, fd, Ad_dB, Pd_deg,_ = ss_freqresp(Ad, Bd, Cd, Dd, plot_pno = plot_pno, Ts = Ts)
+    # calculate the responses of both continous and discrete versions
+    if (Ad is not None) and (Bd is not None) and (Cd is not None) and (Dd is not None) and \
+       matrix_rank(Cd) > 0 and matrix_rank(Dd) > 0:
+        sc, fc, Ac_dB, Pc_deg, _ = ss_freqresp(Ac, Bc, Cc, Dc, plot_pno = plot_pno, plot_maxf = 1.0 / Ts)
+        sd, fd, Ad_dB, Pd_deg, _ = ss_freqresp(Ad, Bd, Cd, Dd, plot_pno = plot_pno, Ts = Ts)
 
+        spec = {'fc': fc, 'Ac_dB': Ac_dB, 'Pc_deg': Pc_deg,
+                'fd': fd, 'Ad_dB': Ad_dB, 'Pd_deg': Pd_deg}
+    else:
+        spec = None
+
+    # plot the responses
+    if plot and (spec is not None):
         # make the plot
         if sc and sd:
             from rf_plot import plot_ss_discrete
             plot_ss_discrete(fc, Ac_dB, Pc_deg, fd, Ad_dB, Pd_deg, Ts)
 
     # return the results
-    return True, Ad, Bd, Cd, Dd
+    return True, Ad, Bd, Cd, Dd, spec
 
 def ss_cascade(A1, B1, C1, D1, A2, B2, C2, D2, Ts = None):
     '''

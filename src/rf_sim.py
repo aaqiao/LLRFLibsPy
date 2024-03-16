@@ -385,7 +385,7 @@ def sim_ncav_step_simple(half_bw, detuning, vf_step, vb_step, vc_step0, Ts, beta
     return True, vc_step, vr_step
 
 def sim_scav_step(half_bw, dw_step0, detuning0, vf_step, vb_step, vc_step0, Ts, beta = 1e4,
-                  state_m0 = 0, Am = None, Bm = None, Cm = None, Dm = None):
+                  state_m0 = 0, Am = None, Bm = None, Cm = None, Dm = None, mech_exe = False):
     '''
     Simulate the cavity response for a time step using the simple discrete
     cavtiy equation (Euler method for discretization) including the mechanical
@@ -406,6 +406,7 @@ def sim_scav_step(half_bw, dw_step0, detuning0, vf_step, vb_step, vc_step0, Ts, 
                     specify it if more accurate result is needed)   
         state_m0:  numpy matrix (real), last state of the mechanical equation 
         Am, Bm, Cm, Dm: numpy matrix (real), state-space matrix of mech modes
+        mech_exe:  boolean, if exe mech sim one step or not (for down sampling)
     Returns:
         status:   boolean, success (True) or fail (False)
         vc_step:  complex, cavity voltage of this step
@@ -423,8 +424,13 @@ def sim_scav_step(half_bw, dw_step0, detuning0, vf_step, vb_step, vc_step0, Ts, 
     vr_step = vc_step - vf_step
 
     # update the mechanical mode equation and get the detuning    
-    if (state_m0 is None) or (Am is None) or (Bm is None) or (Cm is None) or (Dm is None):
-        state_m = None
+    if (state_m0 is None) or \
+       (Am is None) or \
+       (Bm is None) or \
+       (Cm is None) or \
+       (Dm is None) or \
+       (not mech_exe):
+        state_m = state_m0
         dw      = detuning0
     else:
         state_m = Am * state_m0 + Bm * (abs(vc_step) * 1.0e-6)**2
