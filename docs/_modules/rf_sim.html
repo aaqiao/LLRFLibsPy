@@ -382,13 +382,16 @@ document.write(`
 <span class="sd">Here collects routines for RF system simulator</span>
 
 <span class="sd">Implemented:</span>
-<span class="sd">    - cav_ss                : derive a continous state-space equation of a cavity</span>
-<span class="sd">    - cav_ss_mech           : cavity state-space equation with mechanical modes (to be implemented)</span>
+<span class="sd">    - cav_ss                : derive a continous state-space equation of a cavity (all modes)</span>
+<span class="sd">    - cav_ss_passband       : derive a continous state-space equation of a cavity (only passband modes)</span>
+<span class="sd">    - cav_ss_mech           : derive a continous state-space equation of mechanical modes</span>
 <span class="sd">    - cav_impulse           : derive the cavity impulse response from the cavity parameters</span>
 <span class="sd">    - sim_ncav_pulse        : simulate cavity (with constant QL and detuning) response to a pulsed input</span>
 <span class="sd">    - sim_ncav_step         : simulate cavity (with constant QL and detuning) response for a time step</span>
 <span class="sd">    - sim_ncav_step_simple  : simulate cavity (with constant QL and detuning) response for a time step</span>
 <span class="sd">                              (simplified cavity equation only with the fundamental passband mode)</span>
+<span class="sd">    - sim_scav_step         : simulate cavity response with mechanical modes for a time step</span>
+<span class="sd">    - sim_ss_step           : a generic state-space solver to execute for one step</span>
 <span class="sd">    - rf_power_req          : calculate the required RF power for diesired cavity voltage and beam</span>
 <span class="sd">    - opt_QL_detuning       : calcualte the optimal QL and detuning for minimizing the reflection power</span>
 
@@ -502,19 +505,109 @@ document.write(`
     <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">Arf</span><span class="p">,</span> <span class="n">Brf</span><span class="p">,</span> <span class="n">Crf</span><span class="p">,</span> <span class="n">Drf</span><span class="p">,</span> <span class="n">Abm</span><span class="p">,</span> <span class="n">Bbm</span><span class="p">,</span> <span class="n">Cbm</span><span class="p">,</span> <span class="n">Dbm</span></div>
 
 
-<div class="viewcode-block" id="cav_ss_mech">
-<a class="viewcode-back" href="../generated/rf_sim.html#rf_sim.cav_ss_mech">[docs]</a>
-<span class="k">def</span> <span class="nf">cav_ss_mech</span><span class="p">():</span>
+<div class="viewcode-block" id="cav_ss_passband">
+<a class="viewcode-back" href="../generated/rf_sim.html#rf_sim.cav_ss_passband">[docs]</a>
+<span class="k">def</span> <span class="nf">cav_ss_passband</span><span class="p">(</span><span class="n">passband_modes</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Derive the continous state-space equation of the cavity mechanical modes </span>
-<span class="sd">    (to be implemented).</span>
+<span class="sd">    Derive the continuous state-space equation of the cavity, only the passband modes.      </span>
+<span class="sd">    Refer to LLRF Book section 3.3.7 and 3.4.3.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters:</span>
-<span class="sd">    </span>
+<span class="sd">        passband_modes: dict, with the following items:</span>
+<span class="sd">                        ``freq_offs`` : list, offset frequencies of the modes, Hz;</span>
+<span class="sd">                        ``gain_rel``  : list, relative gain wrt fundamental mode;</span>
+<span class="sd">                        ``half_bw``   : list, half bandwidth of the mode, rad/s</span>
 <span class="sd">    Returns:</span>
-<span class="sd">    </span>
+<span class="sd">        status:             boolean, success (True) or fail (False)</span>
+<span class="sd">        Arf, Brf, Crf, Drf: numpy matrix (complex), continous passband model for RF drive</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">pass</span></div>
+    <span class="c1"># check the parameters</span>
+    <span class="k">if</span> <span class="n">passband_modes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">4</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">passband_modes</span><span class="p">,</span> <span class="nb">dict</span><span class="p">))</span> <span class="ow">or</span> \
+       <span class="p">(</span><span class="s1">&#39;freq_offs&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">passband_modes</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="ow">or</span> \
+       <span class="p">(</span><span class="s1">&#39;gain_rel&#39;</span>  <span class="ow">not</span> <span class="ow">in</span> <span class="n">passband_modes</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="ow">or</span> \
+       <span class="p">(</span><span class="s1">&#39;half_bw&#39;</span>   <span class="ow">not</span> <span class="ow">in</span> <span class="n">passband_modes</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span> 
+        <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">4</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">passband_modes</span><span class="p">[</span><span class="s1">&#39;freq_offs&#39;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">4</span>       
+
+    <span class="c1"># transfer function initialization</span>
+    <span class="n">rf_num</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span>
+    <span class="n">rf_den</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">]</span>
+
+    <span class="c1"># get the passband mode parameters</span>
+    <span class="n">pb_f</span>  <span class="o">=</span> <span class="n">passband_modes</span><span class="p">[</span><span class="s1">&#39;freq_offs&#39;</span><span class="p">]</span>         <span class="c1"># frequency offset compared to the fundamental mode, Hz</span>
+    <span class="n">pb_g</span>  <span class="o">=</span> <span class="n">passband_modes</span><span class="p">[</span><span class="s1">&#39;gain_rel&#39;</span><span class="p">]</span>          <span class="c1"># gain relative to the fundamental mode</span>
+    <span class="n">pb_wh</span> <span class="o">=</span> <span class="n">passband_modes</span><span class="p">[</span><span class="s1">&#39;half_bw&#39;</span><span class="p">]</span>           <span class="c1"># half bandwidth of the passband modes, rad/s</span>
+
+    <span class="c1"># add the passband mode transfer functions</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pb_f</span><span class="p">)):</span>
+        <span class="n">rf_num</span><span class="p">,</span> <span class="n">rf_den</span> <span class="o">=</span> <span class="n">add_tf</span><span class="p">(</span><span class="n">rf_num</span><span class="p">,</span> <span class="n">rf_den</span><span class="p">,</span> 
+                                <span class="p">[</span><span class="n">pb_g</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">pb_wh</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> 
+                                <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">pb_wh</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">pb_f</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+
+    <span class="c1"># get the state-space model</span>
+    <span class="n">Arf</span><span class="p">,</span> <span class="n">Brf</span><span class="p">,</span> <span class="n">Crf</span><span class="p">,</span> <span class="n">Drf</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">tf2ss</span><span class="p">(</span><span class="n">rf_num</span><span class="p">,</span> <span class="n">rf_den</span><span class="p">)</span>
+
+    <span class="c1"># return the results</span>
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">Arf</span><span class="p">,</span> <span class="n">Brf</span><span class="p">,</span> <span class="n">Crf</span><span class="p">,</span> <span class="n">Drf</span></div>
+
+
+<div class="viewcode-block" id="cav_ss_mech">
+<a class="viewcode-back" href="../generated/rf_sim.html#rf_sim.cav_ss_mech">[docs]</a>
+<span class="k">def</span> <span class="nf">cav_ss_mech</span><span class="p">(</span><span class="n">mech_modes</span><span class="p">,</span> <span class="n">lpf_fc</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Derive the continous state-space equation of the cavity mechanical modes.</span>
+<span class="sd">    </span>
+<span class="sd">    Refer to LLRF book section 3.3.10.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        mech_modes: dict, with the following items:</span>
+<span class="sd">            ``f`` : list, frequencies of mech modes, Hz;</span>
+<span class="sd">            ``Q`` : list, qualify factors;</span>
+<span class="sd">            ``K`` : list, K values, rad/s/(MV)^2.</span>
+<span class="sd">        lpf_fc    : float, low-pass cutoff freq (optional), Hz</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status:     boolean, success (True) or fail (False)</span>
+<span class="sd">        A, B, C, D: numpy matrix (real), continous mechanical model    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check </span>
+    <span class="k">if</span> <span class="n">mech_modes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">4</span>
+    
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mech_modes</span><span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">4</span>
+    
+    <span class="c1"># get the paremters</span>
+    <span class="n">fm</span> <span class="o">=</span> <span class="n">mech_modes</span><span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">]</span>                <span class="c1"># frequency of the mechanical mode, Hz</span>
+    <span class="n">Qm</span> <span class="o">=</span> <span class="n">mech_modes</span><span class="p">[</span><span class="s1">&#39;Q&#39;</span><span class="p">]</span>                <span class="c1"># quality factor</span>
+    <span class="n">Km</span> <span class="o">=</span> <span class="n">mech_modes</span><span class="p">[</span><span class="s1">&#39;K&#39;</span><span class="p">]</span>                <span class="c1"># K value, rad/s/(MV)^2    </span>
+    
+    <span class="c1"># build the transfer function of the first mechanical mode</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">fm</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>               <span class="c1"># get the angular freq, rad/s</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">Km</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">w</span><span class="o">**</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">den</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">/</span><span class="n">Qm</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">w</span><span class="o">**</span><span class="mi">2</span><span class="p">]</span>
+        
+    <span class="c1"># add the other mode transfer functions</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fm</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">fm</span><span class="p">)):</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">fm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">num</span><span class="p">,</span> <span class="n">den</span> <span class="o">=</span> <span class="n">add_tf</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">den</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="n">Km</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">w</span><span class="o">**</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="o">/</span><span class="n">Qm</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">w</span><span class="o">**</span><span class="mi">2</span><span class="p">])</span>
+
+    <span class="c1"># add the LPF if applicable</span>
+    <span class="k">if</span> <span class="n">lpf_fc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">lpf_fc</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">lpf_fc</span>
+            <span class="n">num</span><span class="p">,</span> <span class="n">den</span> <span class="o">=</span> <span class="n">add_tf</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">den</span><span class="p">,</span> <span class="p">[</span><span class="n">w</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="p">])</span>
+
+    <span class="c1"># get the state-space model</span>
+    <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">tf2ss</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">den</span><span class="p">)</span>    
+    
+    <span class="c1"># return the results</span>
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span></div>
 
 
 <div class="viewcode-block" id="cav_impulse">
@@ -683,6 +776,83 @@ document.write(`
 
     <span class="c1"># return the results of the step</span>
     <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">vc_step</span><span class="p">,</span> <span class="n">vr_step</span></div>
+
+
+<div class="viewcode-block" id="sim_scav_step">
+<a class="viewcode-back" href="../generated/rf_sim.html#rf_sim.sim_scav_step">[docs]</a>
+<span class="k">def</span> <span class="nf">sim_scav_step</span><span class="p">(</span><span class="n">half_bw</span><span class="p">,</span> <span class="n">dw_step0</span><span class="p">,</span> <span class="n">detuning0</span><span class="p">,</span> <span class="n">vf_step</span><span class="p">,</span> <span class="n">vb_step</span><span class="p">,</span> <span class="n">vc_step0</span><span class="p">,</span> <span class="n">Ts</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">1e4</span><span class="p">,</span>
+                  <span class="n">state_m0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Am</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Bm</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Cm</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Dm</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">mech_exe</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Simulate the cavity response for a time step using the simple discrete</span>
+<span class="sd">    cavtiy equation (Euler method for discretization) including the mechanical</span>
+<span class="sd">    modes. We first simulate one step of the mechanical mode and determine the </span>
+<span class="sd">    detuning value, then use the ``sim_ncav_step_simple`` function to simulate</span>
+<span class="sd">    one step of the electrical model.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        half_bw:   float, half bandwidth of the cavity (constant), rad/s</span>
+<span class="sd">        dw_step0:  float, detuning of the last step, rad/s</span>
+<span class="sd">        detuning0: float, external detuning (tuner + microphonics), rad/s</span>
+<span class="sd">        vf_step:   complex, cavity forward voltage of this step, V</span>
+<span class="sd">        vb_step:   complex, beam drive voltage of this step, V</span>
+<span class="sd">        vc_step0:  complex, cavity voltage of the last step, V</span>
+<span class="sd">        Ts:        float, sampling time, s</span>
+<span class="sd">        beta:      float, input coupling factor (needed for NC cavities; </span>
+<span class="sd">                    for SC cavities, can use the default value, or you can </span>
+<span class="sd">                    specify it if more accurate result is needed)   </span>
+<span class="sd">        state_m0:  numpy matrix (real), last state of the mechanical equation </span>
+<span class="sd">        Am, Bm, Cm, Dm: numpy matrix (real), state-space matrix of mech modes</span>
+<span class="sd">        mech_exe:  boolean, if exe mech sim one step or not (for down sampling)</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status:   boolean, success (True) or fail (False)</span>
+<span class="sd">        vc_step:  complex, cavity voltage of this step</span>
+<span class="sd">        vr_step:  complex, cavity reflected voltage of this step</span>
+<span class="sd">        dw:       float, detuning of this step, rad/s</span>
+<span class="sd">        state_m:  numpy matrix (real), updated state of the mechanical equation</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># check the input</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">half_bw</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">Ts</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">beta</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">4</span>
+
+    <span class="c1"># make a step of calculation of electrical equation (only pi mode)</span>
+    <span class="n">vc_step</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">Ts</span> <span class="o">*</span> <span class="p">(</span><span class="n">half_bw</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">dw_step0</span><span class="p">))</span> <span class="o">*</span> <span class="n">vc_step0</span> <span class="o">+</span> \
+              <span class="mi">2</span> <span class="o">*</span> <span class="n">half_bw</span> <span class="o">*</span> <span class="n">Ts</span> <span class="o">*</span> <span class="p">(</span><span class="n">beta</span> <span class="o">*</span> <span class="n">vf_step</span> <span class="o">/</span> <span class="p">(</span><span class="n">beta</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">vb_step</span><span class="p">)</span>
+    <span class="n">vr_step</span> <span class="o">=</span> <span class="n">vc_step</span> <span class="o">-</span> <span class="n">vf_step</span>
+
+    <span class="c1"># update the mechanical mode equation and get the detuning    </span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">state_m0</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> \
+       <span class="p">(</span><span class="n">Am</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> \
+       <span class="p">(</span><span class="n">Bm</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> \
+       <span class="p">(</span><span class="n">Cm</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> \
+       <span class="p">(</span><span class="n">Dm</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> \
+       <span class="p">(</span><span class="ow">not</span> <span class="n">mech_exe</span><span class="p">):</span>
+        <span class="n">state_m</span> <span class="o">=</span> <span class="n">state_m0</span>
+        <span class="n">dw</span>      <span class="o">=</span> <span class="n">detuning0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">state_m</span> <span class="o">=</span> <span class="n">Am</span> <span class="o">*</span> <span class="n">state_m0</span> <span class="o">+</span> <span class="n">Bm</span> <span class="o">*</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">vc_step</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.0e-6</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">dw</span>      <span class="o">=</span> <span class="n">Cm</span> <span class="o">*</span> <span class="n">state_m0</span> <span class="o">+</span> <span class="n">Dm</span> <span class="o">*</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">vc_step</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.0e-6</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">detuning0</span>
+       
+    <span class="c1"># return the results of the step</span>
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">vc_step</span><span class="p">,</span> <span class="n">vr_step</span><span class="p">,</span> <span class="n">dw</span><span class="p">,</span> <span class="n">state_m</span></div>
+
+
+<div class="viewcode-block" id="sim_ss_step">
+<a class="viewcode-back" href="../generated/rf_sim.html#rf_sim.sim_ss_step">[docs]</a>
+<span class="k">def</span> <span class="nf">sim_ss_step</span><span class="p">(</span><span class="n">Ad</span><span class="p">,</span> <span class="n">Bd</span><span class="p">,</span> <span class="n">Cd</span><span class="p">,</span> <span class="n">Dd</span><span class="p">,</span> <span class="n">vin_step</span><span class="p">,</span> <span class="n">state0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    A generic state-space solver to execute for one step.</span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        Ad, Bd, Cd, Dd: numpy matrix (float/complex), discrete state-space matrices</span>
+<span class="sd">        vin_step:   float/complex, input of this step</span>
+<span class="sd">        state0:     numpy matrix (float/complex), state of last step</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        status:     boolean, success (True) or fail (False)</span>
+<span class="sd">        vout_step:  float/complex, output of this step</span>
+<span class="sd">        state:      numpy matrix (float/complex), state of this step (input to next exe)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">state</span>     <span class="o">=</span> <span class="n">Ad</span> <span class="o">*</span> <span class="n">state0</span> <span class="o">+</span> <span class="n">Bd</span> <span class="o">*</span> <span class="n">vin_step</span>
+    <span class="n">vout_step</span> <span class="o">=</span> <span class="n">Cd</span> <span class="o">*</span> <span class="n">state0</span> <span class="o">+</span> <span class="n">Dd</span> <span class="o">*</span> <span class="n">vin_step</span>
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">vout_step</span><span class="p">,</span> <span class="n">state</span></div>
 
 
 <div class="viewcode-block" id="rf_power_req">

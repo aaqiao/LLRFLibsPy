@@ -414,13 +414,14 @@ document.write(`
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">matrix_rank</span>
 
 <span class="kn">from</span> <span class="nn">rf_sysid</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">rf_misc</span> <span class="kn">import</span> <span class="o">*</span>
 
 <div class="viewcode-block" id="ss_discrete">
 <a class="viewcode-back" href="../generated/rf_control.html#rf_control.ss_discrete">[docs]</a>
-<span class="k">def</span> <span class="nf">ss_discrete</span><span class="p">(</span><span class="n">Ac</span><span class="p">,</span> <span class="n">Bc</span><span class="p">,</span> <span class="n">Cc</span><span class="p">,</span> <span class="n">Dc</span><span class="p">,</span> <span class="n">Ts</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;zoh&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">plot</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">plot_pno</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">ss_discrete</span><span class="p">(</span><span class="n">Ac</span><span class="p">,</span> <span class="n">Bc</span><span class="p">,</span> <span class="n">Cc</span><span class="p">,</span> <span class="n">Dc</span><span class="p">,</span> <span class="n">Ts</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;zoh&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">plot</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">plot_pno</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">spec_data</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Derive the discrete state-space equation from a continous one and compare </span>
 <span class="sd">    their frequency responses.</span>
@@ -433,6 +434,7 @@ document.write(`
 <span class="sd">        alpha:          float, 0 to 1 (see document of signal.cont2discrete) </span>
 <span class="sd">        plot:           boolean, enable the plot of frequency responses</span>
 <span class="sd">        plot_pno:       int, number of point in the plot</span>
+<span class="sd">        spec_data:      boolean, return spectra data or not</span>
 <span class="sd">        </span>
 <span class="sd">    Returns:</span>
 <span class="sd">        status:         boolean, success (True) or fail (False)</span>
@@ -440,26 +442,32 @@ document.write(`
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="c1"># check the input</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">Ts</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">4</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,)</span><span class="o">*</span><span class="mi">5</span>
 
     <span class="n">plot_pno</span> <span class="o">=</span> <span class="mi">1000</span> <span class="k">if</span> <span class="p">(</span><span class="n">plot_pno</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="n">plot_pno</span>
 
     <span class="c1"># discretize it</span>
     <span class="n">Ad</span><span class="p">,</span> <span class="n">Bd</span><span class="p">,</span> <span class="n">Cd</span><span class="p">,</span> <span class="n">Dd</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">cont2discrete</span><span class="p">((</span><span class="n">Ac</span><span class="p">,</span> <span class="n">Bc</span><span class="p">,</span> <span class="n">Cc</span><span class="p">,</span> <span class="n">Dc</span><span class="p">),</span> <span class="n">Ts</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="n">method</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span><span class="p">)</span>
 
+    <span class="c1"># calculate the responses of both continous and discrete versions</span>
+    <span class="k">if</span> <span class="n">plot</span> <span class="ow">or</span> <span class="n">spec_data</span><span class="p">:</span>
+        <span class="n">sc</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">Ac_dB</span><span class="p">,</span> <span class="n">Pc_deg</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ss_freqresp</span><span class="p">(</span><span class="n">Ac</span><span class="p">,</span> <span class="n">Bc</span><span class="p">,</span> <span class="n">Cc</span><span class="p">,</span> <span class="n">Dc</span><span class="p">,</span> <span class="n">plot_pno</span> <span class="o">=</span> <span class="n">plot_pno</span><span class="p">,</span> <span class="n">plot_maxf</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">Ts</span><span class="p">)</span>
+        <span class="n">sd</span><span class="p">,</span> <span class="n">fd</span><span class="p">,</span> <span class="n">Ad_dB</span><span class="p">,</span> <span class="n">Pd_deg</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ss_freqresp</span><span class="p">(</span><span class="n">Ad</span><span class="p">,</span> <span class="n">Bd</span><span class="p">,</span> <span class="n">Cd</span><span class="p">,</span> <span class="n">Dd</span><span class="p">,</span> <span class="n">plot_pno</span> <span class="o">=</span> <span class="n">plot_pno</span><span class="p">,</span> <span class="n">Ts</span> <span class="o">=</span> <span class="n">Ts</span><span class="p">)</span>
+
+        <span class="n">spec</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fc&#39;</span><span class="p">:</span> <span class="n">fc</span><span class="p">,</span> <span class="s1">&#39;Ac_dB&#39;</span><span class="p">:</span> <span class="n">Ac_dB</span><span class="p">,</span> <span class="s1">&#39;Pc_deg&#39;</span><span class="p">:</span> <span class="n">Pc_deg</span><span class="p">,</span>
+                <span class="s1">&#39;fd&#39;</span><span class="p">:</span> <span class="n">fd</span><span class="p">,</span> <span class="s1">&#39;Ad_dB&#39;</span><span class="p">:</span> <span class="n">Ad_dB</span><span class="p">,</span> <span class="s1">&#39;Pd_deg&#39;</span><span class="p">:</span> <span class="n">Pd_deg</span><span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">spec</span> <span class="o">=</span> <span class="kc">None</span>
+
     <span class="c1"># plot the responses</span>
     <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
-        <span class="c1"># calculate the responses of both continous and discrete versions</span>
-        <span class="n">sc</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">Ac_dB</span><span class="p">,</span> <span class="n">Pc_deg</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">ss_freqresp</span><span class="p">(</span><span class="n">Ac</span><span class="p">,</span> <span class="n">Bc</span><span class="p">,</span> <span class="n">Cc</span><span class="p">,</span> <span class="n">Dc</span><span class="p">,</span> <span class="n">plot_pno</span> <span class="o">=</span> <span class="n">plot_pno</span><span class="p">,</span> <span class="n">plot_maxf</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">Ts</span><span class="p">)</span>
-        <span class="n">sd</span><span class="p">,</span> <span class="n">fd</span><span class="p">,</span> <span class="n">Ad_dB</span><span class="p">,</span> <span class="n">Pd_deg</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">ss_freqresp</span><span class="p">(</span><span class="n">Ad</span><span class="p">,</span> <span class="n">Bd</span><span class="p">,</span> <span class="n">Cd</span><span class="p">,</span> <span class="n">Dd</span><span class="p">,</span> <span class="n">plot_pno</span> <span class="o">=</span> <span class="n">plot_pno</span><span class="p">,</span> <span class="n">Ts</span> <span class="o">=</span> <span class="n">Ts</span><span class="p">)</span>
-
         <span class="c1"># make the plot</span>
         <span class="k">if</span> <span class="n">sc</span> <span class="ow">and</span> <span class="n">sd</span><span class="p">:</span>
             <span class="kn">from</span> <span class="nn">rf_plot</span> <span class="kn">import</span> <span class="n">plot_ss_discrete</span>
             <span class="n">plot_ss_discrete</span><span class="p">(</span><span class="n">fc</span><span class="p">,</span> <span class="n">Ac_dB</span><span class="p">,</span> <span class="n">Pc_deg</span><span class="p">,</span> <span class="n">fd</span><span class="p">,</span> <span class="n">Ad_dB</span><span class="p">,</span> <span class="n">Pd_deg</span><span class="p">,</span> <span class="n">Ts</span><span class="p">)</span>
 
     <span class="c1"># return the results</span>
-    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">Ad</span><span class="p">,</span> <span class="n">Bd</span><span class="p">,</span> <span class="n">Cd</span><span class="p">,</span> <span class="n">Dd</span></div>
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">Ad</span><span class="p">,</span> <span class="n">Bd</span><span class="p">,</span> <span class="n">Cd</span><span class="p">,</span> <span class="n">Dd</span><span class="p">,</span> <span class="n">spec</span></div>
 
 
 <div class="viewcode-block" id="ss_cascade">
@@ -893,9 +901,11 @@ document.write(`
 <a class="viewcode-back" href="../generated/rf_control.html#rf_control.ADRC_control_step">[docs]</a>
 <span class="k">def</span> <span class="nf">ADRC_control_step</span><span class="p">(</span><span class="n">Akd</span><span class="p">,</span> <span class="n">Bkd</span><span class="p">,</span> <span class="n">Ckd</span><span class="p">,</span> <span class="n">Dkd</span><span class="p">,</span> 
                       <span class="n">Aobd</span><span class="p">,</span> <span class="n">Bobd</span><span class="p">,</span> <span class="n">b0</span><span class="p">,</span> 
-                      <span class="n">sp_step</span><span class="p">,</span> <span class="n">vc_step</span><span class="p">,</span> <span class="n">vd_step</span><span class="p">,</span> 
+                      <span class="n">sp_step</span><span class="p">,</span> <span class="n">vc_step</span><span class="p">,</span> <span class="n">vd_step</span><span class="p">,</span>
                       <span class="n">state_k0</span><span class="p">,</span> <span class="n">state_ob0</span><span class="p">,</span> 
-                      <span class="n">ff_step</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">apply_to_err</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+                      <span class="n">vf_step</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> 
+                      <span class="n">ff_step</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> 
+                      <span class="n">apply_to_err</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Controller execute for one step based on the controller&#39;s discrete state-space equation</span>
 <span class="sd">    including the ADRC observer.</span>
@@ -907,11 +917,12 @@ document.write(`
 <span class="sd">        Aobd, Bobd:         numpy matrix (complex), discrete ADRC observer (C,D not needed)</span>
 <span class="sd">        b0:                 float, ADRC gain</span>
 <span class="sd">        sp_step:            complex, cavity voltage setpoint of this time step</span>
-<span class="sd">        vc_step:            complex, cavity voltage meas. of this time step</span>
-<span class="sd">        vd_step:            complex, cavity drive of the last time step</span>
-<span class="sd">        state_k0:           numpy matrix (complex), controller state of the last step</span>
-<span class="sd">        state_ob0:          numpy matrix (complex), ADRC observer state of the last step</span>
-<span class="sd">        ff_step:            complex, feedforward of this step</span>
+<span class="sd">        vc_step:            complex, cavity voltage meas. of last time step</span>
+<span class="sd">        vd_step:            complex, cavity drive of last time step</span>
+<span class="sd">        vf_step:            complex, feedfoward part of cavity drive of last time step</span>
+<span class="sd">        state_k0:           numpy matrix (complex), controller state of last time step</span>
+<span class="sd">        state_ob0:          numpy matrix (complex), ADRC observer state of last time step</span>
+<span class="sd">        ff_step:            complex, feedforward of this time step</span>
 <span class="sd">        apply_to_err:       boolean, True to apply ADRC to error, or apply to whole cavity voltage</span>
 <span class="sd">        </span>
 <span class="sd">    Returns:</span>
@@ -945,7 +956,7 @@ document.write(`
     <span class="c1"># execute one step based on user preference</span>
     <span class="k">if</span> <span class="n">apply_to_err</span><span class="p">:</span>
         <span class="c1"># execute observer and estimate cavity voltage error (vc_err_est) and disturbance (f)</span>
-        <span class="n">state_ob</span> <span class="o">=</span> <span class="n">Aobd</span> <span class="o">*</span> <span class="n">state_ob0</span> <span class="o">+</span> <span class="n">Bobd</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="n">vc_step</span> <span class="o">-</span> <span class="n">sp_step</span><span class="p">],</span> <span class="p">[</span><span class="n">vd_step</span> <span class="o">-</span> <span class="n">ff_step</span><span class="p">]])</span>
+        <span class="n">state_ob</span> <span class="o">=</span> <span class="n">Aobd</span> <span class="o">*</span> <span class="n">state_ob0</span> <span class="o">+</span> <span class="n">Bobd</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="n">vc_step</span> <span class="o">-</span> <span class="n">sp_step</span><span class="p">],</span> <span class="p">[</span><span class="n">vd_step</span> <span class="o">-</span> <span class="n">vf_step</span><span class="p">]])</span>
         <span class="n">vc_err_est</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="o">-</span><span class="n">state_ob</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">state_ob</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 
         <span class="c1"># calculate the controller output</span>

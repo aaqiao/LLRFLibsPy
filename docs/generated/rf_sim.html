@@ -408,8 +408,8 @@ document.write(`
 <tr class="row-even"><td><p><a class="reference internal" href="#rf_sim.cav_ss" title="rf_sim.cav_ss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cav_ss</span></code></a>(half_bw[, detuning, beta, ...])</p></td>
 <td><p>Derive the continuous state-space equation of the cavity</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rf_sim.cav_ss_mech" title="rf_sim.cav_ss_mech"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cav_ss_mech</span></code></a>()</p></td>
-<td><p>Derive the continous state-space equation of the cavity mechanical modes (to be implemented).</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_sim.cav_ss_mech" title="rf_sim.cav_ss_mech"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cav_ss_mech</span></code></a>(mech_modes[, lpf_fc])</p></td>
+<td><p>Derive the continous state-space equation of the cavity mechanical modes.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rf_sim.opt_QL_detuning" title="rf_sim.opt_QL_detuning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">opt_QL_detuning</span></code></a>(f0, vc0, ib0, phib, Q0, ...)</p></td>
 <td><p>Derived the optimal loaded Q and detuning.</p></td>
@@ -496,11 +496,47 @@ specify it if more accurate result is needed)</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="rf_sim.cav_ss_mech">
-<span class="sig-name descname"><span class="pre">cav_ss_mech</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_sim.html#cav_ss_mech"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_sim.cav_ss_mech" title="Link to this definition">#</a></dt>
-<dd><p>Derive the continous state-space equation of the cavity mechanical modes
-(to be implemented).</p>
-<p>Parameters:</p>
-<p>Returns:</p>
+<span class="sig-name descname"><span class="pre">cav_ss_mech</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mech_modes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lpf_fc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_sim.html#cav_ss_mech"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_sim.cav_ss_mech" title="Link to this definition">#</a></dt>
+<dd><p>Derive the continous state-space equation of the cavity mechanical modes.</p>
+<p>Refer to LLRF book section 3.3.10.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mech_modes</strong> – dict, with the following items:
+<code class="docutils literal notranslate"><span class="pre">f</span></code> : list, frequencies of mech modes, Hz;
+<code class="docutils literal notranslate"><span class="pre">Q</span></code> : list, qualify factors;
+<code class="docutils literal notranslate"><span class="pre">K</span></code> : list, K values, rad/s/(MV)^2.</p></li>
+<li><p><strong>lpf_fc</strong> – float, low-pass cutoff freq (optional), Hz</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>A, B, C, D</strong> – numpy matrix (real), continous mechanical model</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_sim.cav_ss_passband">
+<span class="sig-name descname"><span class="pre">cav_ss_passband</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">passband_modes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_sim.html#cav_ss_passband"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_sim.cav_ss_passband" title="Link to this definition">#</a></dt>
+<dd><p>Derive the continuous state-space equation of the cavity, only the passband modes.
+Refer to LLRF Book section 3.3.7 and 3.4.3.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>passband_modes</strong> – dict, with the following items:
+<code class="docutils literal notranslate"><span class="pre">freq_offs</span></code> : list, offset frequencies of the modes, Hz;
+<code class="docutils literal notranslate"><span class="pre">gain_rel</span></code>  : list, relative gain wrt fundamental mode;
+<code class="docutils literal notranslate"><span class="pre">half_bw</span></code>   : list, half bandwidth of the mode, rad/s</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>Arf, Brf, Crf, Drf</strong> – numpy matrix (complex), continous passband model for RF drive</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -685,6 +721,68 @@ specify it if more accurate result is needed)</p></li>
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_sim.sim_scav_step">
+<span class="sig-name descname"><span class="pre">sim_scav_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">half_bw</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dw_step0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detuning0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vf_step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vb_step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vc_step0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_m0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Am</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Bm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Dm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mech_exe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_sim.html#sim_scav_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_sim.sim_scav_step" title="Link to this definition">#</a></dt>
+<dd><p>Simulate the cavity response for a time step using the simple discrete
+cavtiy equation (Euler method for discretization) including the mechanical
+modes. We first simulate one step of the mechanical mode and determine the
+detuning value, then use the <code class="docutils literal notranslate"><span class="pre">sim_ncav_step_simple</span></code> function to simulate
+one step of the electrical model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>half_bw</strong> – float, half bandwidth of the cavity (constant), rad/s</p></li>
+<li><p><strong>dw_step0</strong> – float, detuning of the last step, rad/s</p></li>
+<li><p><strong>detuning0</strong> – float, external detuning (tuner + microphonics), rad/s</p></li>
+<li><p><strong>vf_step</strong> – complex, cavity forward voltage of this step, V</p></li>
+<li><p><strong>vb_step</strong> – complex, beam drive voltage of this step, V</p></li>
+<li><p><strong>vc_step0</strong> – complex, cavity voltage of the last step, V</p></li>
+<li><p><strong>Ts</strong> – float, sampling time, s</p></li>
+<li><p><strong>beta</strong> – float, input coupling factor (needed for NC cavities;
+for SC cavities, can use the default value, or you can
+specify it if more accurate result is needed)</p></li>
+<li><p><strong>state_m0</strong> – numpy matrix (real), last state of the mechanical equation</p></li>
+<li><p><strong>Am</strong> – numpy matrix (real), state-space matrix of mech modes</p></li>
+<li><p><strong>Bm</strong> – numpy matrix (real), state-space matrix of mech modes</p></li>
+<li><p><strong>Cm</strong> – numpy matrix (real), state-space matrix of mech modes</p></li>
+<li><p><strong>Dm</strong> – numpy matrix (real), state-space matrix of mech modes</p></li>
+<li><p><strong>mech_exe</strong> – boolean, if exe mech sim one step or not (for down sampling)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>vc_step</strong> – complex, cavity voltage of this step</p></li>
+<li><p><strong>vr_step</strong> – complex, cavity reflected voltage of this step</p></li>
+<li><p><strong>dw</strong> – float, detuning of this step, rad/s</p></li>
+<li><p><strong>state_m</strong> – numpy matrix (real), updated state of the mechanical equation</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_sim.sim_ss_step">
+<span class="sig-name descname"><span class="pre">sim_ss_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Ad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Bd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Dd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vin_step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_sim.html#sim_ss_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_sim.sim_ss_step" title="Link to this definition">#</a></dt>
+<dd><p>A generic state-space solver to execute for one step.
+:param Ad: numpy matrix (float/complex), discrete state-space matrices
+:param Bd: numpy matrix (float/complex), discrete state-space matrices
+:param Cd: numpy matrix (float/complex), discrete state-space matrices
+:param Dd: numpy matrix (float/complex), discrete state-space matrices
+:param vin_step: float/complex, input of this step
+:param state0: numpy matrix (float/complex), state of last step</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>vout_step</strong> – float/complex, output of this step</p></li>
+<li><p><strong>state</strong> – numpy matrix (float/complex), state of this step (input to next exe)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -733,11 +831,14 @@ specify it if more accurate result is needed)</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sim.cav_impulse"><code class="docutils literal notranslate"><span class="pre">cav_impulse()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sim.cav_ss"><code class="docutils literal notranslate"><span class="pre">cav_ss()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sim.cav_ss_mech"><code class="docutils literal notranslate"><span class="pre">cav_ss_mech()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sim.cav_ss_passband"><code class="docutils literal notranslate"><span class="pre">cav_ss_passband()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sim.opt_QL_detuning"><code class="docutils literal notranslate"><span class="pre">opt_QL_detuning()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sim.rf_power_req"><code class="docutils literal notranslate"><span class="pre">rf_power_req()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sim.sim_ncav_pulse"><code class="docutils literal notranslate"><span class="pre">sim_ncav_pulse()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sim.sim_ncav_step"><code class="docutils literal notranslate"><span class="pre">sim_ncav_step()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sim.sim_ncav_step_simple"><code class="docutils literal notranslate"><span class="pre">sim_ncav_step_simple()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sim.sim_scav_step"><code class="docutils literal notranslate"><span class="pre">sim_scav_step()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_sim.sim_ss_step"><code class="docutils literal notranslate"><span class="pre">sim_ss_step()</span></code></a></li>
 </ul>
   </nav></div>
 
