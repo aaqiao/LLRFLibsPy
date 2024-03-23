@@ -26,7 +26,7 @@ Ts       = 1.0 / fs                 # sampling time, s
 cav_beta = 2.02                     # input coupling factor of the cavity
 
 # get the Gun cavity signals
-data   = load_mat('data_Gun_WFs.mat')
+data   = load_mat('data_Gun_wfs.mat')
 vc_amp = data['vc_amp']
 vc_pha = data['vc_pha']
 vf_amp = data['vf_amp']
