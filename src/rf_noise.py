@@ -18,6 +18,7 @@ Implemented:
     - notch_filt          : apply notch filter to a data series
     - design_notch_filter : design a notch filter in state-space format
     - filt_step           : apply a single time step of state-space filter
+    - rand_sine           : generate random sine signals
 
 To be implemented:
     - correlation
@@ -463,6 +464,48 @@ def moving_avg(wf_in, n):
 
     return True, wf_out
     
+def rand_sine(N, fs, nfreq = 1, Amin = 0.0, Amax = 1.0, fmin = 0.0, fmax = 1e3):
+    '''
+    Generate a data series of the sum of several random sine signals.
+    
+    Parameters:
+        N:          int, number of point of the series
+        fs:         float, sampling frequency, Hz
+        nfreq:      int, number of frequencies
+        Amin, Amax: float, min and max values of amplitude
+        fmin, fmax: float, min and max values of frequencies, Hz
+        
+    Returns:
+        status:     boolean, success (True) or fail (False)
+        sout:       numpy array, output data series
+        t:          numpy array, time series, s
+    '''
+    # check the inputs
+    if N <= 0 or fs <= 0 or nfreq < 1 or Amin < 0 or \
+       Amax < Amin or fmin < 0 or fmax < fmin:
+        return False, None
+        
+    # generate the random amplitude, phase and frequency
+    A = np.random.uniform(Amin, Amax, nfreq)
+    f = np.random.uniform(fmin, fmax, nfreq)
+    P = np.random.uniform(-np.pi, np.pi, nfreq)
+
+    # generate the series
+    sout = np.zeros(N)
+    t    = np.arange(N) / fs
+    for i in range(len(A)):
+        sout = sout + A[i] * np.sin(2.0 * np.pi * f[i] * t + P[i])
+
+    # return
+    return True, sout, t
+
+
+
+
+
+
+
+
 
 
 
