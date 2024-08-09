@@ -33,8 +33,8 @@ https://link.springer.com/book/10.1007/978-3-030-94419-3 ("LLRF Book")
 '''
 import numpy as np
 
-from rf_sysid import *
-from rf_fit import *
+from llrflibs.rf_sysid import *
+from llrflibs.rf_fit import *
 
 def calib_vprobe(vc, vf_m, vr_m):
     '''

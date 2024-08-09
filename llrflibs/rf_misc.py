@@ -217,7 +217,7 @@ def plot_ellipse(n, a = 1.0, b = 1.0, x0 = 0.0, y0 = 0.0, sita = 0.0, plot = Fal
 
     # plot the ellipse
     if plot:
-        from rf_plot import plot_plot_ellipse
+        from llrflibs.rf_plot import plot_plot_ellipse
         plot_plot_ellipse(X, Y)
 
     # return the points
@@ -248,7 +248,7 @@ def plot_Guassian(n, a = 1.0, mu = 0.0, sigma = 1.0, plot = False):
 
     # plot
     if plot:
-        from rf_plot import plot_plot_Guassian
+        from llrflibs.rf_plot import plot_plot_Guassian
         plot_plot_Guassian(X, Y)
 
     # return the results

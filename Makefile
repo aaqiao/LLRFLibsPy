@@ -17,5 +17,6 @@ help ::
 clean ::
 	rm -rf __pycache__
 	rm -rf example/__pycache__
-	rm -rf src/__pycache__
+	rm -rf llrflibs/__pycache__
+	rm -rf llrflibs.egg-info
 

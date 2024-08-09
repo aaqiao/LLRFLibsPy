@@ -11,9 +11,8 @@ Example code to simulate the cavity with mechanical modes
 import numpy as np
 import matplotlib.pyplot as plt
 
-from set_path import *
-from rf_sim import *
-from rf_control import *
+from llrflibs.rf_sim import *
+from llrflibs.rf_control import *
 
 # ---------------------------------------
 # General parameters

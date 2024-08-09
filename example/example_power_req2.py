@@ -13,8 +13,7 @@ This example is for a normal-conducting cavity in storage ring
 import numpy as np
 import matplotlib.pyplot as plt
 
-from set_path import *
-from rf_sim import *
+from llrflibs.rf_sim import *
 
 # parameters
 pi      = np.pi

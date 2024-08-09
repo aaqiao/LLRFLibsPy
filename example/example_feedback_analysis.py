@@ -12,12 +12,11 @@ a basic controller (PI + notches) and a cavity simulator
 import numpy as np
 import matplotlib.pyplot as plt
 
-from set_path import *
-from rf_sim import *
-from rf_control import *
-from rf_calib import * 
-from rf_sysid import *
-from rf_noise import *
+from llrflibs.rf_sim import *
+from llrflibs.rf_control import *
+from llrflibs.rf_calib import * 
+from llrflibs.rf_sysid import *
+from llrflibs.rf_noise import *
 
 # ---------------------------------------------------------
 # define the cavity control loop simulation parameters

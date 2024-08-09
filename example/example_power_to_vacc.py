@@ -13,8 +13,7 @@ power for:
 '''
 import numpy as np
 
-from set_path import *
-from rf_calib import *
+from llrflibs.rf_calib import *
 
 # cavity voltage
 roQ  = 1036                 # r/Q of the cavity (Linac convention), Ohm

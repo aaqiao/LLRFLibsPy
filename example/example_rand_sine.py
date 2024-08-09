@@ -11,8 +11,7 @@ Example code to generate random sine series
 import numpy as np
 import matplotlib.pyplot as plt
 
-from set_path import *
-from rf_noise import *
+from llrflibs.rf_noise import *
 
 N       = 32768         # number of points
 fs      = 1e6           # sampling frequency, Hz

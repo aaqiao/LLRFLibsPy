@@ -127,7 +127,7 @@ def calc_psd_coherent(data, fs, bit = 0, n_noniq = 1, plot = False):
 
     # make the plot
     if plot:
-        from rf_plot import plot_calc_psd
+        from llrflibs.rf_plot import plot_calc_psd
         plot_calc_psd(result)
         
     # return
@@ -240,7 +240,7 @@ def calc_psd(data, fs, bit = 0, plot = False):
 
     # make the plot
     if plot:
-        from rf_plot import plot_calc_psd
+        from llrflibs.rf_plot import plot_calc_psd
         plot_calc_psd(result)
 
     # return

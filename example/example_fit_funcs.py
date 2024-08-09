@@ -16,9 +16,8 @@ Example code to fit functions:
 import numpy as np
 import matplotlib.pyplot as plt
 
-from set_path import *
-from rf_fit import *
-from rf_misc import *
+from llrflibs.rf_fit import *
+from llrflibs.rf_misc import *
 
 # parameters
 pi = np.pi          # shorter pi

@@ -11,11 +11,10 @@ Example code to generate noise time series from PSD
 import numpy as np
 import matplotlib.pyplot as plt
 
-from set_path import *
-from rf_calib import * 
-from rf_sysid import *
-from rf_noise import *
-from rf_det_act import *
+from llrflibs.rf_calib import * 
+from llrflibs.rf_sysid import *
+from llrflibs.rf_noise import *
+from llrflibs.rf_det_act import *
 
 # input vectors of offset frequencies and noise PSDs
 freq_vector = np.array([ 10,     100,     1e3,    10e3,    100e3,   1e6,     5e6,     10e6])    # offset freq. from carrier, Hz

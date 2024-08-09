@@ -11,11 +11,10 @@ Example code to demonstrate RF signal demodulation with different methods
 import numpy as np
 import matplotlib.pyplot as plt
 
-from set_path import *
-from rf_calib import * 
-from rf_sysid import *
-from rf_noise import *
-from rf_det_act import *
+from llrflibs.rf_calib import * 
+from llrflibs.rf_sysid import *
+from llrflibs.rf_noise import *
+from llrflibs.rf_det_act import *
 
 # load the data
 data = load_mat('data_adcraw_wfs.mat')

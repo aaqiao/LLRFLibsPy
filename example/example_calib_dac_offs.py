@@ -12,9 +12,8 @@ modulator when it is used for direct upconversion
 import numpy as np
 import matplotlib.pyplot as plt
 
-from set_path import *
-from rf_calib import * 
-from rf_misc import *
+from llrflibs.rf_calib import * 
+from llrflibs.rf_misc import *
 
 # read the data
 '''

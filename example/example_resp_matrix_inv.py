@@ -13,8 +13,7 @@ Example code for response matrix inversion, two methods are demonstrated
 import numpy as np
 import matplotlib.pyplot as plt
 
-from set_path import *
-from rf_control import *
+from llrflibs.rf_control import *
 
 # define the response matrix (see Eq. 2.7 of intelligent beam control book)
 R = np.matrix([[ 0.338485346238024,   0.106882042994840,                   0,                   0,                   0,                   0,                   0,                   0],

@@ -43,8 +43,8 @@ import numpy as np
 from scipy import signal
 from numpy.linalg import matrix_rank
 
-from rf_sysid import *
-from rf_misc import *
+from llrflibs.rf_sysid import *
+from llrflibs.rf_misc import *
 
 def ss_discrete(Ac, Bc, Cc, Dc, Ts, method = 'zoh', alpha = 0.3, plot = False, plot_pno = 1000, spec_data = False):
     '''
@@ -88,7 +88,7 @@ def ss_discrete(Ac, Bc, Cc, Dc, Ts, method = 'zoh', alpha = 0.3, plot = False, p
     if plot:
         # make the plot
         if sc and sd:
-            from rf_plot import plot_ss_discrete
+            from llrflibs.rf_plot import plot_ss_discrete
             plot_ss_discrete(fc, Ac_dB, Pc_deg, fd, Ad_dB, Pd_deg, Ts)
 
     # return the results
@@ -175,7 +175,7 @@ def ss_freqresp(A, B, C, D, Ts = None, plot = False, plot_pno = 1000, plot_maxf 
 
     # plot 
     if plot:
-        from rf_plot import plot_ss_freqresp
+        from llrflibs.rf_plot import plot_ss_freqresp
         plot_ss_freqresp(f_wf, A_wf_dB, P_wf_deg, h, fs, Ts, title)
 
     # return the frequency response (frequency in absolute Hz)
@@ -247,7 +247,7 @@ def basic_rf_controller(Kp, Ki, notch_conf = None, plot = False, plot_pno = 1000
                                                 plot_pno))
 
         # make the plot
-        from rf_plot import plot_basic_rf_controller
+        from llrflibs.rf_plot import plot_basic_rf_controller
         plot_basic_rf_controller(w, h)
 
     # return the results
@@ -342,7 +342,7 @@ def loop_analysis(AG, BG, CG, DG, AK, BK, CK, DK, Ts = None, delay_s = 0,
 
     # plot (similar to ss_freqresp)
     if plot:
-        from rf_plot import plot_loop_analysis
+        from llrflibs.rf_plot import plot_loop_analysis
         plot_loop_analysis(f_wf, L, S, T, fs, Ts, label)
 
     # calculate the peak of S and T

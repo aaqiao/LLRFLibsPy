@@ -13,8 +13,7 @@ This example is for a superconducting cavity in Linac
 import numpy as np
 import matplotlib.pyplot as plt
 
-from set_path import *
-from rf_sim import *
+from llrflibs.rf_sim import *
 
 # parameters
 pi      = np.pi                         # shorter pi

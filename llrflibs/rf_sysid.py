@@ -42,7 +42,7 @@ https://link.springer.com/book/10.1007/978-3-030-94419-3 ("LLRF Book")
 import numpy as np
 from scipy import signal
 
-from rf_misc import *
+from llrflibs.rf_misc import *
 
 def prbs(n, lower_b = -1.0, upper_b = 1.0):
     '''

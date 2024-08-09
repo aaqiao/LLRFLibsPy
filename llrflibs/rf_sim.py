@@ -35,8 +35,8 @@ https://link.springer.com/book/10.1007/978-3-030-94419-3 ("LLRF Book")
 import numpy as np
 from scipy import signal
 
-from rf_sysid import *
-from rf_misc import *
+from llrflibs.rf_sysid import *
+from llrflibs.rf_misc import *
 
 def cav_ss(half_bw, detuning = 0.0, beta = 1e4, passband_modes = None, 
            plot = False, plot_pno = 1000):
@@ -123,7 +123,7 @@ def cav_ss(half_bw, detuning = 0.0, beta = 1e4, passband_modes = None,
         wbm, hbm = signal.freqs(bm_num, bm_den, worN = np.linspace(-2*max_wrange, 2*max_wrange, plot_pno))
 
         # make the plot
-        from rf_plot import plot_cav_ss
+        from llrflibs.rf_plot import plot_cav_ss
         plot_cav_ss(wrf, hrf, wbm, hbm)
 
     # return the results
@@ -522,7 +522,7 @@ def rf_power_req(f0, vc0, ib0, phib, Q0, roQ_or_RoQ,
 
     # plot the result
     if plot:
-        from rf_plot import plot_rf_power_req
+        from llrflibs.rf_plot import plot_rf_power_req
         plot_rf_power_req(Pfor, Pref, QL_vec)
 
     return True, Pfor, Pref

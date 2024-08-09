@@ -13,11 +13,10 @@ calibration here
 import numpy as np
 import matplotlib.pyplot as plt
 
-from set_path import *
-from rf_calib import * 
-from rf_sysid import *
-from rf_noise import *
-from rf_misc import *
+from llrflibs.rf_calib import * 
+from llrflibs.rf_sysid import *
+from llrflibs.rf_noise import *
+from llrflibs.rf_misc import *
 
 # read the data
 '''
