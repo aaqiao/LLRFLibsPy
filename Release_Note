@@ -1,0 +1,15 @@
+#==============================================================================
+# LLRFLibsPy - Python implementation of LLRF algorithm libraries
+#
+# Author : Zheqiao Geng, gengzheqiao@126.com
+#
+# Release history:
+#   1.0.0       : 09.08.2024,   Zheqiao Geng
+#==============================================================================
+
+1.0.0
+---------------------------------------------------------------
+- First release with local installable package
+
+
+
