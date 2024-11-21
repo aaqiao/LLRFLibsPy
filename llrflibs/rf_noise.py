@@ -9,16 +9,17 @@
 Here collects routines for RF noise analysis
  
 Implemented:
-    - calc_psd_coherent   : calculate the power spectral density (PSD) of a 
-                            coherent sampled data series
-    - calc_psd            : calculate the PSD of a general data series
-    - rand_unif           : generate uniform distributed random numbers
-    - gen_noise_from_psd  : generate noise series from a given PSD spectrum
-    - calc_rms_from_psd   : calculate the RMS jitter from a given PSD spectrum
-    - notch_filt          : apply notch filter to a data series
-    - design_notch_filter : design a notch filter in state-space format
-    - filt_step           : apply a single time step of state-space filter
-    - rand_sine           : generate random sine signals
+    - calc_psd_coherent     : calculate the power spectral density (PSD) of a 
+                              coherent sampled data series
+    - calc_psd              : calculate the PSD of a general data series
+    - rand_unif             : generate uniform distributed random numbers
+    - gen_noise_from_psd    : generate noise series from a given PSD spectrum
+    - calc_rms_from_psd     : calculate the RMS jitter from a given PSD spectrum
+    - notch_filt            : apply notch filter to a data series
+    - design_notch_filter   : design a notch filter in state-space format
+    - filt_step             : apply a single time step of state-space filter
+    - rand_sine             : generate random sine signals
+    - gen_rand_sine_from_psd: generate random sine functions from DSB PSD
 
 To be implemented:
     - correlation
@@ -499,7 +500,41 @@ def rand_sine(N, fs, nfreq = 1, Amin = 0.0, Amax = 1.0, fmin = 0.0, fmax = 1e3):
     # return
     return True, sout, t
 
+def gen_rand_sine_from_psd(freq_vector, pn_vector, freqs):
+    '''
+    generate random sine functions from DSB PSD.
 
+    Parameters:
+        freq_vector: numpy array, offset frequency from carrier, Hz
+        pn_vector:   numpy array, DSB noise PSD, dBrad^2/Hz for phase noise
+        freqs:       numpy array, frequencies of sine waves (prepared by user), Hz
+        
+    Returns:
+        status:      boolean, success (True) or fail (False)
+        amplts:      numpy array, amplitudes of the sine waves
+        phases:      numpy array, phases of the sine waves, rad
+        psds:        numpy array, interpreted phase/amplitude noise DSB PSD at 
+                                  selected frequencies, dBrad^2/Hz for phase noise
+    '''
+    # check input
+    if (freq_vector.shape != pn_vector.shape) or (freq_vector.shape[0] < 2) or \
+       (freqs.shape[0] < 1):
+        return (False,) + (None,)*3
+
+    # calculates the sine wave parameters
+    n_sine = len(freqs)   
+    psds   = np.interp(10 * np.log10(freqs), 
+                       10 * np.log10(freq_vector), 
+                       pn_vector)                               # PSDs at freqs, dBrad^2/Hz for phase noise
+    bw_t   = (freqs[1:] + freqs[:-1]) / 2
+    bw_t   = np.hstack(([0], bw_t, freqs[-1]))
+    bws    = bw_t[1:] - bw_t[:-1]                               # bandwidth of each frequency points, Hz
+    amplts = 10**((psds + 10*np.log10(bws) + 3) / 20)           # amplitudes of sine waves, rad
+                                                                # reasons why we need this 3dB is not clear yet
+    phases = np.random.rand(n_sine) * 2.0 * np.pi               # random phases of sine waves, rad
+    
+    # return the results
+    return True, amplts, phases, psds
 
 
 
