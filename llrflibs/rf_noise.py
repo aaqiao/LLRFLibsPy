@@ -20,12 +20,12 @@ Implemented:
     - filt_step             : apply a single time step of state-space filter
     - rand_sine             : generate random sine signals
     - gen_rand_sine_from_psd: generate random sine functions from DSB PSD
+    - moving_avg            : moving average with group delay compensated
 
 To be implemented:
     - correlation
     - sum and sub of dB values
     - random sub/sum (RMS values)
-    - moving average filter (with group delay compensated)
     - estimate the RF detector nonlinearity caused meas. errors
 
 Some algorithms are referred to the following books:
@@ -35,6 +35,7 @@ https://link.springer.com/book/10.1007/978-3-030-94419-3 ("LLRF Book")
 '''
 import numpy as np
 from scipy import signal
+from scipy.ndimage import uniform_filter1d
 
 def calc_psd_coherent(data, fs, bit = 0, n_noniq = 1, plot = False):
     '''
@@ -442,9 +443,9 @@ def filt_step(Afd, Bfd, Cfd, Dfd, in_step, state_f0):
     # return the results of the step
     return True, out_step, state_f
 
-def moving_avg(wf_in, n):
+def moving_avg_obs(wf_in, n):
     '''
-    Moving average without compensating the group delay.
+    Moving average without compensating the group delay (no longer used).
     
     Parameters:
         wf_in:   numpy array, input waveform
@@ -536,7 +537,25 @@ def gen_rand_sine_from_psd(freq_vector, pn_vector, freqs):
     # return the results
     return True, amplts, phases, psds
 
+def moving_avg(data, n):
+    '''
+    moving average with group delay compensated.
 
+    Parameters:
+        data:   numpy array, input 1D waveform to be filtered
+        n:      numpy array, number of points for average
+        
+    Returns:
+        status:      boolean, success (True) or fail (False)
+        result:      numpy array, filtered data
+    '''
+    # check the input
+    if (len(data) <= n) or (n <= 1):
+        return False, None
+
+    # moving average
+    result = uniform_filter1d(data, size = n)
+    return True, result
 
 
 
