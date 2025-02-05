@@ -249,7 +249,7 @@ def cav_impulse(half_bw, detuning, Ts, order = 20):
         h:        numpy array (complex), impulse response
     '''
     # check the input
-    if (half_bw <= 0.0) or (detuning <= 0.0) or (Ts <= 0.0) or \
+    if (half_bw <= 0.0) or (Ts <= 0.0) or \
        (order < 2):
         return False, None
 
@@ -259,6 +259,38 @@ def cav_impulse(half_bw, detuning, Ts, order = 20):
 
     # return the results
     return True, h
+    
+def boc_impulse(half_bw, detuning, Ts, order = 20, beta = 6):
+    '''
+    Derive the BOC impulse response using the cav_impulse function.
+
+    Parameters:
+        half_bw:  float, constant half bandwidth of the cavity, rad/s
+        detuning: float, constant detuning of the cavity, rad/s
+        Ts:       float, sampling time, s
+        order:    int, order of the impulse response    
+        beta:     float, input coupling factor of BOC
+        
+    Returns:
+        status:   boolean, success (True) or fail (False)
+        h:        numpy array (complex), impulse response
+    '''
+    # check the input
+    if (half_bw <= 0.0) or (Ts <= 0.0) or (beta <= 0.0) or \
+       (order < 2):
+        return False, None
+
+    # get the cavity response
+    status, h_cav = cav_impulse(half_bw, detuning, Ts, order = order)
+    if not status:
+        return False, None
+        
+    # derive the BOC impulse response
+    h = h_cav * 2.0 * beta / (beta + 1.0)
+    h[0] -= 1.0
+
+    # return the results
+    return True, h       
 
 def sim_ncav_pulse(Arfc, Brfc, Crfc, Drfc, vf, Ts, 
                    Abmc = None, 

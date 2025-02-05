@@ -232,7 +232,7 @@ def basic_rf_controller(Kp, Ki, notch_conf = None, plot = False, plot_pno = 1000
                                   [nt_g[i] * nt_wh[i]], 
                                   [1.0, nt_wh[i] - 1j*2*np.pi*nt_f[i]])
             K_num, K_den = add_tf(K_num, K_den, 
-                                  [nt_g[i] * nt_wh[i]], 
+                                  [np.conj(nt_g[i]) * nt_wh[i]], 
                                   [1.0, nt_wh[i] + 1j*2*np.pi*nt_f[i]])
 
     # get the state-space model
@@ -710,7 +710,30 @@ def resp_inv_lsm(R, regu = 0.0):
     '''
     return np.linalg.inv(R.T * R + regu * np.matrix(np.eye(R.shape[1]))) * R.T
 
+def impulse_resp_matrix(h, pulw):
+    '''
+    Calculate the response matrix for a LTI system with impulse response.    
+    Refer to LLRF Book section 4.5.2.
+    Parameters:
+        h:      numpy array (complex), impulse response
+        pulw:   int, pulse width as number of points       
+    Returns:
+        status: boolean, success (True) or fail (False)
+        G:      numpy matrix (real), response matrix
+    '''
+    # check the input
+    if (h.shape[0] < 3) or (pulw < 3):
+        return False, None
 
+    # dimension
+    order = h.shape[0]
+
+    # derive the system transfer matrix
+    G = np.zeros((pulw, pulw), dtype = complex)
+    for i in range(pulw):
+        G[i:, i] = h[:min(pulw-i, order)]
+
+    return True, G
 
 
 
