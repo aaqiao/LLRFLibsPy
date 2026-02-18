@@ -485,7 +485,7 @@ def rand_sine(N, fs, nfreq = 1, Amin = 0.0, Amax = 1.0, fmin = 0.0, fmax = 1e3):
     # check the inputs
     if N <= 0 or fs <= 0 or nfreq < 1 or Amin < 0 or \
        Amax < Amin or fmin < 0 or fmax < fmin:
-        return False, None
+        return False, None, None, None
         
     # generate the random amplitude, phase and frequency
     A = np.random.uniform(Amin, Amax, nfreq)
@@ -499,7 +499,7 @@ def rand_sine(N, fs, nfreq = 1, Amin = 0.0, Amax = 1.0, fmin = 0.0, fmax = 1e3):
         sout = sout + A[i] * np.sin(2.0 * np.pi * f[i] * t + P[i])
 
     # return
-    return True, sout, t
+    return True, sout, t, (A, f, P)
 
 def gen_rand_sine_from_psd(freq_vector, pn_vector, freqs):
     '''

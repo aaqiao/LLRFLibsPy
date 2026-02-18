@@ -22,7 +22,7 @@ fmin    = 1e3           # min/max frequency, Hz
 fmax    = 200e3 
 
 # generate the series
-status, data, t = rand_sine(N, fs, 
+status, data, t, _ = rand_sine(N, fs, 
                     nfreq = nfreq, 
                     Amin  = Amin, 
                     Amax  = Amax, 
