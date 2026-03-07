@@ -23,9 +23,10 @@ The PDF version of the manual and an introduction can be found in the `doc` fold
 
 ## Installation
 The `LLRFLibsPy` package should be installed to your Python environment. 
+
 To install the released version, use command: `pip install llrflibs`
 
-Follow the steps below:
+To install from the source code, follow the steps below:
 - Clone this repository to your working folder.
 - Check out the tag you want to install, or directly install the head (may contain debug code). 
 - In the top folder where the `setup.py` is stored, execute the command below to make the installation: `pip install .`
@@ -41,5 +42,6 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 
 
