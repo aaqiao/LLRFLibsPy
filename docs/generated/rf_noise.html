@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>rf_noise &#8212; LLRFLibsPy  documentation</title>
   
@@ -14,29 +14,32 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/documentation_options.js?v=7f41d439"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'generated/rf_noise';</script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -45,6 +48,7 @@
     <link rel="prev" title="rf_misc" href="rf_misc.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -52,32 +56,16 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -85,7 +73,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -93,19 +80,27 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
-  </label>
+  </button>
   
   
   <div class="col-lg-3 navbar-header-items__start">
     
       <div class="navbar-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../index.html">
@@ -125,42 +120,37 @@
     
     <div class="me-auto navbar-header-items__center">
       
-        <div class="navbar-item"><nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+        <div class="navbar-item">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../introduction.html">
-                        Introduction
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../introduction.html">
+    Introduction
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../architecture.html">
-                        Architecture
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../algorithms.html">
-                        Algorithms
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../architecture.html">
+    Architecture
+  </a>
+</li>
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="../module_index.html">
-                        Modules
-                      </a>
-                    </li>
-                
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../algorithms.html">
+    Algorithms
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../module_index.html">
+    Modules
+  </a>
+</li>
+
   </ul>
 </nav></div>
       
@@ -171,30 +161,24 @@
       
         <div class="navbar-item navbar-persistent--container">
           
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -205,7 +189,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/aaqiao/LLRFLibsPy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/aaqiao/LLRFLibsPy" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -216,31 +200,32 @@ document.write(`
   
   
     <div class="navbar-persistent--mobile">
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
-    </label>
+    </button>
   
 </div>
 
-    </nav>
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -249,44 +234,42 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item"><nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+          
+          
+            <div class="navbar-item">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../introduction.html">
-                        Introduction
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../introduction.html">
+    Introduction
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../architecture.html">
-                        Architecture
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../algorithms.html">
-                        Algorithms
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../architecture.html">
+    Architecture
+  </a>
+</li>
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="../module_index.html">
-                        Modules
-                      </a>
-                    </li>
-                
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../algorithms.html">
+    Algorithms
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../module_index.html">
+    Modules
+  </a>
+</li>
+
   </ul>
 </nav></div>
+          
         
       </div>
     
@@ -295,17 +278,14 @@ document.write(`
       <div class="sidebar-header-items__end">
         
           <div class="navbar-item">
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -316,7 +296,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/aaqiao/LLRFLibsPy" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/aaqiao/LLRFLibsPy" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -326,7 +306,8 @@ document.write(`
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
@@ -346,29 +327,32 @@ document.write(`
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
         <div class="header-article-item">
 
-
-
-<nav aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
@@ -379,7 +363,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../module_index.html" class="nav-link">LLRFLibsPy Modules</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">rf_noise</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">rf_noise</span></li>
   </ul>
 </nav>
 </div>
@@ -394,13 +378,13 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="module-rf_noise">
 <span id="rf-noise"></span><h1>rf_noise<a class="headerlink" href="#module-rf_noise" title="Link to this heading">#</a></h1>
 <p>Analyze, generate and filter noise.</p>
 <p class="rubric">Functions</p>
-<table class="autosummary longtable table autosummary">
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rf_noise.calc_psd" title="rf_noise.calc_psd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc_psd</span></code></a>(data, fs[, bit, plot])</p></td>
 <td><p>Calculate the power spectral density of the input waveform (nominal sampling).</p></td>
@@ -420,17 +404,27 @@ document.write(`
 <tr class="row-even"><td><p><a class="reference internal" href="#rf_noise.gen_noise_from_psd" title="rf_noise.gen_noise_from_psd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_noise_from_psd</span></code></a>(freq_vector, pn_vector, fs, N)</p></td>
 <td><p>generate noise series from DSB PSD.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rf_noise.moving_avg" title="rf_noise.moving_avg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moving_avg</span></code></a>(wf_in, n)</p></td>
-<td><p>Moving average without compensating the group delay.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_noise.gen_rand_sine_from_psd" title="rf_noise.gen_rand_sine_from_psd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_rand_sine_from_psd</span></code></a>(freq_vector, ...)</p></td>
+<td><p>generate random sine functions from DSB PSD.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_noise.moving_avg" title="rf_noise.moving_avg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moving_avg</span></code></a>(data, n)</p></td>
+<td><p>moving average with group delay compensated.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_noise.moving_avg_obs" title="rf_noise.moving_avg_obs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">moving_avg_obs</span></code></a>(wf_in, n)</p></td>
+<td><p>Moving average without compensating the group delay (no longer used).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#rf_noise.notch_filt" title="rf_noise.notch_filt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">notch_filt</span></code></a>(wf, fnotch, Q, fs[, b, a])</p></td>
 <td><p>Apply notch filter to the signal.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rf_noise.rand_unif" title="rf_noise.rand_unif"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rand_unif</span></code></a>([low, high, n])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rf_noise.rand_sine" title="rf_noise.rand_sine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rand_sine</span></code></a>(N, fs[, nfreq, Amin, Amax, fmin, fmax])</p></td>
+<td><p>Generate a data series of the sum of several random sine signals.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rf_noise.rand_unif" title="rf_noise.rand_unif"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rand_unif</span></code></a>([low, high, n])</p></td>
 <td><p>produce random number within a certain range.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <dl class="py function">
 <dt class="sig sig-object py" id="rf_noise.calc_psd">
 <span class="sig-name descname"><span class="pre">calc_psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_noise.html#calc_psd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_noise.calc_psd" title="Link to this definition">#</a></dt>
@@ -602,9 +596,53 @@ should input to the next execution</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="rf_noise.gen_rand_sine_from_psd">
+<span class="sig-name descname"><span class="pre">gen_rand_sine_from_psd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq_vector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pn_vector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freqs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_noise.html#gen_rand_sine_from_psd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_noise.gen_rand_sine_from_psd" title="Link to this definition">#</a></dt>
+<dd><p>generate random sine functions from DSB PSD.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>freq_vector</strong> – numpy array, offset frequency from carrier, Hz</p></li>
+<li><p><strong>pn_vector</strong> – numpy array, DSB noise PSD, dBrad^2/Hz for phase noise</p></li>
+<li><p><strong>freqs</strong> – numpy array, frequencies of sine waves (prepared by user), Hz</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>amplts</strong> – numpy array, amplitudes of the sine waves</p></li>
+<li><p><strong>phases</strong> – numpy array, phases of the sine waves, rad</p></li>
+<li><p><strong>psds</strong> – numpy array, interpreted phase/amplitude noise DSB PSD at
+selected frequencies, dBrad^2/Hz for phase noise</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="rf_noise.moving_avg">
-<span class="sig-name descname"><span class="pre">moving_avg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wf_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_noise.html#moving_avg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_noise.moving_avg" title="Link to this definition">#</a></dt>
-<dd><p>Moving average without compensating the group delay.</p>
+<span class="sig-name descname"><span class="pre">moving_avg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_noise.html#moving_avg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_noise.moving_avg" title="Link to this definition">#</a></dt>
+<dd><p>moving average with group delay compensated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – numpy array, input 1D waveform to be filtered</p></li>
+<li><p><strong>n</strong> – numpy array, number of points for average</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>result</strong> – numpy array, filtered data</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rf_noise.moving_avg_obs">
+<span class="sig-name descname"><span class="pre">moving_avg_obs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wf_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_noise.html#moving_avg_obs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_noise.moving_avg_obs" title="Link to this definition">#</a></dt>
+<dd><p>Moving average without compensating the group delay (no longer used).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -651,6 +689,32 @@ to avoid repeat the filter synthesis</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="rf_noise.rand_sine">
+<span class="sig-name descname"><span class="pre">rand_sine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nfreq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Amin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Amax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_noise.html#rand_sine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_noise.rand_sine" title="Link to this definition">#</a></dt>
+<dd><p>Generate a data series of the sum of several random sine signals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>N</strong> – int, number of point of the series</p></li>
+<li><p><strong>fs</strong> – float, sampling frequency, Hz</p></li>
+<li><p><strong>nfreq</strong> – int, number of frequencies</p></li>
+<li><p><strong>Amin</strong> – float, min and max values of amplitude</p></li>
+<li><p><strong>Amax</strong> – float, min and max values of amplitude</p></li>
+<li><p><strong>fmin</strong> – float, min and max values of frequencies, Hz</p></li>
+<li><p><strong>fmax</strong> – float, min and max values of frequencies, Hz</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>status</strong> – boolean, success (True) or fail (False)</p></li>
+<li><p><strong>sout</strong> – numpy array, output data series</p></li>
+<li><p><strong>t</strong> – numpy array, time series, s</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="rf_noise.rand_unif">
 <span class="sig-name descname"><span class="pre">rand_unif</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">low</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rf_noise.html#rand_unif"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rf_noise.rand_unif" title="Link to this definition">#</a></dt>
 <dd><p>produce random number within a certain range.</p>
@@ -677,8 +741,8 @@ to avoid repeat the filter synthesis</p></li>
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="rf_misc.html"
@@ -705,13 +769,17 @@ to avoid repeat the filter synthesis</p></li>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.calc_psd"><code class="docutils literal notranslate"><span class="pre">calc_psd()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.calc_psd_coherent"><code class="docutils literal notranslate"><span class="pre">calc_psd_coherent()</span></code></a></li>
@@ -719,8 +787,11 @@ to avoid repeat the filter synthesis</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.design_notch_filter"><code class="docutils literal notranslate"><span class="pre">design_notch_filter()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.filt_step"><code class="docutils literal notranslate"><span class="pre">filt_step()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.gen_noise_from_psd"><code class="docutils literal notranslate"><span class="pre">gen_noise_from_psd()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.gen_rand_sine_from_psd"><code class="docutils literal notranslate"><span class="pre">gen_rand_sine_from_psd()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.moving_avg"><code class="docutils literal notranslate"><span class="pre">moving_avg()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.moving_avg_obs"><code class="docutils literal notranslate"><span class="pre">moving_avg_obs()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.notch_filt"><code class="docutils literal notranslate"><span class="pre">notch_filt()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.rand_sine"><code class="docutils literal notranslate"><span class="pre">rand_sine()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf_noise.rand_unif"><code class="docutils literal notranslate"><span class="pre">rand_unif()</span></code></a></li>
 </ul>
   </nav></div>
@@ -738,8 +809,8 @@ to avoid repeat the filter synthesis</p></li>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -747,6 +818,7 @@ to avoid repeat the filter synthesis</p></li>
     <div class="footer-items__start">
       
         <div class="footer-item">
+
   <p class="copyright">
     
       © Copyright 2023, Paul Scherrer Institute.
@@ -756,8 +828,9 @@ to avoid repeat the filter synthesis</p></li>
 </div>
       
         <div class="footer-item">
+
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
     <br/>
   </p>
 </div>
@@ -768,8 +841,10 @@ to avoid repeat the filter synthesis</p></li>
   
     <div class="footer-items__end">
       
-        <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
 </p></div>
       
     </div>
